@@ -1,5 +1,6 @@
 #pragma once
 #include "MenuForStaffForm.h"
+#include "AddEntrysForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -112,6 +113,7 @@ namespace VideoCassetDBMetelnikov {
 			this->AddEntryButton->TabIndex = 1;
 			this->AddEntryButton->Text = L"Добавить запись";
 			this->AddEntryButton->UseVisualStyleBackColor = true;
+			this->AddEntryButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::AddEntryButton_Click);
 			// 
 			// EntryButton
 			// 
@@ -253,5 +255,6 @@ private: System::Void ReloadData();
 private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void UpdateButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void AddEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

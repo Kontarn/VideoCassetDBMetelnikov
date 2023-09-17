@@ -27,6 +27,9 @@
     <ClCompile Include="MenuForStaffForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddEntrysForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartMenuForm.h">
@@ -41,6 +44,9 @@
     <ClInclude Include="MenuForStaffForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AddEntrysForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="StartMenuForm.resx">
@@ -50,6 +56,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForStaffForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -133,12 +133,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddEntrysForm.cpp" />
     <ClCompile Include="EditAndViewDBForm.cpp" />
     <ClCompile Include="LogInForStaffForm.cpp" />
     <ClCompile Include="MenuForStaffForm.cpp" />
     <ClCompile Include="StartMenuForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddEntrysForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="EditAndViewDBForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -153,6 +157,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddEntrysForm.resx">
+      <DependentUpon>AddEntrysForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
       <DependentUpon>EditAndViewDBForm.h</DependentUpon>
     </EmbeddedResource>

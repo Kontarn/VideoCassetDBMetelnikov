@@ -10,6 +10,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditAndViewDBForm_Load(
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::LoadData()
 {
+	
 	try
 	{
 		sqlDA = gcnew SqlDataAdapter("SELECT Film.Name AS Название, Genre.Name AS Жанр, \
@@ -18,6 +19,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::LoadData()
 		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
 		dataset = gcnew DataSet();
 		sqlDA->Fill(dataset, "Film");
+
 		dataGridView1->DataSource = dataset->Tables[0];
 	}
 	catch (Exception^ ex)
@@ -57,6 +59,12 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::UpdateButton_Click(Syst
 	sqlConn = gcnew SqlConnection(connString);
 	sqlConn->Open();
 	ReloadData();
+}
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AddEntryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	AddEntrysForm^ form = gcnew AddEntrysForm();
+	form->Show();
 }
 
 
