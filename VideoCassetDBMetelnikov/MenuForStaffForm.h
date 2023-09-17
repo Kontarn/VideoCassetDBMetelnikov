@@ -1,5 +1,6 @@
 #pragma once
 #include "StartMenuForm.h"
+#include "EditAndViewDBForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -128,6 +129,7 @@ namespace VideoCassetDBMetelnikov {
 			this->MaximizeBox = false;
 			this->Name = L"MenuForStaffForm";
 			this->ShowIcon = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MenuForStaffForm";
 			this->ResumeLayout(false);
 

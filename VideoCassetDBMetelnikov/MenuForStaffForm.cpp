@@ -14,5 +14,7 @@ System::Void VideoCassetDBMetelnikov::MenuForStaffForm::ToStartButton_Click(Syst
 
 System::Void VideoCassetDBMetelnikov::MenuForStaffForm::EditAndViewDBButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	return System::Void();
+	EditAndViewDBForm^ form = gcnew EditAndViewDBForm();
+	this->Hide();
+	form->Show();
 }

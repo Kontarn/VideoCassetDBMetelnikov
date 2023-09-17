@@ -14,7 +14,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::LoadData()
 	try
 	{
 		sqlDA = gcnew SqlDataAdapter("SELECT Film.Name AS Название, Genre.Name AS Жанр, \
-			yearOfRelease AS Премьера, Availability AS Наличие, Price AS Цена FROM Film	\
+			yearOfRelease AS Премьера, FilmDirector AS Режиссер, Availability AS Наличие, Price AS Цена FROM Film	\
 		INNER JOIN Genre ON Film.GenreID = Genre.GenreID", sqlConn);
 		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
 		dataset = gcnew DataSet();
@@ -65,6 +65,35 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AddEntryButton_Click(Sy
 {
 	AddEntrysForm^ form = gcnew AddEntrysForm();
 	form->Show();
+}
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	try
+	{
+		sqlConn = gcnew SqlConnection(connString);
+		sqlConn->Open();
+		if (textBox1->Text->Length == 0) {
+			MessageBox::Show("Пожалуйста, введите название фильма", "Ошибка");
+			return;
+		}
+		sqlDA = gcnew SqlDataAdapter("SELECT Film.Name AS Название, Genre.Name AS Жанр, YearOfRelease AS Премьера, \
+			FilmDirector AS Режиссер, Availability AS Наличие, Price AS Цена FROM Film \
+			INNER JOIN Genre ON Film.GenreID = Genre.GenreID \
+			WHERE Film.Name = @findFilm", sqlConn);
+		SqlParameter^ findFilm = gcnew SqlParameter();
+		findFilm->ParameterName = "@findFilm";
+		findFilm->Value = textBox1->Text;
+		sqlDA->SelectCommand->Parameters->Add(findFilm);
+		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
+		dataset->Tables["Film"]->Clear();
+		sqlDA->Fill(dataset, "Film");
+		dataGridView1->DataSource = dataset->Tables[0];
+	}
+	catch (const Exception^ ex)
+	{
+		MessageBox::Show("Ошибка поиска в БД", "Ошибка");
+	}
 }
 
 

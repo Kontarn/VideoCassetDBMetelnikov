@@ -149,6 +149,7 @@ namespace VideoCassetDBMetelnikov {
 			this->FindButton->TabIndex = 5;
 			this->FindButton->Text = L"Поиск";
 			this->FindButton->UseVisualStyleBackColor = true;
+			this->FindButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::FindButton_Click);
 			// 
 			// AdvancedSearchButton
 			// 
@@ -256,5 +257,6 @@ private: System::Void ExitButton_Click(System::Object^  sender, System::EventArg
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void UpdateButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AddEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void FindButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

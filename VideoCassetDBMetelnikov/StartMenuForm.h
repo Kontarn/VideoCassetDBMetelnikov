@@ -69,7 +69,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// LogInButton
 			// 
-			this->LogInButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.2F));
+			this->LogInButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
 			this->LogInButton->Location = System::Drawing::Point(67, 43);
 			this->LogInButton->Name = L"LogInButton";
 			this->LogInButton->Size = System::Drawing::Size(258, 54);
@@ -79,7 +79,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// SignInButton
 			// 
-			this->SignInButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.2F));
+			this->SignInButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
 			this->SignInButton->Location = System::Drawing::Point(67, 103);
 			this->SignInButton->Name = L"SignInButton";
 			this->SignInButton->Size = System::Drawing::Size(258, 52);
@@ -89,7 +89,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// StaffButton
 			// 
-			this->StaffButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.2F));
+			this->StaffButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
 			this->StaffButton->Location = System::Drawing::Point(14, 162);
 			this->StaffButton->Name = L"StaffButton";
 			this->StaffButton->Size = System::Drawing::Size(198, 42);
@@ -100,7 +100,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// ExitButton
 			// 
-			this->ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.2F));
+			this->ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
 			this->ExitButton->Location = System::Drawing::Point(218, 161);
 			this->ExitButton->Name = L"ExitButton";
 			this->ExitButton->Size = System::Drawing::Size(158, 43);

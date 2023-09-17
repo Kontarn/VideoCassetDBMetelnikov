@@ -1,6 +1,6 @@
 #pragma once
 #include "StartMenuForm.h"
-#include "EditAndViewDBForm.h"
+#include "MenuForStaffForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
