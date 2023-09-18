@@ -13,7 +13,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::LoadData()
 	
 	try
 	{
-		sqlDA = gcnew SqlDataAdapter("SELECT Film.Name AS Название, Genre.Name AS Жанр, \
+		sqlDA = gcnew SqlDataAdapter("SELECT FilmID AS Код, Film.Name AS Название, Genre.Name AS Жанр, \
 			yearOfRelease AS Премьера, FilmDirector AS Режиссер, Availability AS Наличие, Price AS Цена FROM Film	\
 		INNER JOIN Genre ON Film.GenreID = Genre.GenreID", sqlConn);
 		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
@@ -77,7 +77,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System
 			MessageBox::Show("Пожалуйста, введите название фильма", "Ошибка");
 			return;
 		}
-		sqlDA = gcnew SqlDataAdapter("SELECT Film.Name AS Название, Genre.Name AS Жанр, YearOfRelease AS Премьера, \
+		sqlDA = gcnew SqlDataAdapter("SELECT FilmID AS Код, Film.Name AS Название, Genre.Name AS Жанр, YearOfRelease AS Премьера, \
 			FilmDirector AS Режиссер, Availability AS Наличие, Price AS Цена FROM Film \
 			INNER JOIN Genre ON Film.GenreID = Genre.GenreID \
 			WHERE Film.Name = @findFilm", sqlConn);
@@ -89,6 +89,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System
 		dataset->Tables["Film"]->Clear();
 		sqlDA->Fill(dataset, "Film");
 		dataGridView1->DataSource = dataset->Tables[0];
+		
 	}
 	catch (const Exception^ ex)
 	{
@@ -96,4 +97,37 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System
 	}
 }
 
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::ShowAllEntrysButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	sqlConn = gcnew SqlConnection(connString);
+	sqlConn->Open();
+	LoadData();
+}
 
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	try
+	{
+		sqlConn = gcnew SqlConnection(connString);
+		if (dataGridView1->SelectedRows->Count != 1) {
+			MessageBox::Show("Пожалуйста, выделите запись для удаления", "Ошибка");
+			return;
+		}
+		int indexLine = dataGridView1->SelectedRows[0]->Index;
+		String^ filmID = dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString();
+		sqlConn->Open();
+		sqlDA = gcnew SqlDataAdapter("DELETE FROM Film WHERE FilmID = @filmID", sqlConn);
+		SqlParameter^ delFilm = gcnew SqlParameter();
+		delFilm->ParameterName = "@filmID";
+		delFilm->Value = filmID;
+		sqlDA->SelectCommand->Parameters->Add(delFilm);
+		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
+		dataGridView1->DataSource = dataset->Tables[0];
+		ReloadData();
+		LoadData();
+	}
+	catch (const Exception^ ex)
+	{
+		MessageBox::Show("Ошибка удаления записи", "Ошибка");
+	}
+}

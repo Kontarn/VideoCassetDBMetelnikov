@@ -132,6 +132,7 @@ namespace VideoCassetDBMetelnikov {
 			this->DeleteButton->TabIndex = 3;
 			this->DeleteButton->Text = L"Удалить запись";
 			this->DeleteButton->UseVisualStyleBackColor = true;
+			this->DeleteButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::DeleteButton_Click);
 			// 
 			// textBox1
 			// 
@@ -188,6 +189,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowAllEntrysButton->TabIndex = 8;
 			this->ShowAllEntrysButton->Text = L"Отобразить";
 			this->ShowAllEntrysButton->UseVisualStyleBackColor = true;
+			this->ShowAllEntrysButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ShowAllEntrysButton_Click);
 			// 
 			// UpdateButton
 			// 
@@ -258,5 +260,7 @@ private: System::Void BackButton_Click(System::Object^  sender, System::EventArg
 private: System::Void UpdateButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AddEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void FindButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void ShowAllEntrysButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void DeleteButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
