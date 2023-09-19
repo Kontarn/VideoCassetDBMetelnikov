@@ -265,5 +265,6 @@ private: System::Void FindButton_Click(System::Object^  sender, System::EventArg
 private: System::Void ShowAllEntrysButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void DeleteButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
+
 };
 }
