@@ -65,5 +65,34 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 		MessageBox::Show("Ошибка добавления новой записи", "Ошибка", MessageBoxButtons::OK);
 	}
 }
+// Запрещает вводить в TextBox любые симовлы кроме цифр, 'BS', 'DEL' и '.'
+// По ASCII: BS - 8, DEL - 127, точка - 46
+System::Void VideoCassetDBMetelnikov::AddEntrysForm::KeyNotWordPress(System::Windows::Forms::KeyPressEventArgs ^ e)
+{
+	if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 46 && e->KeyChar != 127)
+		e->Handled = true;
+}
+
+System::Void VideoCassetDBMetelnikov::AddEntrysForm::YearOfReleaseTextBox_KeyPress(System::Object ^ sender, System::Windows::Forms::KeyPressEventArgs ^ e)
+{
+	KeyNotWordPress(e);
+}
+// Запрещает ввод цифр в поле Режиссёра
+System::Void VideoCassetDBMetelnikov::AddEntrysForm::DirectorTextBox_KeyPress(System::Object ^ sender, System::Windows::Forms::KeyPressEventArgs ^ e)
+{
+	if (Char::IsDigit(e->KeyChar))
+		e->Handled = true;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 

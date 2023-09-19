@@ -173,6 +173,7 @@ namespace VideoCassetDBMetelnikov {
 			this->YearOfReleaseTextBox->Name = L"YearOfReleaseTextBox";
 			this->YearOfReleaseTextBox->Size = System::Drawing::Size(99, 22);
 			this->YearOfReleaseTextBox->TabIndex = 13;
+			this->YearOfReleaseTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AddEntrysForm::YearOfReleaseTextBox_KeyPress);
 			// 
 			// label6
 			// 
@@ -199,6 +200,7 @@ namespace VideoCassetDBMetelnikov {
 			this->DirectorTextBox->Name = L"DirectorTextBox";
 			this->DirectorTextBox->Size = System::Drawing::Size(130, 22);
 			this->DirectorTextBox->TabIndex = 16;
+			this->DirectorTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AddEntrysForm::DirectorTextBox_KeyPress);
 			// 
 			// AvailTextBox
 			// 
@@ -207,6 +209,7 @@ namespace VideoCassetDBMetelnikov {
 			this->AvailTextBox->Name = L"AvailTextBox";
 			this->AvailTextBox->Size = System::Drawing::Size(141, 22);
 			this->AvailTextBox->TabIndex = 17;
+			this->AvailTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AddEntrysForm::YearOfReleaseTextBox_KeyPress);
 			// 
 			// PriceTextBox
 			// 
@@ -215,6 +218,7 @@ namespace VideoCassetDBMetelnikov {
 			this->PriceTextBox->Name = L"PriceTextBox";
 			this->PriceTextBox->Size = System::Drawing::Size(95, 22);
 			this->PriceTextBox->TabIndex = 18;
+			this->PriceTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AddEntrysForm::YearOfReleaseTextBox_KeyPress);
 			// 
 			// AddButton
 			// 
@@ -228,6 +232,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// GenreComboBox
 			// 
+			this->GenreComboBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->GenreComboBox->FormattingEnabled = true;
 			this->GenreComboBox->Location = System::Drawing::Point(17, 137);
 			this->GenreComboBox->Name = L"GenreComboBox";
@@ -271,5 +276,8 @@ namespace VideoCassetDBMetelnikov {
 private: System::Void LoadCombo(); // Функция заполнения comboBox значениями таблицы Genre
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AddButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void KeyNotWordPress(System::Windows::Forms::KeyPressEventArgs^ e);
+private: System::Void YearOfReleaseTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
+private: System::Void DirectorTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 };
 }

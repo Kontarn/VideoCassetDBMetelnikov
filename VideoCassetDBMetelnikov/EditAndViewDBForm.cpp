@@ -131,3 +131,16 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(Syst
 		MessageBox::Show("Ошибка удаления записи", "Ошибка");
 	}
 }
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	try
+	{
+		sqlConn = gcnew SqlConnection(connString);
+		String^ sqlQuery = "";
+	}
+	catch (const Exception^ ex)
+	{
+		MessageBox::Show("Ошибка удаления записи", "Ошибка");
+	}
+}
