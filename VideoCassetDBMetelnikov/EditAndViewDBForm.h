@@ -105,6 +105,7 @@ namespace VideoCassetDBMetelnikov {
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(697, 446);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EditAndViewDBForm::dataGridView1_CellEndEdit);
 			// 
 			// AddEntryButton
 			// 
@@ -124,7 +125,6 @@ namespace VideoCassetDBMetelnikov {
 			this->EditEntryButton->TabIndex = 2;
 			this->EditEntryButton->Text = L"»зменить запись";
 			this->EditEntryButton->UseVisualStyleBackColor = true;
-			this->EditEntryButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::EditEntryButton_Click);
 			// 
 			// DeleteButton
 			// 
@@ -264,7 +264,7 @@ private: System::Void AddEntryButton_Click(System::Object^  sender, System::Even
 private: System::Void FindButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void ShowAllEntrysButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void DeleteButton_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
-
+// –едактируем €чейку, если она была изменена
+private: System::Void dataGridView1_CellEndEdit(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e);
 };
 }

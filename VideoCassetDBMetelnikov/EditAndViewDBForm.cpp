@@ -132,15 +132,43 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(Syst
 	}
 }
 
-System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::dataGridView1_CellEndEdit(System::Object ^ sender, System::Windows::Forms::DataGridViewCellEventArgs ^ e)
 {
+	String^ titleFilm = dataGridView1[1, e->RowIndex]->Value->ToString();
+	String^ genre = dataGridView1[2, e->RowIndex]->Value->ToString();
+	String^ yearOfRelease = dataGridView1[3, e->RowIndex]->Value->ToString();
+	String^ dirFilm = dataGridView1[4, e->RowIndex]->Value->ToString();
+	String^ availability = dataGridView1[5, e->RowIndex]->Value->ToString();
+	String^ price = dataGridView1[6, e->RowIndex]->Value->ToString();
 	try
 	{
-		sqlConn = gcnew SqlConnection(connString);
-		String^ sqlQuery = "";
+		SqlConnection SqlConn(connString);
+		SqlConn.Open();
+
+		String^ sqlQuery = "PDATE Film SET Name = @titleFilm, GenreID = ( \
+			SELECT GenreID FROM Genre WHERE Name = @genre), YearOfRelease = @yearOfRelease, \
+			FilmDirector = @dirFilm, Availability = @availability, price = @price WHERE FilmID = " + dataGridView1[0, e->RowIndex]->Value->ToString();
+		SqlCommand command(sqlQuery, % SqlConn);
+		command.Parameters->AddWithValue("@titleFilm", titleFilm);
+		command.Parameters->AddWithValue("@genre", genre);
+		command.Parameters->AddWithValue("@yearOfRelease", yearOfRelease);
+		command.Parameters->AddWithValue("@dirFilm", dirFilm);
+		command.Parameters->AddWithValue("@availability", availability);
+		command.Parameters->AddWithValue("@price", price);
+
+		command.ExecuteNonQuery();
 	}
 	catch (const Exception^ ex)
 	{
-		MessageBox::Show("Ошибка удаления записи", "Ошибка");
+		MessageBox::Show("Ошибка добавления записи\n" + e->ToString()->Data(), "Ошибка", MessageBoxButtons::OK);
 	}
 }
+
+
+
+
+
+
+
+
+
