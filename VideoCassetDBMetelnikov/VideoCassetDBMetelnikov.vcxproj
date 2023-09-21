@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="AddEntrysForm.cpp" />
     <ClCompile Include="EditAndViewDBForm.cpp" />
+    <ClCompile Include="EditEntrysForm.cpp" />
     <ClCompile Include="LogInForStaffForm.cpp" />
     <ClCompile Include="MenuForStaffForm.cpp" />
     <ClCompile Include="StartMenuForm.cpp" />
@@ -144,6 +145,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EditAndViewDBForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EditEntrysForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LogInForStaffForm.h">
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
       <DependentUpon>EditAndViewDBForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditEntrysForm.resx">
+      <DependentUpon>EditEntrysForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForStaffForm.resx">
       <DependentUpon>LogInForStaffForm.h</DependentUpon>

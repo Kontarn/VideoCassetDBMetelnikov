@@ -1,6 +1,7 @@
 #pragma once
 #include "MenuForStaffForm.h"
 #include "AddEntrysForm.h"
+#include "EditEntrysForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -40,7 +41,7 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	protected:
 	private: System::Windows::Forms::Button^  AddEntryButton;
-	private: System::Windows::Forms::Button^  EditEntryButton;
+
 
 	private: System::Windows::Forms::Button^  DeleteButton;
 	private: System::Windows::Forms::TextBox^  textBox1;
@@ -50,7 +51,7 @@ namespace VideoCassetDBMetelnikov {
 
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 	private: System::Windows::Forms::Button^  ShowAllEntrysButton;
-	private: System::Windows::Forms::Button^  UpdateButton;
+
 
 	protected:
 
@@ -70,6 +71,7 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::Button^  BackButton;
 	private: System::Windows::Forms::Button^  ExitButton;
 	private: DataSet^ dataset;
+	private: System::Windows::Forms::Button^  EditEntryButton;
 			 String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
 
 
@@ -82,7 +84,6 @@ namespace VideoCassetDBMetelnikov {
 		{
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->AddEntryButton = (gcnew System::Windows::Forms::Button());
-			this->EditEntryButton = (gcnew System::Windows::Forms::Button());
 			this->DeleteButton = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->FindButton = (gcnew System::Windows::Forms::Button());
@@ -90,22 +91,24 @@ namespace VideoCassetDBMetelnikov {
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->SortButton = (gcnew System::Windows::Forms::Button());
 			this->ShowAllEntrysButton = (gcnew System::Windows::Forms::Button());
-			this->UpdateButton = (gcnew System::Windows::Forms::Button());
 			this->BackButton = (gcnew System::Windows::Forms::Button());
 			this->ExitButton = (gcnew System::Windows::Forms::Button());
+			this->EditEntryButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(12, 31);
 			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(697, 446);
 			this->dataGridView1->TabIndex = 0;
-			this->dataGridView1->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EditAndViewDBForm::dataGridView1_CellEndEdit);
 			// 
 			// AddEntryButton
 			// 
@@ -117,18 +120,9 @@ namespace VideoCassetDBMetelnikov {
 			this->AddEntryButton->UseVisualStyleBackColor = true;
 			this->AddEntryButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::AddEntryButton_Click);
 			// 
-			// EditEntryButton
-			// 
-			this->EditEntryButton->Location = System::Drawing::Point(15, 570);
-			this->EditEntryButton->Name = L"EditEntryButton";
-			this->EditEntryButton->Size = System::Drawing::Size(143, 32);
-			this->EditEntryButton->TabIndex = 2;
-			this->EditEntryButton->Text = L"»зменить запись";
-			this->EditEntryButton->UseVisualStyleBackColor = true;
-			// 
 			// DeleteButton
 			// 
-			this->DeleteButton->Location = System::Drawing::Point(15, 628);
+			this->DeleteButton->Location = System::Drawing::Point(15, 570);
 			this->DeleteButton->Name = L"DeleteButton";
 			this->DeleteButton->Size = System::Drawing::Size(143, 34);
 			this->DeleteButton->TabIndex = 3;
@@ -193,16 +187,6 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowAllEntrysButton->UseVisualStyleBackColor = true;
 			this->ShowAllEntrysButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ShowAllEntrysButton_Click);
 			// 
-			// UpdateButton
-			// 
-			this->UpdateButton->Location = System::Drawing::Point(385, 560);
-			this->UpdateButton->Name = L"UpdateButton";
-			this->UpdateButton->Size = System::Drawing::Size(93, 32);
-			this->UpdateButton->TabIndex = 8;
-			this->UpdateButton->Text = L"ќбновить";
-			this->UpdateButton->UseVisualStyleBackColor = true;
-			this->UpdateButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::UpdateButton_Click);
-			// 
 			// BackButton
 			// 
 			this->BackButton->Location = System::Drawing::Point(604, 621);
@@ -223,20 +207,29 @@ namespace VideoCassetDBMetelnikov {
 			this->ExitButton->UseVisualStyleBackColor = true;
 			this->ExitButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ExitButton_Click);
 			// 
+			// EditEntryButton
+			// 
+			this->EditEntryButton->Location = System::Drawing::Point(15, 624);
+			this->EditEntryButton->Name = L"EditEntryButton";
+			this->EditEntryButton->Size = System::Drawing::Size(143, 34);
+			this->EditEntryButton->TabIndex = 11;
+			this->EditEntryButton->Text = L"»зменить запись";
+			this->EditEntryButton->UseVisualStyleBackColor = true;
+			this->EditEntryButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::EditEntryButton_Click);
+			// 
 			// EditAndViewDBForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(721, 674);
+			this->Controls->Add(this->EditEntryButton);
 			this->Controls->Add(this->ExitButton);
 			this->Controls->Add(this->BackButton);
-			this->Controls->Add(this->UpdateButton);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->AdvancedSearchButton);
 			this->Controls->Add(this->FindButton);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->DeleteButton);
-			this->Controls->Add(this->EditEntryButton);
 			this->Controls->Add(this->AddEntryButton);
 			this->Controls->Add(this->dataGridView1);
 			this->MaximizeBox = false;
@@ -259,12 +252,13 @@ private: System::Void LoadData();
 private: System::Void ReloadData();
 private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void UpdateButton_Click(System::Object^  sender, System::EventArgs^  e);
+//private: System::Void UpdateButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AddEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void FindButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void ShowAllEntrysButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void DeleteButton_Click(System::Object^  sender, System::EventArgs^  e);
 // –едактируем €чейку, если она была изменена
-private: System::Void dataGridView1_CellEndEdit(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e);
+//private: System::Void dataGridView1_CellEndEdit(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e);
+private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

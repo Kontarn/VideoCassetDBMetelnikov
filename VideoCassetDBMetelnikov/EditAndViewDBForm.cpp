@@ -54,17 +54,17 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::BackButton_Click(System
 	form->Show();
 }
 
-System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::UpdateButton_Click(System::Object ^ sender, System::EventArgs ^ e)
-{
-	sqlConn = gcnew SqlConnection(connString);
-	sqlConn->Open();
-	ReloadData();
-}
+//System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::UpdateButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+//{
+//	sqlConn = gcnew SqlConnection(connString);
+//	sqlConn->Open();
+//	ReloadData();
+//}
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AddEntryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	AddEntrysForm^ form = gcnew AddEntrysForm();
-	form->Show();
+	form->ShowDialog();
 }
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System::Object ^ sender, System::EventArgs ^ e)
@@ -132,43 +132,54 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(Syst
 	}
 }
 
-System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::dataGridView1_CellEndEdit(System::Object ^ sender, System::Windows::Forms::DataGridViewCellEventArgs ^ e)
+//System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::dataGridView1_CellEndEdit(System::Object ^ sender, System::Windows::Forms::DataGridViewCellEventArgs ^ e)
+//{
+//	String^ titleFilm = dataGridView1[1, e->RowIndex]->Value->ToString();
+//	String^ genre = dataGridView1[2, e->RowIndex]->Value->ToString();
+//	String^ yearOfRelease = dataGridView1[3, e->RowIndex]->Value->ToString();
+//	String^ dirFilm = dataGridView1[4, e->RowIndex]->Value->ToString();
+//	String^ availability = dataGridView1[5, e->RowIndex]->Value->ToString();
+//	String^ price = dataGridView1[6, e->RowIndex]->Value->ToString();
+//	try
+//	{
+//		SqlConnection SqlConn(connString);
+//		SqlConn.Open();
+//
+//		String^ sqlQuery = "UPDATE Film SET Name = @titleFilm, GenreID = ( \
+//			SELECT GenreID FROM Genre WHERE Name = @genre), YearOfRelease = @yearOfRelease, \
+//			FilmDirector = @dirFilm, Availability = @availability, price = @price WHERE FilmID = " + 
+//			dataGridView1[0, e->RowIndex]->Value->ToString();
+//		SqlCommand command(sqlQuery, % SqlConn);
+//		command.Parameters->AddWithValue("@titleFilm", titleFilm);
+//		command.Parameters->AddWithValue("@genre", genre);
+//		command.Parameters->AddWithValue("@yearOfRelease", yearOfRelease);
+//		command.Parameters->AddWithValue("@dirFilm", dirFilm);
+//		command.Parameters->AddWithValue("@availability", availability);
+//		command.Parameters->AddWithValue("@price", price);
+//
+//		command.ExecuteNonQuery();
+//	}
+//	catch (const Exception^ ex)
+//	{
+//		MessageBox::Show("Ошибка добавления записи\n" + e, "Ошибка", MessageBoxButtons::OK);
+//	}
+//}
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	String^ titleFilm = dataGridView1[1, e->RowIndex]->Value->ToString();
-	String^ genre = dataGridView1[2, e->RowIndex]->Value->ToString();
-	String^ yearOfRelease = dataGridView1[3, e->RowIndex]->Value->ToString();
-	String^ dirFilm = dataGridView1[4, e->RowIndex]->Value->ToString();
-	String^ availability = dataGridView1[5, e->RowIndex]->Value->ToString();
-	String^ price = dataGridView1[6, e->RowIndex]->Value->ToString();
-	try
-	{
-		SqlConnection SqlConn(connString);
-		SqlConn.Open();
-
-		String^ sqlQuery = "PDATE Film SET Name = @titleFilm, GenreID = ( \
-			SELECT GenreID FROM Genre WHERE Name = @genre), YearOfRelease = @yearOfRelease, \
-			FilmDirector = @dirFilm, Availability = @availability, price = @price WHERE FilmID = " + dataGridView1[0, e->RowIndex]->Value->ToString();
-		SqlCommand command(sqlQuery, % SqlConn);
-		command.Parameters->AddWithValue("@titleFilm", titleFilm);
-		command.Parameters->AddWithValue("@genre", genre);
-		command.Parameters->AddWithValue("@yearOfRelease", yearOfRelease);
-		command.Parameters->AddWithValue("@dirFilm", dirFilm);
-		command.Parameters->AddWithValue("@availability", availability);
-		command.Parameters->AddWithValue("@price", price);
-
-		command.ExecuteNonQuery();
+	if (dataGridView1->SelectedRows->Count != 1) {
+		MessageBox::Show("Для редактирования выделите одно поле", "Ошибка", MessageBoxButtons::OK ,MessageBoxIcon::Error);
+		return;
 	}
-	catch (const Exception^ ex)
-	{
-		MessageBox::Show("Ошибка добавления записи\n" + e->ToString()->Data(), "Ошибка", MessageBoxButtons::OK);
-	}
+	int indexLine = dataGridView1->SelectedRows[0]->Index;
+	String^ filmID = dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString();
+	String^ titleFilm = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();
+	String^ genre = dataGridView1->Rows[indexLine]->Cells[2]->Value->ToString();
+	String^ yearOfRelease = dataGridView1->Rows[indexLine]->Cells[3]->Value->ToString();
+	String^ filmDir = dataGridView1->Rows[indexLine]->Cells[4]->Value->ToString();
+	String^ avail = dataGridView1->Rows[indexLine]->Cells[5]->Value->ToString();
+	String^ price = dataGridView1->Rows[indexLine]->Cells[6]->Value->ToString();
+	EditEntrysForm^ form = gcnew EditEntrysForm(filmID, titleFilm, genre, yearOfRelease, filmDir,
+		avail, price);
+	form->ShowDialog();
 }
-
-
-
-
-
-
-
-
-
