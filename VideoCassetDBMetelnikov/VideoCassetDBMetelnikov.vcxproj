@@ -134,14 +134,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddEntrysForm.cpp" />
+    <ClCompile Include="AdvancedSearchForm.cpp" />
     <ClCompile Include="EditAndViewDBForm.cpp" />
     <ClCompile Include="EditEntrysForm.cpp" />
     <ClCompile Include="LogInForStaffForm.cpp" />
     <ClCompile Include="MenuForStaffForm.cpp" />
+    <ClCompile Include="SortMethodForm.cpp" />
     <ClCompile Include="StartMenuForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddEntrysForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AdvancedSearchForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EditAndViewDBForm.h">
@@ -156,6 +161,9 @@
     <ClInclude Include="MenuForStaffForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="SortMethodForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="StartMenuForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -163,6 +171,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddEntrysForm.resx">
       <DependentUpon>AddEntrysForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvancedSearchForm.resx">
+      <DependentUpon>AdvancedSearchForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
       <DependentUpon>EditAndViewDBForm.h</DependentUpon>
@@ -175,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForStaffForm.resx">
       <DependentUpon>MenuForStaffForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SortMethodForm.resx">
+      <DependentUpon>SortMethodForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenuForm.resx">
       <DependentUpon>StartMenuForm.h</DependentUpon>

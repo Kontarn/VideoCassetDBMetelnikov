@@ -2,6 +2,7 @@
 #include "MenuForStaffForm.h"
 #include "AddEntrysForm.h"
 #include "EditEntrysForm.h"
+#include "AdvancedSearchForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -156,6 +157,7 @@ namespace VideoCassetDBMetelnikov {
 			this->AdvancedSearchButton->TabIndex = 6;
 			this->AdvancedSearchButton->Text = L"Расширенный поиск";
 			this->AdvancedSearchButton->UseVisualStyleBackColor = true;
+			this->AdvancedSearchButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::AdvancedSearchButton_Click);
 			// 
 			// groupBox1
 			// 
@@ -233,10 +235,11 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->AddEntryButton);
 			this->Controls->Add(this->dataGridView1);
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(739, 721);
+			this->MinimumSize = System::Drawing::Size(739, 721);
 			this->Name = L"EditAndViewDBForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"EditAndViewDBForm";
 			this->Load += gcnew System::EventHandler(this, &EditAndViewDBForm::EditAndViewDBForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
@@ -260,5 +263,6 @@ private: System::Void DeleteButton_Click(System::Object^  sender, System::EventA
 // Редактируем ячейку, если она была изменена
 //private: System::Void dataGridView1_CellEndEdit(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e);
 private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void AdvancedSearchButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

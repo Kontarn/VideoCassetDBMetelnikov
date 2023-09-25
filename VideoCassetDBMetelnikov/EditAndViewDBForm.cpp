@@ -183,3 +183,9 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(S
 		avail, price);
 	form->ShowDialog();
 }
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AdvancedSearchButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	AdvancedSearchForm^ form = gcnew AdvancedSearchForm();
+	form->ShowDialog();
+}

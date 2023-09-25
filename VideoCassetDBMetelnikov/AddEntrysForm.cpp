@@ -35,7 +35,8 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 	String^ yearOfRelease = YearOfReleaseTextBox->Text;
 	String^ availability = AvailTextBox->Text;
 	String^ price = PriceTextBox->Text;
-
+	//String^ res;
+	
 	if (titleFilm->Length == 0 || genre->Length == 0 || 
 		dirFilm->Length == 0 || price->Length == 0) {
 		MessageBox::Show("Пожалуйста заполните все обязательные поля: Название фильма, жанр, режиссёр и цена", 
@@ -44,20 +45,29 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 	}
 	try
 	{
-		SqlConnection SqlConn(connString);
-		SqlConn.Open();
-
+		sqlConn = gcnew SqlConnection(connString);
+		sqlConn->Open();
+		
+		//String^ sqlQuery1 = "EXEC sp_newFilm @titleFilm, @genre, @yearOfRelease, @dirFilm, @availability, @price, @resInsert = @res OUTPUT";
 		String^ sqlQuery = "INSERT INTO Film(Name, GenreID, YearOfRelease, FilmDirector, Availability, Price) " +
 			"SELECT @titleFilm, GenreID, @yearOfRelease, @dirFilm, @availability, @price FROM Genre WHERE Name = @genre";
-		SqlCommand command(sqlQuery, % SqlConn);
+		SqlCommand command(sqlQuery,  sqlConn);
+		//command.CommandType = System::Data::CommandType::StoredProcedure;
 		command.Parameters->AddWithValue("@titleFilm", titleFilm);
 		command.Parameters->AddWithValue("@genre", genre);
 		command.Parameters->AddWithValue("@dirFilm", dirFilm);
 		command.Parameters->AddWithValue("@yearOfRelease", yearOfRelease);
 		command.Parameters->AddWithValue("@availability", availability);
 		command.Parameters->AddWithValue("@price", price);
+		MessageBox::Show("Запись успешно добавлена, для того, что бы увидеть изменения, \
+			нажмите кнопку 'Отобразить'", "Ошибка", MessageBoxButtons::OK);
+		//command.Parameters->AddWithValue("@res", res);
 
 		command.ExecuteNonQuery();
+		//if (res = "0") {
+		//	MessageBox::Show("Данная запись уже добавлена", "Ошибка", MessageBoxButtons::OK);
+		//	return;
+		//}
 		this->Hide();
 	}
 	catch (const Exception^ ex)

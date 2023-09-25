@@ -33,6 +33,7 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 	String^ dirFilm = filmDirTextBox->Text;
 	String^ availability = availTextBox->Text;
 	String^ price = priceTextBox->Text;
+
 	try
 	{
 		SqlConnection SqlConn(connString);
@@ -51,7 +52,8 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 		command.Parameters->AddWithValue("@price", price);
 
 		command.ExecuteNonQuery();
-		MessageBox::Show("Запись успешно изменена", "Успешно", MessageBoxButtons::OK);
+		MessageBox::Show("Запись успешно изменена, для того, что бы увидеть изменения на, \n \
+			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK);
 		this->Hide();
 	}
 	catch (const Exception^ ex)

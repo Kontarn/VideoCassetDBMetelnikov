@@ -226,7 +226,6 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// genreComboBox
 			// 
-			this->genreComboBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->genreComboBox->FormattingEnabled = true;
 			this->genreComboBox->Location = System::Drawing::Point(326, 72);
 			this->genreComboBox->Name = L"genreComboBox";
@@ -274,9 +273,13 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->nameFilmTextBox);
 			this->Controls->Add(this->label1);
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(464, 315);
+			this->MinimumSize = System::Drawing::Size(464, 315);
 			this->Name = L"EditEntrysForm";
+			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"EditEntrysForm";
+			this->Text = L"Изменение";
 			this->Load += gcnew System::EventHandler(this, &EditEntrysForm::EditEntrysForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
