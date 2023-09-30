@@ -21,24 +21,12 @@ namespace VideoCassetDBMetelnikov {
 	//		filmDir, availability, price;
 	private:
 		String^ filmID;
-		//String^ nameFilm;
-		//String^ nameGenre;
-		//String^ yearOfRelease;
-		//String^ filmDir;
-		//String^ availability;
-		//String^ price;
 	public:
 		EditEntrysForm(String^ filmID, String^ nameFilm, String^ nameGenre, String^ yearOfRelease,
 			String^ filmDir, String^ availability, String^ price)
 		{
 			InitializeComponent();
 			this->filmID = filmID;
-			//this->nameFilm = nameFilm;
-			//this->nameGenre = nameGenre;
-			//this->yearOfRelease = yearOfRelease;
-			//this->filmDir = filmDir;
-			//this->availability = availability;
-			//this->price = price;
 			genreComboBox->Text = nameGenre;
 			nameFilmTextBox->Text = nameFilm;
 			yearOfReleaseTextBox->Text = yearOfRelease;

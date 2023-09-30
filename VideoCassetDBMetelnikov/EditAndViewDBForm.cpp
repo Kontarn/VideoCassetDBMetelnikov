@@ -188,4 +188,5 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AdvancedSearchButton_Cl
 {
 	AdvancedSearchForm^ form = gcnew AdvancedSearchForm();
 	form->ShowDialog();
+
 }

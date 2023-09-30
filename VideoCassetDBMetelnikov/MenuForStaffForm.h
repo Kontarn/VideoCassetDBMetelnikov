@@ -1,6 +1,7 @@
 #pragma once
 #include "StartMenuForm.h"
 #include "EditAndViewDBForm.h"
+#include "HystoryOfBuyForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -40,7 +41,8 @@ namespace VideoCassetDBMetelnikov {
 	protected:
 	private: System::Windows::Forms::Button^  ToStartButton;
 	private: System::Windows::Forms::Button^  EditPassButton;
-	private: System::Windows::Forms::Button^  StatisticaButton;
+	private: System::Windows::Forms::Button^  HystoryOfBuy;
+
 	private: System::Windows::Forms::Button^  EditAndViewDBButton;
 
 	private:
@@ -59,7 +61,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ExitButton = (gcnew System::Windows::Forms::Button());
 			this->ToStartButton = (gcnew System::Windows::Forms::Button());
 			this->EditPassButton = (gcnew System::Windows::Forms::Button());
-			this->StatisticaButton = (gcnew System::Windows::Forms::Button());
+			this->HystoryOfBuy = (gcnew System::Windows::Forms::Button());
 			this->EditAndViewDBButton = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -95,15 +97,16 @@ namespace VideoCassetDBMetelnikov {
 			this->EditPassButton->Text = L"Изменить код доступа";
 			this->EditPassButton->UseVisualStyleBackColor = true;
 			// 
-			// StatisticaButton
+			// HystoryOfBuy
 			// 
-			this->StatisticaButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
-			this->StatisticaButton->Location = System::Drawing::Point(25, 81);
-			this->StatisticaButton->Name = L"StatisticaButton";
-			this->StatisticaButton->Size = System::Drawing::Size(230, 46);
-			this->StatisticaButton->TabIndex = 6;
-			this->StatisticaButton->Text = L"Статистика";
-			this->StatisticaButton->UseVisualStyleBackColor = true;
+			this->HystoryOfBuy->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
+			this->HystoryOfBuy->Location = System::Drawing::Point(25, 81);
+			this->HystoryOfBuy->Name = L"HystoryOfBuy";
+			this->HystoryOfBuy->Size = System::Drawing::Size(230, 46);
+			this->HystoryOfBuy->TabIndex = 6;
+			this->HystoryOfBuy->Text = L"История покупок";
+			this->HystoryOfBuy->UseVisualStyleBackColor = true;
+			this->HystoryOfBuy->Click += gcnew System::EventHandler(this, &MenuForStaffForm::HystoryOfBuy_Click);
 			// 
 			// EditAndViewDBButton
 			// 
@@ -120,11 +123,11 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(287, 250);
+			this->ClientSize = System::Drawing::Size(287, 257);
 			this->Controls->Add(this->ExitButton);
 			this->Controls->Add(this->ToStartButton);
 			this->Controls->Add(this->EditPassButton);
-			this->Controls->Add(this->StatisticaButton);
+			this->Controls->Add(this->HystoryOfBuy);
 			this->Controls->Add(this->EditAndViewDBButton);
 			this->MaximizeBox = false;
 			this->Name = L"MenuForStaffForm";
@@ -138,5 +141,6 @@ namespace VideoCassetDBMetelnikov {
 private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void ToStartButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void EditAndViewDBButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void HystoryOfBuy_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

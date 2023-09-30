@@ -16,7 +16,7 @@ namespace VideoCassetDBMetelnikov {
 	public ref class AdvancedSearchForm : public System::Windows::Forms::Form
 	{
 	public:
-		AdvancedSearchForm(void)
+		AdvancedSearchForm()
 		{
 			InitializeComponent();
 			//
@@ -53,12 +53,7 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::ComboBox^  GenreComboBox;
 	private: System::Windows::Forms::TextBox^  YearOfReleaseTextBox;
 	private: System::Windows::Forms::TextBox^  DirFilmTextBox;
-
-
-
 	private: System::Windows::Forms::TextBox^  NameTextBox;
-
-
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label4;
@@ -73,6 +68,9 @@ namespace VideoCassetDBMetelnikov {
 		System::ComponentModel::Container ^components;
 		SqlConnection^ sqlConn;
 		String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+		SqlDataAdapter^ sqlDA;
+		SqlCommandBuilder^ sqlBuild;
+		DataSet^ dataSet;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -133,6 +131,7 @@ namespace VideoCassetDBMetelnikov {
 			this->findButton->TabIndex = 38;
 			this->findButton->Text = L"Поиск";
 			this->findButton->UseVisualStyleBackColor = true;
+			this->findButton->Click += gcnew System::EventHandler(this, &AdvancedSearchForm::findButton_Click);
 			// 
 			// PriceEndTextBox
 			// 
@@ -332,5 +331,6 @@ private: System::Void AdvancedSearchForm_Load(System::Object^  sender, System::E
 
 private: System::Void NameTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void YearOfReleaseTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
+private: System::Void findButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

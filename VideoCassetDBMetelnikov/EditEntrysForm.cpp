@@ -50,6 +50,7 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 		command.Parameters->AddWithValue("@dirFilm", dirFilm);
 		command.Parameters->AddWithValue("@availability", availability);
 		command.Parameters->AddWithValue("@price", price);
+		
 
 		command.ExecuteNonQuery();
 		MessageBox::Show("Запись успешно изменена, для того, что бы увидеть изменения на, \n \

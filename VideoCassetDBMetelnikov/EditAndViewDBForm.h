@@ -20,7 +20,7 @@ namespace VideoCassetDBMetelnikov {
 	public ref class EditAndViewDBForm : public System::Windows::Forms::Form
 	{
 	public:
-		EditAndViewDBForm(void)
+		EditAndViewDBForm()
 		{
 			InitializeComponent();
 			//
@@ -68,6 +68,7 @@ namespace VideoCassetDBMetelnikov {
 		SqlConnection^ sqlConn;
 		SqlCommandBuilder^ sqlBuild;
 		SqlDataAdapter^ sqlDA;
+
 	private: System::Windows::Forms::Button^  SortButton;
 	private: System::Windows::Forms::Button^  BackButton;
 	private: System::Windows::Forms::Button^  ExitButton;

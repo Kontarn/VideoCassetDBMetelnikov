@@ -18,3 +18,11 @@ System::Void VideoCassetDBMetelnikov::MenuForStaffForm::EditAndViewDBButton_Clic
 	this->Hide();
 	form->Show();
 }
+
+System::Void VideoCassetDBMetelnikov::MenuForStaffForm::HystoryOfBuy_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	HystoryOfBuyForm^ form = gcnew HystoryOfBuyForm();
+	this->Hide();
+	form->Show();
+}
+
