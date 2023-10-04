@@ -19,6 +19,8 @@ namespace VideoCassetDBMetelnikov {
 	/// </summary>
 	public ref class EditAndViewDBForm : public System::Windows::Forms::Form
 	{
+	//public: delegate void EventDelegate1(System::Object^ sender, System::EventArgs^ e, Data);
+	//public: event EventDelegate1^ myEvent1;
 	public:
 		EditAndViewDBForm()
 		{
@@ -39,6 +41,7 @@ namespace VideoCassetDBMetelnikov {
 				delete components;
 			}
 		}
+	
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	protected:
 	private: System::Windows::Forms::Button^  AddEntryButton;
@@ -52,13 +55,9 @@ namespace VideoCassetDBMetelnikov {
 
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 	private: System::Windows::Forms::Button^  ShowAllEntrysButton;
-
+	
 
 	protected:
-
-
-
-
 
 	private:
 		/// <summary>
@@ -68,6 +67,9 @@ namespace VideoCassetDBMetelnikov {
 		SqlConnection^ sqlConn;
 		SqlCommandBuilder^ sqlBuild;
 		SqlDataAdapter^ sqlDA;
+	private: AdvancedSearchForm^ advSearchF;
+
+		
 
 	private: System::Windows::Forms::Button^  SortButton;
 	private: System::Windows::Forms::Button^  BackButton;
@@ -253,6 +255,7 @@ namespace VideoCassetDBMetelnikov {
 //private: System::Void ShowAllEntrysButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void EditAndViewDBForm_Load(System::Object^  sender, System::EventArgs^  e);
 private: System::Void LoadData();
+//public: System::Void LoadData(System::String^ str);
 private: System::Void ReloadData();
 private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
@@ -265,5 +268,6 @@ private: System::Void DeleteButton_Click(System::Object^  sender, System::EventA
 //private: System::Void dataGridView1_CellEndEdit(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e);
 private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AdvancedSearchButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, String^ str);
 };
 }

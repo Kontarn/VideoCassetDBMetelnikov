@@ -1,4 +1,5 @@
 #pragma once
+//#include "EditAndViewDBForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -15,6 +16,9 @@ namespace VideoCassetDBMetelnikov {
 	/// </summary>
 	public ref class AdvancedSearchForm : public System::Windows::Forms::Form
 	{
+	public: delegate void EventDelegate1(System::Object^ sender,
+		System::EventArgs^ e, System::String^ str);
+	public: event EventDelegate1^ myEvent1;
 	public:
 		AdvancedSearchForm()
 		{
@@ -71,6 +75,7 @@ namespace VideoCassetDBMetelnikov {
 		SqlDataAdapter^ sqlDA;
 		SqlCommandBuilder^ sqlBuild;
 		DataSet^ dataSet;
+		String^ str; // Хранит итоговый SQL-запрос
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -326,11 +331,11 @@ namespace VideoCassetDBMetelnikov {
 
 		}
 #pragma endregion
-	private: System::Void backButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void backButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AdvancedSearchForm_Load(System::Object^  sender, System::EventArgs^  e);
-
 private: System::Void NameTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void YearOfReleaseTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void findButton_Click(System::Object^  sender, System::EventArgs^  e);
+		 public:  void issueEvent1(System::Object^ sender, System::EventArgs^ e);
 };
 }

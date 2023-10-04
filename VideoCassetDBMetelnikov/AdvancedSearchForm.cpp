@@ -14,6 +14,7 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::AdvancedSearchForm_Loa
 	try
 	{
 		myReader = cmdDataBase->ExecuteReader();
+		GenreComboBox->Items->Clear();
 		while (myReader->Read()) {
 			GenreComboBox->Items->Add(myReader["Name"]->ToString());
 		}
@@ -71,29 +72,33 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 		val[iVal++] = "BETWEEN " + PriceBeginTextBox->Text + " AND " + PriceEndTextBox->Text;
 	}
 	int i = 0;
-	String^ str = "SELECT FilmID AS Код, Film.Name AS Название, Genre.Name AS Жанр, YearOfRelease AS Премьера, \
+	str = "SELECT FilmID AS Код, Film.Name AS Название, Genre.Name AS Жанр, YearOfRelease AS Премьера, \
 			FilmDirector AS Режиссер, Availability AS Наличие,\
 			Price AS Цена FROM Film JOIN Genre ON Film.GenreID = Genre.GenreID WHERE ";
 	for (int i = 0; key[i] != nullptr && i < size; i++) {
 		if (key[i] != "Availability" && key[i] != "Price")
-			str += " " + key[i] + " = " + val[i] + ", ";
+			str += " " + key[i] + " = " + val[i] + " and ";
 		else
-			str += " " + key[i] + " " + val[i] + ", ";
+			str += " " + key[i] + " " + val[i] + " and ";
 	}
 	str += ";";
 	int sizeStr = str->Length;
-	str = str->Remove(sizeStr - 3, 1);
-	sqlConn = gcnew SqlConnection(connString);
-	sqlConn->Open();
-	sqlDA = gcnew SqlDataAdapter(str, sqlConn);
-	sqlBuild = gcnew SqlCommandBuilder(sqlDA);
-	dataSet = gcnew DataSet();
-	dataSet->Tables["Film"]->Clear();
-	sqlDA->Fill(dataSet, "Film");
-	
-	MessageBox::Show(str, "Результат");
-	return;
+	str = str->Remove(sizeStr - 5, 3); 
+	//sqlConn = gcnew SqlConnection(connString);
+	//sqlConn->Open();
+	//sqlDA = gcnew SqlDataAdapter(str, sqlConn);
+	//sqlBuild = gcnew SqlCommandBuilder(sqlDA);
+	//dataSet = gcnew DataSet();
+	//dataSet->Tables["Film"]->Clear();
+	//sqlDA->Fill(dataSet, "Film");
+	this->issueEvent1(sender, e);
+	this->Hide();
 
+}
+
+void VideoCassetDBMetelnikov::AdvancedSearchForm::issueEvent1(System::Object ^ sender, System::EventArgs ^ e)
+{
+	this->myEvent1(this, e, str);
 }
 
 

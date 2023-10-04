@@ -3,14 +3,17 @@
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditAndViewDBForm_Load(System::Object ^ sender, System::EventArgs ^ e)
 {
-		sqlConn = gcnew SqlConnection(connString);
-		sqlConn->Open();
-		LoadData();
+	sqlConn = gcnew SqlConnection(connString);
+	sqlConn->Open();
+	this->advSearchF = gcnew AdvancedSearchForm();
+	this->advSearchF->myEvent1 += gcnew AdvancedSearchForm::EventDelegate1
+	(this, &VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber);
+	LoadData();
 }
+
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::LoadData()
 {
-	
 	try
 	{
 		sqlDA = gcnew SqlDataAdapter("SELECT FilmID AS Код, Film.Name AS Название, Genre.Name AS Жанр, \
@@ -27,6 +30,23 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::LoadData()
 		MessageBox::Show("Ошибка вывода данных", "Ошибка");
 	}
 }
+//
+//System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::LoadData(System::String^ str)
+//{
+//
+//	try
+//	{
+//		sqlDA = gcnew SqlDataAdapter(str, sqlConn);
+//		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
+//		dataset = gcnew DataSet();
+//		sqlDA->Fill(dataset, "Film");
+//		dataGridView1->DataSource = dataset->Tables[0];
+//	}
+//	catch (Exception^ ex)
+//	{
+//		MessageBox::Show("Ошибка вывода данных", "Ошибка");
+//	}
+//}
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::ReloadData()
 {
@@ -186,7 +206,24 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(S
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AdvancedSearchButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	AdvancedSearchForm^ form = gcnew AdvancedSearchForm();
-	form->ShowDialog();
+	this->advSearchF->ShowDialog();
 
+}
+
+void VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber(System::Object ^ sender, System::EventArgs ^ e, System::String^ str)
+{
+	try
+	{
+		sqlDA = gcnew SqlDataAdapter(str, sqlConn);
+		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
+		dataset->Tables["Film"]->Clear();
+		sqlDA->Fill(dataset, "Film");
+		
+		dataGridView1->DataSource = dataset->Tables["Film"];
+	}
+	catch (const Exception^ ex)
+	{
+		MessageBox::Show("Ошибка многокритериального поиска", "Ошибка");
+	}
+	
 }
