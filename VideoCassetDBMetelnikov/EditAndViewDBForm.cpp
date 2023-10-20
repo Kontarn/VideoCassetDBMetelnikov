@@ -8,6 +8,9 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditAndViewDBForm_Load(
 	this->advSearchF = gcnew AdvancedSearchForm();
 	this->advSearchF->myEvent1 += gcnew AdvancedSearchForm::EventDelegate1
 	(this, &VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber);
+	this->sortMethF = gcnew SortMethodForm();
+	this->sortMethF->myEvent1 += gcnew SortMethodForm::EventDelegate1
+	(this, &VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber1);
 	LoadData();
 }
 
@@ -226,4 +229,26 @@ void VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber(System::Object ^ s
 		MessageBox::Show("Ошибка многокритериального поиска", "Ошибка");
 	}
 	
+}
+
+void VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber1(System::Object ^ sender, System::EventArgs ^ e, System::String ^ str)
+{
+	try
+	{
+		sqlDA = gcnew SqlDataAdapter(str, sqlConn);
+		sqlBuild = gcnew SqlCommandBuilder(sqlDA);
+		dataset->Tables["Film"]->Clear();
+		sqlDA->Fill(dataset, "Film");
+
+		dataGridView1->DataSource = dataset->Tables["Film"];
+	}
+	catch (const Exception^ ex)
+	{
+		MessageBox::Show("Ошибка многокритериального поиска", "Ошибка");
+	}
+}
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::SortButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	this->sortMethF->ShowDialog();
 }

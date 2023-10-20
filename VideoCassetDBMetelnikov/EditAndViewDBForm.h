@@ -3,6 +3,7 @@
 #include "AddEntrysForm.h"
 #include "EditEntrysForm.h"
 #include "AdvancedSearchForm.h"
+#include "SortMethodForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -68,7 +69,7 @@ namespace VideoCassetDBMetelnikov {
 		SqlCommandBuilder^ sqlBuild;
 		SqlDataAdapter^ sqlDA;
 	private: AdvancedSearchForm^ advSearchF;
-
+	private: SortMethodForm^ sortMethF;
 		
 
 	private: System::Windows::Forms::Button^  SortButton;
@@ -181,6 +182,7 @@ namespace VideoCassetDBMetelnikov {
 			this->SortButton->TabIndex = 9;
 			this->SortButton->Text = L"Сортировать";
 			this->SortButton->UseVisualStyleBackColor = true;
+			this->SortButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::SortButton_Click);
 			// 
 			// ShowAllEntrysButton
 			// 
@@ -268,6 +270,8 @@ private: System::Void DeleteButton_Click(System::Object^  sender, System::EventA
 //private: System::Void dataGridView1_CellEndEdit(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e);
 private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AdvancedSearchButton_Click(System::Object^  sender, System::EventArgs^  e);
-private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, String^ str);
+private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, System::String^ str);
+private: void mySubscriber1(System::Object^ sender, System::EventArgs^ e, System::String^ str);
+private: System::Void SortButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

@@ -71,7 +71,7 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 		key[iKey++] = "Price";
 		val[iVal++] = "BETWEEN " + PriceBeginTextBox->Text + " AND " + PriceEndTextBox->Text;
 	}
-	int i = 0;
+	//int i = 0;
 	str = "SELECT FilmID AS Код, Film.Name AS Название, Genre.Name AS Жанр, YearOfRelease AS Премьера, \
 			FilmDirector AS Режиссер, Availability AS Наличие,\
 			Price AS Цена FROM Film JOIN Genre ON Film.GenreID = Genre.GenreID WHERE ";
@@ -83,14 +83,7 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 	}
 	str += ";";
 	int sizeStr = str->Length;
-	str = str->Remove(sizeStr - 5, 3); 
-	//sqlConn = gcnew SqlConnection(connString);
-	//sqlConn->Open();
-	//sqlDA = gcnew SqlDataAdapter(str, sqlConn);
-	//sqlBuild = gcnew SqlCommandBuilder(sqlDA);
-	//dataSet = gcnew DataSet();
-	//dataSet->Tables["Film"]->Clear();
-	//sqlDA->Fill(dataSet, "Film");
+	str = str->Remove(sizeStr - 5, 3);
 	this->issueEvent1(sender, e);
 	this->Hide();
 
