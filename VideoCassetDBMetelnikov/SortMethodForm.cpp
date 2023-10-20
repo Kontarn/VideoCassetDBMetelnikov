@@ -26,44 +26,32 @@ void VideoCassetDBMetelnikov::SortMethodForm::AddToMassSort(int j, System::Windo
 
 System::Void VideoCassetDBMetelnikov::SortMethodForm::AddNameButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	buffer = "Film.Name";
-	buffer1 = "Фильм";
-	AddToMassSort(0, NameDomainUpDown, buffer, buffer1);
+	AddToMassSort(0, NameDomainUpDown, "Film.Name", "Фильм");
 }
 
 System::Void VideoCassetDBMetelnikov::SortMethodForm::AddGenreButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	buffer = "Genre.Name";
-	buffer1 = "Жанр";
-	AddToMassSort(1, GenreDomainUpDown, buffer, buffer1);
+	AddToMassSort(1, GenreDomainUpDown, "Genre.Name", "Жанр");
 }
 
 System::Void VideoCassetDBMetelnikov::SortMethodForm::AddYearOfRelButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	buffer = "YearOfRelease";
-	buffer1 = "Премьера";
-	AddToMassSort(2, YearOfRelDomainUpDown, buffer, buffer1);
+	AddToMassSort(2, YearOfRelDomainUpDown, "YearOfRelease", "Премьера");
 }
 
 System::Void VideoCassetDBMetelnikov::SortMethodForm::AddDirFilmButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	buffer = "FilmDirector";
-	buffer1 = "Режиссер";
-	AddToMassSort(3, DirFilmDomainUpDown, buffer, buffer1);
+	AddToMassSort(3, DirFilmDomainUpDown, "FilmDirector", "Режиссер");
 }
 
 System::Void VideoCassetDBMetelnikov::SortMethodForm::AddAvailButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	buffer = "Availability";
-	buffer1 = "Наличие";
-	AddToMassSort(4, AvailDomainUpDown, buffer, buffer1);
+	AddToMassSort(4, AvailDomainUpDown, "Availability", "Наличие");
 }
 
 System::Void VideoCassetDBMetelnikov::SortMethodForm::AddPriceButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	buffer = "Price";
-	buffer1 = "Цена";
-	AddToMassSort(5, PriceDomainUpDown, buffer, buffer1);
+	AddToMassSort(5, PriceDomainUpDown, "Price", "Цена");
 }
 
 System::Void VideoCassetDBMetelnikov::SortMethodForm::ClearSortButton_Click(System::Object ^ sender, System::EventArgs ^ e)
