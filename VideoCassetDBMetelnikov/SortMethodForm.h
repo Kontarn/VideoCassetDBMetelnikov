@@ -74,12 +74,13 @@ namespace VideoCassetDBMetelnikov {
 		int i = 0;		// Index for counting the number of selected columns
 		bool flagName, flagGenre; 
 	private: System::Windows::Forms::TextBox^  textBox1;
+			 // Stores data for forming an sql query
 			 array<String^>^ sortMass = gcnew array<String^>(size);
 			 // Хранит номер текстбокса и если ячейка заполнена, то добавление не срабатывает
 			 array<String^>^ indexTextB = gcnew array<String^>(size);
 			 String^ buffer;
 			 String^ buffer1;
-			 String^ sqlStr;
+			 String^ sqlStr; 
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify

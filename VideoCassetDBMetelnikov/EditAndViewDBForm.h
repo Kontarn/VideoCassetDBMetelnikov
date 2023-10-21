@@ -250,7 +250,6 @@ namespace VideoCassetDBMetelnikov {
 			this->groupBox1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 
@@ -271,7 +270,6 @@ private: System::Void DeleteButton_Click(System::Object^  sender, System::EventA
 private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AdvancedSearchButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, System::String^ str);
-private: void mySubscriber1(System::Object^ sender, System::EventArgs^ e, System::String^ str);
 private: System::Void SortButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
