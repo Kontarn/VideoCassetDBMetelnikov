@@ -78,8 +78,8 @@ namespace VideoCassetDBMetelnikov {
 			 array<String^>^ sortMass = gcnew array<String^>(size);
 			 // Хранит номер текстбокса и если ячейка заполнена, то добавление не срабатывает
 			 array<String^>^ indexTextB = gcnew array<String^>(size);
-			 String^ buffer;
-			 String^ buffer1;
+			 //String^ buffer;
+			 //String^ buffer1;
 			 String^ sqlStr; 
 #pragma region Windows Form Designer generated code
 		/// <summary>

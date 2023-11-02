@@ -42,6 +42,12 @@
     <ClCompile Include="HystoryOfBuyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HystorySortMethodForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HystoryAdvanedSearchForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartMenuForm.h">
@@ -71,6 +77,12 @@
     <ClInclude Include="HystoryOfBuyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HystorySortMethodForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HystoryAdvanedSearchForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="StartMenuForm.resx">
@@ -95,6 +107,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="AdvancedSearchForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HystoryOfBuyForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HystorySortMethodForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

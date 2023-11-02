@@ -137,7 +137,9 @@
     <ClCompile Include="AdvancedSearchForm.cpp" />
     <ClCompile Include="EditAndViewDBForm.cpp" />
     <ClCompile Include="EditEntrysForm.cpp" />
+    <ClCompile Include="HystoryAdvanedSearchForm.cpp" />
     <ClCompile Include="HystoryOfBuyForm.cpp" />
+    <ClCompile Include="HystorySortMethodForm.cpp" />
     <ClCompile Include="LogInForStaffForm.cpp" />
     <ClCompile Include="MenuForStaffForm.cpp" />
     <ClCompile Include="SortMethodForm.cpp" />
@@ -156,7 +158,13 @@
     <ClInclude Include="EditEntrysForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="HystoryAdvanedSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="HystoryOfBuyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="HystorySortMethodForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LogInForStaffForm.h">
@@ -185,8 +193,14 @@
     <EmbeddedResource Include="EditEntrysForm.resx">
       <DependentUpon>EditEntrysForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HystoryAdvanedSearchForm.resx">
+      <DependentUpon>HystoryAdvanedSearchForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HystoryOfBuyForm.resx">
       <DependentUpon>HystoryOfBuyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HystorySortMethodForm.resx">
+      <DependentUpon>HystorySortMethodForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForStaffForm.resx">
       <DependentUpon>LogInForStaffForm.h</DependentUpon>

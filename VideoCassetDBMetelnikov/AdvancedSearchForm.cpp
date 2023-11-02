@@ -3,6 +3,7 @@
 System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::backButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	this->Hide();
+	
 }
 
 System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::AdvancedSearchForm_Load(System::Object ^ sender, System::EventArgs ^ e)
@@ -49,11 +50,11 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 	array<String^>^ val = gcnew array<String^>(size); //  
 	if (NameTextBox->Text->Length != 0) {
 		key[iKey++] = "Film.Name";
-		val[iVal++] = "'" + NameTextBox->Text + "'";
+		val[iVal++] = "'%" + NameTextBox->Text + "%'";
 	}
 	if (GenreComboBox->Text->Length != 0) {
 		key[iKey++] = "Genre.Name";
-		val[iVal++] = "'" + GenreComboBox->Text + "'";
+		val[iVal++] = "'%" + GenreComboBox->Text + "%'";
 	}
 	if (YearOfReleaseTextBox->Text->Length != 0) {
 		key[iKey++] = "YearOfRelease";
@@ -61,7 +62,7 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 	}
 	if (DirFilmTextBox->Text->Length != 0) {
 		key[iKey++] = "FilmDirector";
-		val[iVal++] = "'" + DirFilmTextBox->Text + "'";
+		val[iVal++] = "'%" + DirFilmTextBox->Text + "%'";
 	}
 	if (AvailBeginTextBox->Text->Length != 0 && AvailEndTextBox->Text->Length != 0) {
 		key[iKey++] = "Availability";
@@ -77,7 +78,7 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 			Price AS Цена FROM Film JOIN Genre ON Film.GenreID = Genre.GenreID WHERE ";
 	for (int i = 0; key[i] != nullptr && i < size; i++) {
 		if (key[i] != "Availability" && key[i] != "Price")
-			str += " " + key[i] + " = " + val[i] + " and ";
+			str += " " + key[i] + " LIKE " + val[i] + " and ";
 		else
 			str += " " + key[i] + " " + val[i] + " and ";
 	}
@@ -86,7 +87,6 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 	str = str->Remove(sizeStr - 5, 3);
 	this->issueEvent1(sender, e);
 	this->Hide();
-
 }
 
 void VideoCassetDBMetelnikov::AdvancedSearchForm::issueEvent1(System::Object ^ sender, System::EventArgs ^ e)

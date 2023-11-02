@@ -48,7 +48,7 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::TextBox^  PriceBeginTextBox;
 
 	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::CheckBox^  checkBox1;
+
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::TextBox^  AvailEndTextBox;
 
@@ -90,7 +90,6 @@ namespace VideoCassetDBMetelnikov {
 			this->PriceEndTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->PriceBeginTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->AvailEndTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->AvailBeginTextBox = (gcnew System::Windows::Forms::TextBox());
@@ -163,17 +162,6 @@ namespace VideoCassetDBMetelnikov {
 			this->label8->Size = System::Drawing::Size(31, 20);
 			this->label8->TabIndex = 35;
 			this->label8->Text = L"до";
-			// 
-			// checkBox1
-			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.8F));
-			this->checkBox1->Location = System::Drawing::Point(16, 238);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(118, 24);
-			this->checkBox1->TabIndex = 34;
-			this->checkBox1->Text = L"В наличии";
-			this->checkBox1->UseVisualStyleBackColor = true;
 			// 
 			// label7
 			// 
@@ -305,7 +293,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->PriceEndTextBox);
 			this->Controls->Add(this->PriceBeginTextBox);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->AvailEndTextBox);
 			this->Controls->Add(this->AvailBeginTextBox);
@@ -336,6 +323,6 @@ private: System::Void AdvancedSearchForm_Load(System::Object^  sender, System::E
 private: System::Void NameTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void YearOfReleaseTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void findButton_Click(System::Object^  sender, System::EventArgs^  e);
-		 public:  void issueEvent1(System::Object^ sender, System::EventArgs^ e);
+public:  void issueEvent1(System::Object^ sender, System::EventArgs^ e);
 };
 }

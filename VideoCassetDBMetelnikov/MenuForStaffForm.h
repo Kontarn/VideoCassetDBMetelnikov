@@ -68,9 +68,9 @@ namespace VideoCassetDBMetelnikov {
 			// ExitButton
 			// 
 			this->ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
-			this->ExitButton->Location = System::Drawing::Point(155, 193);
+			this->ExitButton->Location = System::Drawing::Point(169, 184);
 			this->ExitButton->Name = L"ExitButton";
-			this->ExitButton->Size = System::Drawing::Size(124, 50);
+			this->ExitButton->Size = System::Drawing::Size(124, 42);
 			this->ExitButton->TabIndex = 9;
 			this->ExitButton->Text = L"Выход";
 			this->ExitButton->UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@ namespace VideoCassetDBMetelnikov {
 			// ToStartButton
 			// 
 			this->ToStartButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
-			this->ToStartButton->Location = System::Drawing::Point(4, 193);
+			this->ToStartButton->Location = System::Drawing::Point(12, 184);
 			this->ToStartButton->Name = L"ToStartButton";
-			this->ToStartButton->Size = System::Drawing::Size(147, 50);
+			this->ToStartButton->Size = System::Drawing::Size(147, 42);
 			this->ToStartButton->TabIndex = 8;
 			this->ToStartButton->Text = L"В начало";
 			this->ToStartButton->UseVisualStyleBackColor = true;
@@ -90,9 +90,9 @@ namespace VideoCassetDBMetelnikov {
 			// EditPassButton
 			// 
 			this->EditPassButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
-			this->EditPassButton->Location = System::Drawing::Point(25, 137);
+			this->EditPassButton->Location = System::Drawing::Point(26, 132);
 			this->EditPassButton->Name = L"EditPassButton";
-			this->EditPassButton->Size = System::Drawing::Size(230, 46);
+			this->EditPassButton->Size = System::Drawing::Size(249, 46);
 			this->EditPassButton->TabIndex = 7;
 			this->EditPassButton->Text = L"Изменить код доступа";
 			this->EditPassButton->UseVisualStyleBackColor = true;
@@ -100,9 +100,9 @@ namespace VideoCassetDBMetelnikov {
 			// HystoryOfBuy
 			// 
 			this->HystoryOfBuy->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
-			this->HystoryOfBuy->Location = System::Drawing::Point(25, 81);
+			this->HystoryOfBuy->Location = System::Drawing::Point(26, 80);
 			this->HystoryOfBuy->Name = L"HystoryOfBuy";
-			this->HystoryOfBuy->Size = System::Drawing::Size(230, 46);
+			this->HystoryOfBuy->Size = System::Drawing::Size(249, 46);
 			this->HystoryOfBuy->TabIndex = 6;
 			this->HystoryOfBuy->Text = L"История покупок";
 			this->HystoryOfBuy->UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@ namespace VideoCassetDBMetelnikov {
 			// EditAndViewDBButton
 			// 
 			this->EditAndViewDBButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
-			this->EditAndViewDBButton->Location = System::Drawing::Point(25, 9);
+			this->EditAndViewDBButton->Location = System::Drawing::Point(26, 12);
 			this->EditAndViewDBButton->Name = L"EditAndViewDBButton";
-			this->EditAndViewDBButton->Size = System::Drawing::Size(230, 62);
+			this->EditAndViewDBButton->Size = System::Drawing::Size(249, 62);
 			this->EditAndViewDBButton->TabIndex = 5;
 			this->EditAndViewDBButton->Text = L"Редактирование и просмотр БД";
 			this->EditAndViewDBButton->UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(287, 257);
+			this->ClientSize = System::Drawing::Size(305, 240);
 			this->Controls->Add(this->ExitButton);
 			this->Controls->Add(this->ToStartButton);
 			this->Controls->Add(this->EditPassButton);

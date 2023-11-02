@@ -1,5 +1,7 @@
 #pragma once
 #include "MenuForStaffForm.h"
+#include "HystorySortMethodForm.h"
+#include "HystoryAdvanedSearchForm.h"
 namespace VideoCassetDBMetelnikov {
 
 	using namespace System;
@@ -8,12 +10,23 @@ namespace VideoCassetDBMetelnikov {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
 
 	/// <summary>
 	/// Summary for HystoryOfBuyForm
 	/// </summary>
 	public ref class HystoryOfBuyForm : public System::Windows::Forms::Form
 	{
+	private:
+		String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+		SqlConnection^ sqlConn;
+		SqlCommandBuilder^ sqlBuild;
+		SqlDataAdapter^ sqlDA;
+		DataSet^ dataset;
+		HystorySortMethodForm^ hystSortMethF;
+	private: System::Windows::Forms::Button^  ShowAllEntrysButton;
+
+			 HystoryAdvanedSearchForm^ hystAdvSearchF;
 	public:
 		HystoryOfBuyForm(void)
 		{
@@ -34,14 +47,22 @@ namespace VideoCassetDBMetelnikov {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
-	private: System::Windows::Forms::ComboBox^  comboBox1;
-	private: System::Windows::Forms::RadioButton^  radioButton1;
-	private: System::Windows::Forms::RadioButton^  radioButton2;
-	private: System::Windows::Forms::ComboBox^  comboBox2;
+
+
+
+
 	private: System::Windows::Forms::ContextMenuStrip^  contextMenuStrip1;
-	private: System::Windows::Forms::GroupBox^  groupBox1;
-	private: System::Windows::Forms::Button^  button1;
+
+	private: System::Windows::Forms::Button^  BackButton;
+
+
+
+
+	private: System::Windows::Forms::Button^  AdvancedSearchButton;
+	private: System::Windows::Forms::Button^  ExitButton;
+
 	private: System::ComponentModel::IContainer^  components;
 	protected:
 
@@ -60,15 +81,12 @@ namespace VideoCassetDBMetelnikov {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->BackButton = (gcnew System::Windows::Forms::Button());
+			this->AdvancedSearchButton = (gcnew System::Windows::Forms::Button());
+			this->ExitButton = (gcnew System::Windows::Forms::Button());
+			this->ShowAllEntrysButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -82,94 +100,83 @@ namespace VideoCassetDBMetelnikov {
 			this->dataGridView1->Size = System::Drawing::Size(829, 523);
 			this->dataGridView1->TabIndex = 0;
 			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(11, 27);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 24);
-			this->comboBox1->TabIndex = 1;
-			// 
-			// radioButton1
-			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(11, 57);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(81, 21);
-			this->radioButton1->TabIndex = 2;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"По коду";
-			this->radioButton1->UseVisualStyleBackColor = true;
-			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &HystoryOfBuyForm::radioButton1_CheckedChanged);
-			// 
-			// radioButton2
-			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(153, 57);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(85, 21);
-			this->radioButton2->TabIndex = 4;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"По ФИО";
-			this->radioButton2->UseVisualStyleBackColor = true;
-			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &HystoryOfBuyForm::radioButton2_CheckedChanged);
-			// 
-			// comboBox2
-			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(153, 27);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 24);
-			this->comboBox2->TabIndex = 5;
-			// 
 			// contextMenuStrip1
 			// 
 			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
-			// groupBox1
+			// BackButton
 			// 
-			this->groupBox1->Controls->Add(this->comboBox2);
-			this->groupBox1->Controls->Add(this->radioButton2);
-			this->groupBox1->Controls->Add(this->radioButton1);
-			this->groupBox1->Controls->Add(this->comboBox1);
-			this->groupBox1->Location = System::Drawing::Point(16, 545);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(293, 84);
-			this->groupBox1->TabIndex = 7;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Отображение";
+			this->BackButton->Location = System::Drawing::Point(728, 551);
+			this->BackButton->Name = L"BackButton";
+			this->BackButton->Size = System::Drawing::Size(117, 42);
+			this->BackButton->TabIndex = 8;
+			this->BackButton->Text = L"Назад";
+			this->BackButton->UseVisualStyleBackColor = true;
+			this->BackButton->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::BackButton_Click);
 			// 
-			// button1
+			// AdvancedSearchButton
 			// 
-			this->button1->Location = System::Drawing::Point(700, 602);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(117, 42);
-			this->button1->TabIndex = 8;
-			this->button1->Text = L"Назад";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::button1_Click);
+			this->AdvancedSearchButton->Location = System::Drawing::Point(216, 554);
+			this->AdvancedSearchButton->Name = L"AdvancedSearchButton";
+			this->AdvancedSearchButton->Size = System::Drawing::Size(194, 39);
+			this->AdvancedSearchButton->TabIndex = 10;
+			this->AdvancedSearchButton->Text = L"Расширенный поиск";
+			this->AdvancedSearchButton->UseVisualStyleBackColor = true;
+			this->AdvancedSearchButton->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::AdvancedSearchButton_Click);
+			// 
+			// ExitButton
+			// 
+			this->ExitButton->Location = System::Drawing::Point(602, 552);
+			this->ExitButton->Name = L"ExitButton";
+			this->ExitButton->Size = System::Drawing::Size(117, 42);
+			this->ExitButton->TabIndex = 11;
+			this->ExitButton->Text = L"Выход";
+			this->ExitButton->UseVisualStyleBackColor = true;
+			this->ExitButton->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::ExitButton_Click);
+			// 
+			// ShowAllEntrysButton
+			// 
+			this->ShowAllEntrysButton->Location = System::Drawing::Point(16, 554);
+			this->ShowAllEntrysButton->Name = L"ShowAllEntrysButton";
+			this->ShowAllEntrysButton->Size = System::Drawing::Size(194, 39);
+			this->ShowAllEntrysButton->TabIndex = 12;
+			this->ShowAllEntrysButton->Text = L"Отобразить";
+			this->ShowAllEntrysButton->UseVisualStyleBackColor = true;
+			this->ShowAllEntrysButton->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::ShowAllEntrysButton_Click);
 			// 
 			// HystoryOfBuyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(869, 671);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->groupBox1);
+			this->ClientSize = System::Drawing::Size(860, 671);
+			this->Controls->Add(this->ShowAllEntrysButton);
+			this->Controls->Add(this->ExitButton);
+			this->Controls->Add(this->AdvancedSearchButton);
+			this->Controls->Add(this->BackButton);
 			this->Controls->Add(this->dataGridView1);
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(878, 718);
+			this->MinimumSize = System::Drawing::Size(878, 718);
 			this->Name = L"HystoryOfBuyForm";
+			this->ShowIcon = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"HystoryOfBuyForm";
+			this->Load += gcnew System::EventHandler(this, &HystoryOfBuyForm::HystoryOfBuyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void radioButton1_CheckedChanged(System::Object^  sender, System::EventArgs^  e);
-private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e);
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e);
+
+private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void HystoryOfBuyForm_Load(System::Object^  sender, System::EventArgs^  e);
+private: void LoadData();
+private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, System::String^ str);
+private: System::Void AdvancedSearchButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void ShowAllEntrysButton_Click(System::Object^  sender, System::EventArgs^  e);
+
 };
 }

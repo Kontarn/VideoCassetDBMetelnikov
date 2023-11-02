@@ -103,7 +103,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System
 		sqlDA = gcnew SqlDataAdapter("SELECT FilmID AS Код, Film.Name AS Название, Genre.Name AS Жанр, YearOfRelease AS Премьера, \
 			FilmDirector AS Режиссер, Availability AS Наличие, Price AS Цена FROM Film \
 			INNER JOIN Genre ON Film.GenreID = Genre.GenreID \
-			WHERE Film.Name = @findFilm", sqlConn);
+			WHERE Film.Name LIKE CONCAT('%', @findFilm, '%')", sqlConn);
 		SqlParameter^ findFilm = gcnew SqlParameter();
 		findFilm->ParameterName = "@findFilm";
 		findFilm->Value = textBox1->Text;
