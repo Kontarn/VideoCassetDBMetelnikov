@@ -17,7 +17,7 @@ System::Void VideoCassetDBMetelnikov::HystoryAdvanedSearchForm::findButton_Click
 	}
 	if (FilmNameComboBox->Text->Length != 0) {
 		key[iKey++] = "Film.Name";
-		val[iVal++] = FilmNameComboBox->Text;
+		val[iVal++] = "'"+FilmNameComboBox->Text+"'";
 	}
 	if (TransactDateTimePicker->Text != "01.01.2020") {
 		key[iKey++] = "TransactDate";

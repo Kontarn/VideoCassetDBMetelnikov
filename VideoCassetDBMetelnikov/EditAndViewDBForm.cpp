@@ -70,12 +70,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::ExitButton_Click(System
 	Application::Exit();
 }
 
-System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::BackButton_Click(System::Object ^ sender, System::EventArgs ^ e)
-{
-	MenuForStaffForm^ form = gcnew MenuForStaffForm();
-	this->Hide();
-	form->Show();
-}
+
 
 //System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::UpdateButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 //{
@@ -235,4 +230,18 @@ void VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber(System::Object ^ s
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::SortButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	this->sortMethF->ShowDialog();
+}
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::èñòîğèÿÇàêàçîâToolStripMenuItem_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	HystoryOfBuyForm^ form = gcnew HystoryOfBuyForm();
+	form->Show();
+	this->Hide();
+}
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::toStartMenuBtn_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	StartMenuForm^ form = gcnew StartMenuForm();
+	form->Show();
+	this->Hide();
 }

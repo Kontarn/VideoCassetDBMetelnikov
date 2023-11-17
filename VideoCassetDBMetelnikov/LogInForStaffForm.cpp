@@ -9,7 +9,7 @@ System::Void VideoCassetDBMetelnikov::LogInForStaffForm::BackButton_Click(System
 
 System::Void VideoCassetDBMetelnikov::LogInForStaffForm::OkButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	MenuForStaffForm^ form = gcnew MenuForStaffForm();
-	this->Hide();
+	EditAndViewDBForm^ form = gcnew EditAndViewDBForm();
 	form->Show();
+	this->Hide();
 }

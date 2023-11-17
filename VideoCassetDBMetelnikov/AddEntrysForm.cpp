@@ -60,8 +60,9 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 		command.Parameters->AddWithValue("@availability", availability);
 		command.Parameters->AddWithValue("@price", price);
 		MessageBox::Show("Запись успешно добавлена, для того, что бы увидеть изменения, \
-			нажмите кнопку 'Отобразить'", "Ошибка", MessageBoxButtons::OK);
-		//command.Parameters->AddWithValue("@res", res);
+			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK);
+		
+		// command.Parameters->AddWithValue("@res", res);
 
 		command.ExecuteNonQuery();
 		//if (res = "0") {

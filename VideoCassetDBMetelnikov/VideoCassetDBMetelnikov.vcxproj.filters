@@ -9,7 +9,7 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Source Files\Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
@@ -22,9 +22,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EditAndViewDBForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuForStaffForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AddEntrysForm.cpp">
@@ -48,6 +45,18 @@
     <ClCompile Include="HystoryAdvanedSearchForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SignInForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RevievAndViewDBForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AdditionalInfoFilmForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AdvSearchUserForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartMenuForm.h">
@@ -57,9 +66,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EditAndViewDBForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuForStaffForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AddEntrysForm.h">
@@ -83,37 +89,67 @@
     <ClInclude Include="HystoryAdvanedSearchForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SignInForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RevievAndViewDBForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdvSearchUserForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdditionalInfoFilmForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="StartMenuForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForStaffForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForStaffForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEntrysForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="EditEntrysForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="SortMethodForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="AdvancedSearchForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="HystoryOfBuyForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="HystorySortMethodForm.resx">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HystoryAdvanedSearchForm.resx">
+      <Filter>Source Files\Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignInForm.resx">
+      <Filter>Source Files\Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForUserForm.resx">
+      <Filter>Source Files\Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevievAndViewDBForm.resx">
+      <Filter>Source Files\Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvSearchUserForm.resx">
+      <Filter>Source Files\Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdditionalInfoFilmForm.resx">
+      <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

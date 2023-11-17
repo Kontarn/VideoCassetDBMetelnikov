@@ -1,9 +1,11 @@
 #pragma once
-#include "MenuForStaffForm.h"
+
 #include "AddEntrysForm.h"
 #include "EditEntrysForm.h"
 #include "AdvancedSearchForm.h"
 #include "SortMethodForm.h"
+#include "HystoryOfBuyForm.h"
+#include "StartMenuForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -73,10 +75,16 @@ namespace VideoCassetDBMetelnikov {
 		
 
 	private: System::Windows::Forms::Button^  SortButton;
-	private: System::Windows::Forms::Button^  BackButton;
+	private: System::Windows::Forms::Button^  toStartMenuBtn;
+
 	private: System::Windows::Forms::Button^  ExitButton;
 	private: DataSet^ dataset;
 	private: System::Windows::Forms::Button^  EditEntryButton;
+	private: System::Windows::Forms::MenuStrip^  menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^  ÏÂÌ˛ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem;
 			 String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
 
 
@@ -96,11 +104,17 @@ namespace VideoCassetDBMetelnikov {
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->SortButton = (gcnew System::Windows::Forms::Button());
 			this->ShowAllEntrysButton = (gcnew System::Windows::Forms::Button());
-			this->BackButton = (gcnew System::Windows::Forms::Button());
+			this->toStartMenuBtn = (gcnew System::Windows::Forms::Button());
 			this->ExitButton = (gcnew System::Windows::Forms::Button());
 			this->EditEntryButton = (gcnew System::Windows::Forms::Button());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->ÏÂÌ˛ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -194,19 +208,19 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowAllEntrysButton->UseVisualStyleBackColor = true;
 			this->ShowAllEntrysButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ShowAllEntrysButton_Click);
 			// 
-			// BackButton
+			// toStartMenuBtn
 			// 
-			this->BackButton->Location = System::Drawing::Point(604, 621);
-			this->BackButton->Name = L"BackButton";
-			this->BackButton->Size = System::Drawing::Size(105, 41);
-			this->BackButton->TabIndex = 9;
-			this->BackButton->Text = L"Õ‡Á‡‰";
-			this->BackButton->UseVisualStyleBackColor = true;
-			this->BackButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::BackButton_Click);
+			this->toStartMenuBtn->Location = System::Drawing::Point(567, 621);
+			this->toStartMenuBtn->Name = L"toStartMenuBtn";
+			this->toStartMenuBtn->Size = System::Drawing::Size(142, 41);
+			this->toStartMenuBtn->TabIndex = 9;
+			this->toStartMenuBtn->Text = L"¬ „Î‡‚ÌÓÂ ÏÂÌ˛";
+			this->toStartMenuBtn->UseVisualStyleBackColor = true;
+			this->toStartMenuBtn->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::toStartMenuBtn_Click);
 			// 
 			// ExitButton
 			// 
-			this->ExitButton->Location = System::Drawing::Point(493, 621);
+			this->ExitButton->Location = System::Drawing::Point(456, 621);
 			this->ExitButton->Name = L"ExitButton";
 			this->ExitButton->Size = System::Drawing::Size(105, 41);
 			this->ExitButton->TabIndex = 10;
@@ -224,6 +238,45 @@ namespace VideoCassetDBMetelnikov {
 			this->EditEntryButton->UseVisualStyleBackColor = true;
 			this->EditEntryButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::EditEntryButton_Click);
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ÏÂÌ˛ToolStripMenuItem });
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(721, 28);
+			this->menuStrip1->TabIndex = 12;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// ÏÂÌ˛ToolStripMenuItem
+			// 
+			this->ÏÂÌ˛ToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem,
+					this->ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem, this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem
+			});
+			this->ÏÂÌ˛ToolStripMenuItem->Name = L"ÏÂÌ˛ToolStripMenuItem";
+			this->ÏÂÌ˛ToolStripMenuItem->Size = System::Drawing::Size(63, 24);
+			this->ÏÂÌ˛ToolStripMenuItem->Text = L"ÃÂÌ˛";
+			// 
+			// ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem
+			// 
+			this->ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem->Name = L"ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem";
+			this->ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem->Text = L"»ÒÚÓËˇ Á‡Í‡ÁÓ‚";
+			this->ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem_Click);
+			// 
+			// ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem
+			// 
+			this->ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem->Name = L"ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem";
+			this->ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->ÒÏÂÌËÚ¸ Ó‰ƒÓÒÚÛÔ‡ToolStripMenuItem->Text = L"—ÏÂÌËÚ¸ ÍÓ‰ ‰ÓÒÚÛÔ‡";
+			// 
+			// ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem
+			// 
+			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Name = L"‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem";
+			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Text = L"¬˚ıÓ‰ ËÁ ‡ÍÍ‡ÛÌÚ‡";
+			// 
 			// EditAndViewDBForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -231,7 +284,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ClientSize = System::Drawing::Size(721, 674);
 			this->Controls->Add(this->EditEntryButton);
 			this->Controls->Add(this->ExitButton);
-			this->Controls->Add(this->BackButton);
+			this->Controls->Add(this->toStartMenuBtn);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->AdvancedSearchButton);
 			this->Controls->Add(this->FindButton);
@@ -239,6 +292,8 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->DeleteButton);
 			this->Controls->Add(this->AddEntryButton);
 			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(739, 721);
 			this->MinimumSize = System::Drawing::Size(739, 721);
@@ -248,8 +303,11 @@ namespace VideoCassetDBMetelnikov {
 			this->Load += gcnew System::EventHandler(this, &EditAndViewDBForm::EditAndViewDBForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 
@@ -259,7 +317,6 @@ private: System::Void LoadData();
 //public: System::Void LoadData(System::String^ str);
 private: System::Void ReloadData();
 private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 //private: System::Void UpdateButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AddEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void FindButton_Click(System::Object^  sender, System::EventArgs^  e);
@@ -271,5 +328,7 @@ private: System::Void EditEntryButton_Click(System::Object^  sender, System::Eve
 private: System::Void AdvancedSearchButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, System::String^ str);
 private: System::Void SortButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void ËÒÚÓËˇ«‡Í‡ÁÓ‚ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void toStartMenuBtn_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

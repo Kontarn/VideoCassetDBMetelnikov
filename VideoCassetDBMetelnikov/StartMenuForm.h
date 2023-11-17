@@ -1,5 +1,6 @@
 #pragma once
 #include "LogInForStaffForm.h"
+#include "SignInForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -76,6 +77,7 @@ namespace VideoCassetDBMetelnikov {
 			this->LogInButton->TabIndex = 0;
 			this->LogInButton->Text = L"Âîéòè â àêêàóíò";
 			this->LogInButton->UseVisualStyleBackColor = true;
+			this->LogInButton->Click += gcnew System::EventHandler(this, &StartMenuForm::LogInButton_Click);
 			// 
 			// SignInButton
 			// 
@@ -115,7 +117,7 @@ namespace VideoCassetDBMetelnikov {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ïîìîùüToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(393, 28);
+			this->menuStrip1->Size = System::Drawing::Size(391, 28);
 			this->menuStrip1->TabIndex = 4;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -136,7 +138,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(393, 225);
+			this->ClientSize = System::Drawing::Size(391, 225);
 			this->Controls->Add(this->ExitButton);
 			this->Controls->Add(this->StaffButton);
 			this->Controls->Add(this->SignInButton);
@@ -158,5 +160,6 @@ namespace VideoCassetDBMetelnikov {
 
 private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void StaffButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void LogInButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

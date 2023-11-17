@@ -23,3 +23,10 @@ System::Void VideoCassetDBMetelnikov::StartMenuForm::StaffButton_Click(System::O
 	this->Hide();
 	form->Show();
 }
+
+System::Void VideoCassetDBMetelnikov::StartMenuForm::LogInButton_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	SignInForm^ form = gcnew SignInForm();
+	form->Show();
+	this->Hide();
+}

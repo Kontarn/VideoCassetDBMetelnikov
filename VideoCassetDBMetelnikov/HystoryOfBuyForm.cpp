@@ -7,12 +7,7 @@ System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::ExitButton_Click(System:
 	Application::Exit();
 }
 
-System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::BackButton_Click(System::Object ^ sender, System::EventArgs ^ e)
-{
-	MenuForStaffForm^ form = gcnew MenuForStaffForm();
-	form->Show();
-	this->Hide();
-}
+
 
 System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::HystoryOfBuyForm_Load(System::Object ^ sender, System::EventArgs ^ e)
 {
@@ -83,4 +78,18 @@ System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::AdvancedSearchButton_Cli
 System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::ShowAllEntrysButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	LoadData();
+}
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::toStartMenuBtn_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	StartMenuForm^ form = gcnew StartMenuForm();
+	form->Show();
+	this->Hide();
+}
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::ğåäàêòèğîâàíèåÁÄToolStripMenuItem_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	EditAndViewDBForm^ form = gcnew EditAndViewDBForm();
+	form->Show();
+	this->Hide();
 }

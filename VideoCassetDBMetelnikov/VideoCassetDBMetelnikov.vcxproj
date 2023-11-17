@@ -134,14 +134,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddEntrysForm.cpp" />
+    <ClCompile Include="AdditionalInfoFilmForm.cpp" />
     <ClCompile Include="AdvancedSearchForm.cpp" />
+    <ClCompile Include="AdvSearchUserForm.cpp" />
     <ClCompile Include="EditAndViewDBForm.cpp" />
     <ClCompile Include="EditEntrysForm.cpp" />
     <ClCompile Include="HystoryAdvanedSearchForm.cpp" />
     <ClCompile Include="HystoryOfBuyForm.cpp" />
     <ClCompile Include="HystorySortMethodForm.cpp" />
     <ClCompile Include="LogInForStaffForm.cpp" />
-    <ClCompile Include="MenuForStaffForm.cpp" />
+    <ClCompile Include="RevievAndViewDBForm.cpp" />
+    <ClCompile Include="SignInForm.cpp" />
     <ClCompile Include="SortMethodForm.cpp" />
     <ClCompile Include="StartMenuForm.cpp" />
   </ItemGroup>
@@ -149,7 +152,13 @@
     <ClInclude Include="AddEntrysForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="AdditionalInfoFilmForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AdvancedSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AdvSearchUserForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EditAndViewDBForm.h">
@@ -170,7 +179,10 @@
     <ClInclude Include="LogInForStaffForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MenuForStaffForm.h">
+    <ClInclude Include="RevievAndViewDBForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SignInForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SortMethodForm.h">
@@ -184,8 +196,14 @@
     <EmbeddedResource Include="AddEntrysForm.resx">
       <DependentUpon>AddEntrysForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdditionalInfoFilmForm.resx">
+      <DependentUpon>AdditionalInfoFilmForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdvancedSearchForm.resx">
       <DependentUpon>AdvancedSearchForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvSearchUserForm.resx">
+      <DependentUpon>AdvSearchUserForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
       <DependentUpon>EditAndViewDBForm.h</DependentUpon>
@@ -205,8 +223,11 @@
     <EmbeddedResource Include="LogInForStaffForm.resx">
       <DependentUpon>LogInForStaffForm.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuForStaffForm.resx">
-      <DependentUpon>MenuForStaffForm.h</DependentUpon>
+    <EmbeddedResource Include="RevievAndViewDBForm.resx">
+      <DependentUpon>RevievAndViewDBForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignInForm.resx">
+      <DependentUpon>SignInForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SortMethodForm.resx">
       <DependentUpon>SortMethodForm.h</DependentUpon>

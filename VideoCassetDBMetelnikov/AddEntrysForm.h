@@ -272,7 +272,7 @@ namespace VideoCassetDBMetelnikov {
 
 		}
 #pragma endregion
-	private: System::Void AddEntrysForm_Load(System::Object^  sender, System::EventArgs^  e);
+private: System::Void AddEntrysForm_Load(System::Object^  sender, System::EventArgs^  e);
 private: System::Void LoadCombo(); // Функция заполнения comboBox значениями таблицы Genre
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AddButton_Click(System::Object^  sender, System::EventArgs^  e);
