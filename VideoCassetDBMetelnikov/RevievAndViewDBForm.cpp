@@ -107,3 +107,10 @@ System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::ShwAllEntrsBtn_Click(
 	loadData();
 }
 
+System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::ëè÷íûéÊàáèíåòToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	UsrsPersonalAccForm^ form = gcnew UsrsPersonalAccForm(userID);
+	form->Show();
+	this->Hide();
+}
+

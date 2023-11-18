@@ -149,6 +149,7 @@
     <ClCompile Include="SignInForm.cpp" />
     <ClCompile Include="SortMethodForm.cpp" />
     <ClCompile Include="StartMenuForm.cpp" />
+    <ClCompile Include="UsrsPersonalAccForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddEntrysForm.h">
@@ -191,6 +192,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="StartMenuForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UsrsPersonalAccForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -236,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenuForm.resx">
       <DependentUpon>StartMenuForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsrsPersonalAccForm.resx">
+      <DependentUpon>UsrsPersonalAccForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -57,6 +57,9 @@
     <ClCompile Include="AdvSearchUserForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UsrsPersonalAccForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartMenuForm.h">
@@ -101,6 +104,9 @@
     <ClInclude Include="AdditionalInfoFilmForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UsrsPersonalAccForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="StartMenuForm.resx">
@@ -110,9 +116,6 @@
       <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
-      <Filter>Source Files\Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuForStaffForm.resx">
       <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEntrysForm.resx">
@@ -137,9 +140,6 @@
       <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="SignInForm.resx">
-      <Filter>Source Files\Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuForUserForm.resx">
       <Filter>Source Files\Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="RevievAndViewDBForm.resx">

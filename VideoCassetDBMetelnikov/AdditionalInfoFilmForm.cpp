@@ -22,7 +22,7 @@ System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::AdditionalInfoFilm
 	SqlDataAdapter^ sqlDA = gcnew SqlDataAdapter("SELECT * FROM getFilm(@filmID)", sqlConn);
 	SqlCommandBuilder^ sqlCmdBuild = gcnew SqlCommandBuilder(sqlDA);
 	dataSet = gcnew DataSet();
-	DataTable^ dataTable = gcnew DataTable();
+	//DataTable^ dataTable = gcnew DataTable();
 	SqlParameter^ SqlParFilmID = gcnew SqlParameter();
 	SqlParFilmID->ParameterName = "@filmID";
 	SqlParFilmID->Value = filmID;
