@@ -71,7 +71,7 @@ namespace VideoCassetDBMetelnikov {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 		SqlConnection^ sqlConn;
-		String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+		String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 		SqlDataAdapter^ sqlDA;
 		SqlCommandBuilder^ sqlBuild;
 		DataSet^ dataSet;

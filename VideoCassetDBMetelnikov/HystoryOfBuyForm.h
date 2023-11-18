@@ -21,7 +21,7 @@ namespace VideoCassetDBMetelnikov {
 	public ref class HystoryOfBuyForm : public System::Windows::Forms::Form
 	{
 	private:
-		String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+		String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 		SqlConnection^ sqlConn;
 		SqlCommandBuilder^ sqlBuild;
 		SqlDataAdapter^ sqlDA;

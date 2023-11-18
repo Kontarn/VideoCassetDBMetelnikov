@@ -17,6 +17,7 @@ namespace VideoCassetDBMetelnikov {
 	/// </summary>
 	public ref class SignInForm : public System::Windows::Forms::Form
 	{
+	private: String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 	public:
 		SignInForm(void)
 		{

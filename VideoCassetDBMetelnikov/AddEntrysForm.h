@@ -76,7 +76,7 @@ namespace VideoCassetDBMetelnikov {
 	private: SqlCommandBuilder^ sqlBuild;
 	private: SqlDataAdapter^ sqlDA;
 	private: DataSet^ dataset;
-	private: String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+	private: String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 
 #pragma region Windows Form Designer generated code
 		/// <summary>

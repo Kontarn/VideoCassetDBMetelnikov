@@ -3,7 +3,8 @@
 System::Void VideoCassetDBMetelnikov::SignInForm::SignInButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	/**/
-	String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+	
+	
 	SqlConnection^ sqlConn = gcnew SqlConnection(connString);
 	SqlCommand^ sqlCmd = gcnew SqlCommand();
 	sqlCmd->Connection = sqlConn;

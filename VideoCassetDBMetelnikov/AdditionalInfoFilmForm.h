@@ -18,7 +18,7 @@ namespace VideoCassetDBMetelnikov {
 	private:
 		String^ filmID;
 		String^ userID;
-		String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+		String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 		SqlConnection^ sqlConn;
 	private: System::Windows::Forms::Button^  leaveReviewBtn;
 	private: System::Windows::Forms::TextBox^  newReviewTxtBx;

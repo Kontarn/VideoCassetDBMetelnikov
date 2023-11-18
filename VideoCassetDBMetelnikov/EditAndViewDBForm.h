@@ -85,7 +85,7 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::ToolStripMenuItem^  èñòîğèÿÇàêàçîâToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  ñìåíèòüÊîäÄîñòóïàToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  âûõîäÈçÀêêàóíòàToolStripMenuItem;
-			 String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+			 String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 
 
 #pragma region Windows Form Designer generated code

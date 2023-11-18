@@ -22,7 +22,7 @@ namespace VideoCassetDBMetelnikov {
 	private:
 		String^ userID;
 		AdvSearchUserForm^ AdvSrchUsrF;
-		String^ connString = "Data Source=LAPTOP-P056EURT;Initial Catalog=VideoCassetDB;Integrated Security=True";
+		String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 		SqlConnection^ sqlConn;
 		SqlDataAdapter^ sqlDA;
 		SqlCommandBuilder^ sqlCmdBuild;
