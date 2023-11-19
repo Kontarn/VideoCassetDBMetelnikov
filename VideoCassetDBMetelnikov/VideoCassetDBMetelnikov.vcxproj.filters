@@ -63,6 +63,9 @@
     <ClCompile Include="UsersRegisterForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RentFilmCommentBoxForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartMenuForm.h">
@@ -111,6 +114,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UsersRegisterForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RentFilmCommentBoxForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

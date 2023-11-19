@@ -110,3 +110,9 @@ System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::toFavorBtn_Click(S
 	else
 		MessageBox::Show("Фильм уже присутствует в списке", "Внимание", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 }
+
+System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::rentFilmBtn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	RentFilmCommentBoxForm^ form = gcnew RentFilmCommentBoxForm(userID, filmID);
+	form->ShowDialog();
+}

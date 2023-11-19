@@ -1,5 +1,6 @@
 #pragma once
 #include "AdvSearchUserForm.h"
+#include "RentFilmCommentBoxForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -9,6 +10,7 @@ namespace VideoCassetDBMetelnikov {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Microsoft::VisualBasic;
 
 	/// <summary>
 	/// Summary for AdditionalInfoFilmForm
@@ -123,7 +125,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(24, 59);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(76, 17);
+			this->label2->Size = System::Drawing::Size(76, 16);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Название:";
 			// 
@@ -132,7 +134,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(24, 91);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(49, 17);
+			this->label3->Size = System::Drawing::Size(47, 16);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Жанр:";
 			// 
@@ -141,7 +143,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(24, 121);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(116, 17);
+			this->label4->Size = System::Drawing::Size(110, 16);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"Дата премьеры:";
 			// 
@@ -150,7 +152,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(24, 155);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(76, 17);
+			this->label5->Size = System::Drawing::Size(74, 16);
 			this->label5->TabIndex = 5;
 			this->label5->Text = L"Режиссёр:";
 			// 
@@ -159,7 +161,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(24, 193);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(140, 17);
+			this->label6->Size = System::Drawing::Size(136, 16);
 			this->label6->TabIndex = 6;
 			this->label6->Text = L"Наличие на складе:";
 			// 
@@ -168,7 +170,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(24, 229);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(47, 17);
+			this->label7->Size = System::Drawing::Size(43, 16);
 			this->label7->TabIndex = 7;
 			this->label7->Text = L"Цена:";
 			// 
@@ -190,6 +192,7 @@ namespace VideoCassetDBMetelnikov {
 			this->rentFilmBtn->TabIndex = 9;
 			this->rentFilmBtn->Text = L"Арендовать";
 			this->rentFilmBtn->UseVisualStyleBackColor = true;
+			this->rentFilmBtn->Click += gcnew System::EventHandler(this, &AdditionalInfoFilmForm::rentFilmBtn_Click);
 			// 
 			// toFavorBtn
 			// 
@@ -216,7 +219,7 @@ namespace VideoCassetDBMetelnikov {
 			this->filmNameLbl->AutoSize = true;
 			this->filmNameLbl->Location = System::Drawing::Point(179, 59);
 			this->filmNameLbl->Name = L"filmNameLbl";
-			this->filmNameLbl->Size = System::Drawing::Size(13, 17);
+			this->filmNameLbl->Size = System::Drawing::Size(11, 16);
 			this->filmNameLbl->TabIndex = 12;
 			this->filmNameLbl->Text = L"-";
 			// 
@@ -225,7 +228,7 @@ namespace VideoCassetDBMetelnikov {
 			this->gnrNameLbl->AutoSize = true;
 			this->gnrNameLbl->Location = System::Drawing::Point(179, 91);
 			this->gnrNameLbl->Name = L"gnrNameLbl";
-			this->gnrNameLbl->Size = System::Drawing::Size(13, 17);
+			this->gnrNameLbl->Size = System::Drawing::Size(11, 16);
 			this->gnrNameLbl->TabIndex = 13;
 			this->gnrNameLbl->Text = L"-";
 			// 
@@ -234,7 +237,7 @@ namespace VideoCassetDBMetelnikov {
 			this->yearOfRlslabel->AutoSize = true;
 			this->yearOfRlslabel->Location = System::Drawing::Point(179, 121);
 			this->yearOfRlslabel->Name = L"yearOfRlslabel";
-			this->yearOfRlslabel->Size = System::Drawing::Size(13, 17);
+			this->yearOfRlslabel->Size = System::Drawing::Size(11, 16);
 			this->yearOfRlslabel->TabIndex = 14;
 			this->yearOfRlslabel->Text = L"-";
 			// 
@@ -243,7 +246,7 @@ namespace VideoCassetDBMetelnikov {
 			this->dirFlmLabel->AutoSize = true;
 			this->dirFlmLabel->Location = System::Drawing::Point(179, 155);
 			this->dirFlmLabel->Name = L"dirFlmLabel";
-			this->dirFlmLabel->Size = System::Drawing::Size(13, 17);
+			this->dirFlmLabel->Size = System::Drawing::Size(11, 16);
 			this->dirFlmLabel->TabIndex = 15;
 			this->dirFlmLabel->Text = L"-";
 			// 
@@ -252,7 +255,7 @@ namespace VideoCassetDBMetelnikov {
 			this->availLabel->AutoSize = true;
 			this->availLabel->Location = System::Drawing::Point(179, 193);
 			this->availLabel->Name = L"availLabel";
-			this->availLabel->Size = System::Drawing::Size(13, 17);
+			this->availLabel->Size = System::Drawing::Size(11, 16);
 			this->availLabel->TabIndex = 16;
 			this->availLabel->Text = L"-";
 			// 
@@ -261,7 +264,7 @@ namespace VideoCassetDBMetelnikov {
 			this->priceLabel->AutoSize = true;
 			this->priceLabel->Location = System::Drawing::Point(179, 229);
 			this->priceLabel->Name = L"priceLabel";
-			this->priceLabel->Size = System::Drawing::Size(13, 17);
+			this->priceLabel->Size = System::Drawing::Size(11, 16);
 			this->priceLabel->TabIndex = 17;
 			this->priceLabel->Text = L"-";
 			// 
@@ -348,5 +351,6 @@ private: System::Void leaveReviewBtn_Click(System::Object^  sender, System::Even
 private: void loadReviewData();
 
 private: System::Void toFavorBtn_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void rentFilmBtn_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

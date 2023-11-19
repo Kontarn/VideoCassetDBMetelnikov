@@ -44,14 +44,16 @@ System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersRegisterBtn_Click(
     sqlConn->Open();
     sqlCmd->ExecuteNonQuery();
     sqlConn->Close();
-
-    if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "0") {
+    // if the result was executed correctly, then @res is equal to the created userID
+    if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) != "0") {
+        MessageBox::Show("Данные добавлены", "Успешно", MessageBoxButtons::OK);
+        RevievAndViewDBForm^ form = gcnew RevievAndViewDBForm(sqlCmd->Parameters["@res"]->Value->ToString());
+        form->Show();
+        this->Hide();
+    }
+    else {
         MessageBox::Show("Такой логин уже существует", "Ошибка", MessageBoxButtons::OK,
             MessageBoxIcon::Error);
         return;
-    }
-    else {
-        MessageBox::Show("Данные добавлены", "Успешно", MessageBoxButtons::OK);
-
     }
 }

@@ -145,6 +145,7 @@
     <ClCompile Include="HystoryOfBuyForm.cpp" />
     <ClCompile Include="HystorySortMethodForm.cpp" />
     <ClCompile Include="LogInForStaffForm.cpp" />
+    <ClCompile Include="RentFilmCommentBoxForm.cpp" />
     <ClCompile Include="RevievAndViewDBForm.cpp" />
     <ClCompile Include="SignInForm.cpp" />
     <ClCompile Include="SortMethodForm.cpp" />
@@ -181,6 +182,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LogInForStaffForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RentFilmCommentBoxForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="RevievAndViewDBForm.h">
@@ -232,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForStaffForm.resx">
       <DependentUpon>LogInForStaffForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentFilmCommentBoxForm.resx">
+      <DependentUpon>RentFilmCommentBoxForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RevievAndViewDBForm.resx">
       <DependentUpon>RevievAndViewDBForm.h</DependentUpon>

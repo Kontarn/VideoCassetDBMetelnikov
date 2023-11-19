@@ -18,6 +18,10 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::UsrsPersonalAccForm_L
     SqlCommand^ sqlCmd = gcnew SqlCommand("SELECT @nickname = usersLogin, @usersFio = FIO, @usersGender = Gender, \
         @usersBirthD = Birthday, @usersPhoneNum = PhoneNum FROM Client c \
         JOIN Passwords p ON c.ClientID = p.ClientID WHERE c.ClientID = @usersID", sqlConn);
+
+    SqlDataAdapter^ sqlDA = gcnew SqlDataAdapter("SELECT f.Name AS Фильм, TransactDate AS Дата_аренды, ReturnDate AS Дата_возврата, \
+        IIF(Remark IS NULL, '', Remark) AS Комментарий FROM History h JOIN Film f ON h.FilmID = f.FilmID \
+        WHERE ClientID = @userID", sqlConn);
     
     
     sqlCmd->Parameters->Add("@usersID", SqlDbType::Int);
@@ -43,17 +47,26 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::UsrsPersonalAccForm_L
     genderCmbBx->Text = sqlCmd->Parameters["@usersGender"]->Value->ToString();
     BirthdayfDtTmPckr->Text = sqlCmd->Parameters["@usersBirthD"]->Value->ToString();
     PhnNumTxtBx->Text = sqlCmd->Parameters["@usersPhoneNum"]->Value->ToString();
-    loadDataToDataGrid();
+    loadDataToFavoriteFilmsDtGrd();
     
+    SqlParameter^ ClientID = gcnew SqlParameter();
+    ClientID->ParameterName = "@userID";
+    ClientID->Value = this->userID;
+    sqlDA->SelectCommand->Parameters->Add(ClientID);
+    DataSet^ dataSet = gcnew DataSet();
+    sqlConn->Open();
+    sqlDA->Fill(dataSet, "History");
+    sqlConn->Close();
+    rentFilmsDtGrdView->DataSource = dataSet->Tables["History"];
 }
 
 System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::deleteFromFavoritesBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    if (dataGridView1->SelectedRows->Count != 1) {
+    if (favoriteMoviesDtGrdView->SelectedRows->Count != 1) {
         MessageBox::Show("Пожалуйста, выделите запись для удаления", "Ошибка");
         return;
     }
-    int indexLine = dataGridView1->SelectedRows[0]->Index;
+    int indexLine = favoriteMoviesDtGrdView->SelectedRows[0]->Index;
     sqlConn = gcnew SqlConnection(connString);
     SqlCommand^ sqlCmd = gcnew SqlCommand();
     sqlCmd->Connection = sqlConn;
@@ -63,11 +76,11 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::deleteFromFavoritesBt
 
     
     sqlCmd->Parameters->Add("@filmName", SqlDbType::VarChar, 30);
-    sqlCmd->Parameters["@filmName"]->Value = dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString();
+    sqlCmd->Parameters["@filmName"]->Value = favoriteMoviesDtGrdView->Rows[indexLine]->Cells[0]->Value->ToString();
     sqlCmd->Parameters->Add("@genre", SqlDbType::VarChar, 20);
-    sqlCmd->Parameters["@genre"]->Value = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();
+    sqlCmd->Parameters["@genre"]->Value = favoriteMoviesDtGrdView->Rows[indexLine]->Cells[1]->Value->ToString();
     sqlCmd->Parameters->Add("@yearOfRelease", SqlDbType::Int);
-    sqlCmd->Parameters["@yearOfRelease"]->Value = Convert::ToInt32(dataGridView1->Rows[indexLine]->Cells[2]->Value->ToString());
+    sqlCmd->Parameters["@yearOfRelease"]->Value = Convert::ToInt32(favoriteMoviesDtGrdView->Rows[indexLine]->Cells[2]->Value->ToString());
     sqlCmd->Parameters->Add("@userID", SqlDbType::Int);
     sqlCmd->Parameters["@userID"]->Value = Convert::ToInt32(userID);
 
@@ -75,10 +88,10 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::deleteFromFavoritesBt
     sqlCmd->ExecuteNonQuery();
     sqlConn->Close();
 
-    loadDataToDataGrid();
+    loadDataToFavoriteFilmsDtGrd();
 }
 
-void VideoCassetDBMetelnikov::UsrsPersonalAccForm::loadDataToDataGrid()
+void VideoCassetDBMetelnikov::UsrsPersonalAccForm::loadDataToFavoriteFilmsDtGrd()
 {
     SqlDataAdapter^ sqlDA = gcnew SqlDataAdapter("SELECT f.Name AS Фильм, g.Name AS Жанр, YearOfRelease AS Дата_премьеры, Price AS Цена, \
     Availability AS В_наличии FROM Favourites fav JOIN SostavEzbrannogo se ON fav.FavourID = se.FavourID \
@@ -92,7 +105,7 @@ void VideoCassetDBMetelnikov::UsrsPersonalAccForm::loadDataToDataGrid()
     sqlConn->Open();
     sqlDA->Fill(dataSet, "Favourites");
     sqlConn->Close();
-    dataGridView1->DataSource = dataSet->Tables["Favourites"];
+    favoriteMoviesDtGrdView->DataSource = dataSet->Tables["Favourites"];
 }
 
 System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsrsDataBtn_Click(System::Object^ sender, System::EventArgs^ e)
