@@ -102,9 +102,15 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsrsDataBtn_Click
         return;
     }
     sqlConn = gcnew SqlConnection(connString);
-    SqlCommand^ sqlCmd = gcnew SqlCommand("UPDATE Client SET FIO = @FIO, Gender = @gender, Birthday = @birthD, PhoneNum = @phoneNum \
-    WHERE ClientID = @userID", sqlConn);
 
+    SqlCommand^ sqlCmd = gcnew SqlCommand();
+    sqlCmd->Connection = sqlConn;
+
+    sqlCmd->CommandType = System::Data::CommandType::StoredProcedure;
+    sqlCmd->CommandText = "updateUsrsPersonalData";
+
+    sqlCmd->Parameters->Add("@login", SqlDbType::VarChar, 50);
+    sqlCmd->Parameters["@login"]->Value = usernameTxtBx->Text->ToString();
     sqlCmd->Parameters->Add("@FIO", SqlDbType::VarChar, 50);
     sqlCmd->Parameters["@FIO"]->Value = usersFioTxtBx->Text->ToString();
     sqlCmd->Parameters->Add("@gender", SqlDbType::VarChar, 1);
@@ -122,33 +128,59 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsrsDataBtn_Click
 
     MessageBox::Show("Данные изменены", "Успешно", MessageBoxButtons::OK);
 }
-//// Prohibition on entering numbers and other symbols except words in the textBox, 'BS', 'DEL' и '.'
-//// On ASCII: BS - 8, DEL - 127, point - 46
+// Prohibition on entering numbers and other symbols except words in the textBox, 'BS', 'DEL', '.' and 'space'
+// On ASCII: BS - 8, DEL - 127, point - 46
 System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::usersFioTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
 {
     if (!Char::IsLetter(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 46 && e->KeyChar != 127 && e->KeyChar != 32)
         e->Handled = true;
 }
-
+// Prohibition on entering words in the textBox, 'BS', 'DEL' и '.'
+// On ASCII: BS - 8, DEL - 127, point - 46
 System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::PhnNumTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
 {
     if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 46 && e->KeyChar != 127)
         e->Handled = true;
 }
 
-// prohibition - запрет
-// Prohibition on entering numbers in the textBox Name, and in the textBox Dir Film, prohibition for Dirfilm you can see in the header, 
-// in the corresponding blok
-//System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::NameTextBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
-//{
-//    if (Char::IsDigit(e->KeyChar))
-//        e->Handled = true;
-//}
-//// Prohibition on entering words in the textBox, 'BS', 'DEL' и '.'
-//// On ASCII: BS - 8, DEL - 127, point - 46
-//System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::YearOfReleaseTextBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
-//{
-//    if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 46 && e->KeyChar != 127)
-//        e->Handled = true;
-//}
+System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsersPassBtn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if(usersOldPasTxtBx->Text->Length == 0 && usersNewPassTxtBx->Text->Length == 0) {
+        MessageBox::Show("Пожалуйста, заполните укажите старый и новый пароль", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        return;
+    }
+
+    sqlConn = gcnew SqlConnection(connString);
+    SqlCommand^ sqlCmd = gcnew SqlCommand();
+    sqlCmd->Connection = sqlConn;
+
+    sqlCmd->CommandType = System::Data::CommandType::StoredProcedure;
+    sqlCmd->CommandText = "updateUsrsPassword";
+    
+    sqlCmd->Parameters->Add("@usersID", SqlDbType::Int);
+    sqlCmd->Parameters["@usersID"]->Value = Convert::ToInt32(userID);
+    sqlCmd->Parameters->Add("@oldPass", SqlDbType::VarChar, 30);
+    sqlCmd->Parameters["@oldPass"]->Value = usersOldPasTxtBx->Text->ToString();
+    sqlCmd->Parameters->Add("@newPass", SqlDbType::VarChar, 30);
+    sqlCmd->Parameters["@newPass"]->Value = usersNewPassTxtBx->Text->ToString();
+    sqlCmd->Parameters->Add("@res", SqlDbType::Int);
+    sqlCmd->Parameters["@res"]->Direction = ParameterDirection::Output;
+
+    sqlConn->Open();
+    sqlCmd->ExecuteNonQuery();
+    sqlConn->Close();
+
+    if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "1")
+        MessageBox::Show("Данные логина и пароля изменены", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+    else
+        MessageBox::Show("Ошибка старый пароль указан не верно", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+
+System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::выходИзАккаунтаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    SignInForm^ form = gcnew SignInForm();
+    form->Show();
+    this->Hide();
+}
+
 

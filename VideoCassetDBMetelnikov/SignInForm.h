@@ -1,6 +1,7 @@
 #pragma once
 #include "StartMenuForm.h"
 #include "RevievAndViewDBForm.h"
+#include "UsersRegisterForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -84,7 +85,7 @@ namespace VideoCassetDBMetelnikov {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(24, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(181, 29);
+			this->label1->Size = System::Drawing::Size(179, 29);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Вход в аккаунт";
 			// 
@@ -93,7 +94,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(16, 62);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(47, 17);
+			this->label2->Size = System::Drawing::Size(46, 16);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Логин";
 			// 
@@ -116,7 +117,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(16, 108);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(57, 17);
+			this->label3->Size = System::Drawing::Size(56, 16);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Пароль";
 			// 
@@ -148,6 +149,7 @@ namespace VideoCassetDBMetelnikov {
 			this->RegistrationButton->TabIndex = 17;
 			this->RegistrationButton->Text = L"Регистрация";
 			this->RegistrationButton->UseVisualStyleBackColor = true;
+			this->RegistrationButton->Click += gcnew System::EventHandler(this, &SignInForm::RegistrationButton_Click);
 			// 
 			// SignInForm
 			// 
@@ -174,5 +176,6 @@ namespace VideoCassetDBMetelnikov {
 #pragma endregion
 private: System::Void SignInButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void RegistrationButton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -60,6 +60,9 @@
     <ClCompile Include="UsrsPersonalAccForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UsersRegisterForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartMenuForm.h">
@@ -105,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UsrsPersonalAccForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersRegisterForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

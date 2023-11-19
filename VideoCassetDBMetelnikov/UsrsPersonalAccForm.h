@@ -1,5 +1,6 @@
 #pragma once
 #include "RevievAndViewDBForm.h"
+#include "SignInForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -19,8 +20,12 @@ namespace VideoCassetDBMetelnikov {
 	private: String^ userID;
 	private: String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::TextBox^ usersPasTxtBx;
+	private: System::Windows::Forms::TextBox^ usersOldPasTxtBx;
+
 	private: System::Windows::Forms::Button^ editUsersPassBtn;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::TextBox^ usersNewPassTxtBx;
+
 	private: SqlConnection^ sqlConn;
 	public:
 		UsrsPersonalAccForm(String^ userID) : userID(userID)
@@ -113,8 +118,10 @@ namespace VideoCassetDBMetelnikov {
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->usersPasTxtBx = (gcnew System::Windows::Forms::TextBox());
+			this->usersOldPasTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->editUsersPassBtn = (gcnew System::Windows::Forms::Button());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->usersNewPassTxtBx = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -123,7 +130,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->label1->Location = System::Drawing::Point(166, 26);
+			this->label1->Location = System::Drawing::Point(168, 28);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(205, 29);
 			this->label1->TabIndex = 0;
@@ -132,7 +139,7 @@ namespace VideoCassetDBMetelnikov {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(337, 85);
+			this->label2->Location = System::Drawing::Point(342, 57);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(46, 16);
 			this->label2->TabIndex = 1;
@@ -149,7 +156,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// usernameTxtBx
 			// 
-			this->usernameTxtBx->Location = System::Drawing::Point(340, 104);
+			this->usernameTxtBx->Location = System::Drawing::Point(345, 73);
 			this->usernameTxtBx->Name = L"usernameTxtBx";
 			this->usernameTxtBx->Size = System::Drawing::Size(189, 22);
 			this->usernameTxtBx->TabIndex = 4;
@@ -174,7 +181,7 @@ namespace VideoCassetDBMetelnikov {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(12, 137);
+			this->label5->Location = System::Drawing::Point(12, 143);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(109, 16);
 			this->label5->TabIndex = 8;
@@ -182,14 +189,14 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// BirthdayfDtTmPckr
 			// 
-			this->BirthdayfDtTmPckr->Location = System::Drawing::Point(147, 132);
+			this->BirthdayfDtTmPckr->Location = System::Drawing::Point(147, 138);
 			this->BirthdayfDtTmPckr->Name = L"BirthdayfDtTmPckr";
 			this->BirthdayfDtTmPckr->Size = System::Drawing::Size(169, 22);
 			this->BirthdayfDtTmPckr->TabIndex = 9;
 			// 
 			// PhnNumTxtBx
 			// 
-			this->PhnNumTxtBx->Location = System::Drawing::Point(147, 164);
+			this->PhnNumTxtBx->Location = System::Drawing::Point(147, 173);
 			this->PhnNumTxtBx->Name = L"PhnNumTxtBx";
 			this->PhnNumTxtBx->Size = System::Drawing::Size(169, 22);
 			this->PhnNumTxtBx->TabIndex = 10;
@@ -198,7 +205,7 @@ namespace VideoCassetDBMetelnikov {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(12, 164);
+			this->label6->Location = System::Drawing::Point(12, 176);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(122, 16);
 			this->label6->TabIndex = 11;
@@ -216,7 +223,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// editUsrsDataBtn
 			// 
-			this->editUsrsDataBtn->Location = System::Drawing::Point(15, 198);
+			this->editUsrsDataBtn->Location = System::Drawing::Point(16, 214);
 			this->editUsrsDataBtn->Name = L"editUsrsDataBtn";
 			this->editUsrsDataBtn->Size = System::Drawing::Size(198, 43);
 			this->editUsrsDataBtn->TabIndex = 13;
@@ -228,7 +235,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
-			this->label7->Location = System::Drawing::Point(12, 257);
+			this->label7->Location = System::Drawing::Point(12, 280);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(176, 20);
 			this->label7->TabIndex = 14;
@@ -237,11 +244,11 @@ namespace VideoCassetDBMetelnikov {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(15, 280);
+			this->dataGridView1->Location = System::Drawing::Point(15, 303);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(514, 251);
+			this->dataGridView1->Size = System::Drawing::Size(514, 228);
 			this->dataGridView1->TabIndex = 15;
 			// 
 			// deleteFromFavoritesBtn
@@ -287,48 +294,68 @@ namespace VideoCassetDBMetelnikov {
 			// Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem
 			// 
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Name = L"Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem";
-			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Size = System::Drawing::Size(220, 26);
+			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Text = L" ‡Ú‡ÎÓ„ ÙËÎ¸ÏÓ‚";
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Click += gcnew System::EventHandler(this, &UsrsPersonalAccForm::Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem_Click);
 			// 
 			// ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem
 			// 
 			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Name = L"‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem";
-			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Size = System::Drawing::Size(220, 26);
+			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Text = L"¬˚ıÓ‰ ËÁ ‡ÍÍ‡ÛÌÚ‡";
+			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Click += gcnew System::EventHandler(this, &UsrsPersonalAccForm::‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem_Click);
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(337, 145);
+			this->label8->Location = System::Drawing::Point(342, 110);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(166, 16);
 			this->label8->TabIndex = 20;
 			this->label8->Text = L"¬‚Â‰ËÚÂ ÒÚ‡˚È Ô‡ÓÎ¸:";
 			// 
-			// usersPasTxtBx
+			// usersOldPasTxtBx
 			// 
-			this->usersPasTxtBx->Location = System::Drawing::Point(340, 164);
-			this->usersPasTxtBx->Name = L"usersPasTxtBx";
-			this->usersPasTxtBx->Size = System::Drawing::Size(189, 22);
-			this->usersPasTxtBx->TabIndex = 21;
+			this->usersOldPasTxtBx->Location = System::Drawing::Point(345, 129);
+			this->usersOldPasTxtBx->Name = L"usersOldPasTxtBx";
+			this->usersOldPasTxtBx->Size = System::Drawing::Size(184, 22);
+			this->usersOldPasTxtBx->TabIndex = 21;
 			// 
 			// editUsersPassBtn
 			// 
-			this->editUsersPassBtn->Location = System::Drawing::Point(340, 198);
+			this->editUsersPassBtn->Location = System::Drawing::Point(345, 214);
 			this->editUsersPassBtn->Name = L"editUsersPassBtn";
 			this->editUsersPassBtn->Size = System::Drawing::Size(189, 43);
 			this->editUsersPassBtn->TabIndex = 22;
-			this->editUsersPassBtn->Text = L"»ÁÏÂÌËÚ¸ ÎÓ„ËÌ ËÎË Ô‡ÓÎ¸";
+			this->editUsersPassBtn->Text = L"»ÁÏÂÌËÚ¸ Ô‡ÓÎ¸";
 			this->editUsersPassBtn->UseVisualStyleBackColor = true;
+			this->editUsersPassBtn->Click += gcnew System::EventHandler(this, &UsrsPersonalAccForm::editUsersPassBtn_Click);
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(342, 154);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(157, 16);
+			this->label9->TabIndex = 23;
+			this->label9->Text = L"¬‚Â‰ËÚÂ ÌÓ‚˚È Ô‡ÓÎ¸";
+			// 
+			// usersNewPassTxtBx
+			// 
+			this->usersNewPassTxtBx->Location = System::Drawing::Point(345, 173);
+			this->usersNewPassTxtBx->Name = L"usersNewPassTxtBx";
+			this->usersNewPassTxtBx->Size = System::Drawing::Size(184, 22);
+			this->usersNewPassTxtBx->TabIndex = 24;
 			// 
 			// UsrsPersonalAccForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(546, 613);
+			this->Controls->Add(this->usersNewPassTxtBx);
+			this->Controls->Add(this->label9);
 			this->Controls->Add(this->editUsersPassBtn);
-			this->Controls->Add(this->usersPasTxtBx);
+			this->Controls->Add(this->usersOldPasTxtBx);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->ExitBtn);
 			this->Controls->Add(this->deleteFromFavoritesBtn);
@@ -371,5 +398,7 @@ private: void loadDataToDataGrid();
 private: System::Void editUsrsDataBtn_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void usersFioTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 private: System::Void PhnNumTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+private: System::Void editUsersPassBtn_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

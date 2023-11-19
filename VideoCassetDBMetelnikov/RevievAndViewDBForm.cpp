@@ -114,3 +114,10 @@ System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::ëè÷íûéÊàáèíåòToolStri
 	this->Hide();
 }
 
+System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	SignInForm^ form = gcnew SignInForm();
+	form->Show();
+	this->Hide();
+}
+

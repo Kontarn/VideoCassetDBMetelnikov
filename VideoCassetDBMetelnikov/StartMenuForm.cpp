@@ -30,3 +30,10 @@ System::Void VideoCassetDBMetelnikov::StartMenuForm::LogInButton_Click(System::O
 	form->Show();
 	this->Hide();
 }
+
+System::Void VideoCassetDBMetelnikov::StartMenuForm::SignInButton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	usersRegisterForm^ form = gcnew usersRegisterForm();
+	form->Show();
+	this->Hide();
+}

@@ -1,5 +1,6 @@
 #include "SignInForm.h"
 
+
 System::Void VideoCassetDBMetelnikov::SignInForm::SignInButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	/**/
@@ -40,6 +41,13 @@ System::Void VideoCassetDBMetelnikov::SignInForm::SignInButton_Click(System::Obj
 System::Void VideoCassetDBMetelnikov::SignInForm::BackButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	StartMenuForm^ form = gcnew StartMenuForm();
+	form->Show();
+	this->Hide();
+}
+
+System::Void VideoCassetDBMetelnikov::SignInForm::RegistrationButton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	usersRegisterForm^ form = gcnew usersRegisterForm();
 	form->Show();
 	this->Hide();
 }
