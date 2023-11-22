@@ -70,12 +70,12 @@ System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::FindToDBButton_Click(
 
 System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::MoreInfoAboutFilmButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	if (dataGridView1->SelectedRows->Count != 1) {
+	/*if (dataGridView1->SelectedRows->Count != 1) {
 		MessageBox::Show("Пожалуйста, для отображения дополнительной информации о фильме, выделите одну строку", "Ошибка", MessageBoxButtons::OK);
 		return;
-	}
+	}*/
 	sqlConn = gcnew SqlConnection(connString);
-	int indexLine = dataGridView1->SelectedRows[0]->Index;
+	int indexLine = dataGridView1->CurrentCell->RowIndex;
 	if (dataGridView1->Rows[indexLine]->Cells[0]->Value != nullptr) {
 		String^ filmName = dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString();
 		//String^ genreID = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();

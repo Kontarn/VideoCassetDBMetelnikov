@@ -43,6 +43,17 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 			"Внимание", MessageBoxButtons::OK);
 		return;
 	}
+	// Получаем текущий год
+	time_t seconds = time(NULL);
+	timeInfo = localtime(&seconds);
+	
+	int nowYear = timeInfo->tm_year + 1900;
+	
+	int yrOfRls = Convert::ToInt64(yearOfRelease);
+	if (yrOfRls > nowYear || yrOfRls < 1900) {
+		MessageBox::Show("Дату премьеры можно вводить от 1900 до текущего года", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
 	try
 	{
 		sqlConn = gcnew SqlConnection(connString);
@@ -59,17 +70,28 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 		command.Parameters->AddWithValue("@yearOfRelease", yearOfRelease);
 		command.Parameters->AddWithValue("@availability", availability);
 		command.Parameters->AddWithValue("@price", price);
-		MessageBox::Show("Запись успешно добавлена, для того, что бы увидеть изменения, \
-			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK);
+		
+		
 		
 		// command.Parameters->AddWithValue("@res", res);
-
-		command.ExecuteNonQuery();
+		try
+		{
+			command.ExecuteNonQuery();
+			MessageBox::Show("Запись успешно добавлена, для того, что бы увидеть изменения, \
+			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK);
+			this->Hide();
+		}
+		catch (const Exception^ ex)
+		{
+			MessageBox::Show("Ошибка добавления записи. \n Фильм указанного режиссёра уже существует в базе", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Hide();
+		}
+		
 		//if (res = "0") {
 		//	MessageBox::Show("Данная запись уже добавлена", "Ошибка", MessageBoxButtons::OK);
 		//	return;
 		//}
-		this->Hide();
+		
 	}
 	catch (const Exception^ ex)
 	{

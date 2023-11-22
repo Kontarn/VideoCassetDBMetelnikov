@@ -152,7 +152,7 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::usersFioTxtBx_KeyPres
 // On ASCII: BS - 8, DEL - 127, point - 46
 System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::PhnNumTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
 {
-    if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 46 && e->KeyChar != 127)
+    if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 127 && e->KeyChar != 43)
         e->Handled = true;
 }
 
@@ -184,7 +184,7 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsersPassBtn_Clic
     sqlConn->Close();
 
     if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "1")
-        MessageBox::Show("Данные логина и пароля изменены", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        MessageBox::Show("Пароль изменен", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
     else
         MessageBox::Show("Ошибка старый пароль указан не верно", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }

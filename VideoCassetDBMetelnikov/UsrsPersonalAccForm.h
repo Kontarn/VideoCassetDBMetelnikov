@@ -28,6 +28,7 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::DataGridView^ rentFilmsDtGrdView;
 
 	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::MaskedTextBox^ PhnNumTxtBx;
 
 	private: SqlConnection^ sqlConn;
 	public:
@@ -63,7 +64,7 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::DateTimePicker^ BirthdayfDtTmPckr;
-	private: System::Windows::Forms::TextBox^ PhnNumTxtBx;
+
 
 
 	private: System::Windows::Forms::Label^ label6;
@@ -109,7 +110,6 @@ namespace VideoCassetDBMetelnikov {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->BirthdayfDtTmPckr = (gcnew System::Windows::Forms::DateTimePicker());
-			this->PhnNumTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->colorDialog1 = (gcnew System::Windows::Forms::ColorDialog());
 			this->genderCmbBx = (gcnew System::Windows::Forms::ComboBox());
@@ -129,6 +129,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersNewPassTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->rentFilmsDtGrdView = (gcnew System::Windows::Forms::DataGridView());
 			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->PhnNumTxtBx = (gcnew System::Windows::Forms::MaskedTextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->favoriteMoviesDtGrdView))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->rentFilmsDtGrdView))->BeginInit();
@@ -201,14 +202,6 @@ namespace VideoCassetDBMetelnikov {
 			this->BirthdayfDtTmPckr->Name = L"BirthdayfDtTmPckr";
 			this->BirthdayfDtTmPckr->Size = System::Drawing::Size(169, 22);
 			this->BirthdayfDtTmPckr->TabIndex = 9;
-			// 
-			// PhnNumTxtBx
-			// 
-			this->PhnNumTxtBx->Location = System::Drawing::Point(147, 173);
-			this->PhnNumTxtBx->Name = L"PhnNumTxtBx";
-			this->PhnNumTxtBx->Size = System::Drawing::Size(169, 22);
-			this->PhnNumTxtBx->TabIndex = 10;
-			this->PhnNumTxtBx->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &UsrsPersonalAccForm::PhnNumTxtBx_KeyPress);
 			// 
 			// label6
 			// 
@@ -378,11 +371,20 @@ namespace VideoCassetDBMetelnikov {
 			this->label10->TabIndex = 26;
 			this->label10->Text = L"Фильмы взятые в аренду";
 			// 
+			// PhnNumTxtBx
+			// 
+			this->PhnNumTxtBx->Location = System::Drawing::Point(147, 170);
+			this->PhnNumTxtBx->Mask = L"+9(999)999-99-99";
+			this->PhnNumTxtBx->Name = L"PhnNumTxtBx";
+			this->PhnNumTxtBx->Size = System::Drawing::Size(120, 22);
+			this->PhnNumTxtBx->TabIndex = 27;
+			// 
 			// UsrsPersonalAccForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1268, 613);
+			this->Controls->Add(this->PhnNumTxtBx);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->rentFilmsDtGrdView);
 			this->Controls->Add(this->usersNewPassTxtBx);
@@ -397,7 +399,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->editUsrsDataBtn);
 			this->Controls->Add(this->genderCmbBx);
 			this->Controls->Add(this->label6);
-			this->Controls->Add(this->PhnNumTxtBx);
 			this->Controls->Add(this->BirthdayfDtTmPckr);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);

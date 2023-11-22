@@ -14,11 +14,13 @@ System::Void VideoCassetDBMetelnikov::usersRegisterForm::BackBtn_Click(System::O
 
 System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersRegisterBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    if (usersFioTxtBx->Text->Length == 0 && usernameTxtBx->Text->Length == 0 && usersPassTxtBx->Text->Length == 0) {
-        MessageBox::Show("Пожалуйста, заполните все обязательные поля(ФИО, логин и пароль)", "Ошибка", MessageBoxButtons::OK,
+    if (usersFioTxtBx->Text->Length == 0 || usernameTxtBx->Text->Length == 0 || usersPassTxtBx->Text->Length == 0 
+        || usersGenderCmbBx->Text->Length == 0 || usersPhoneBTxtBx->Text->Length == 0 || usersBirthDayDtTmPckr->Text->Length == 0) {
+        MessageBox::Show("Пожалуйста, заполните все обязательные поля", "Ошибка", MessageBoxButtons::OK,
             MessageBoxIcon::Error);
         return;
     }
+   
     sqlConn = gcnew SqlConnection(connString);
     SqlCommand^ sqlCmd = gcnew SqlCommand();
     sqlCmd->Connection = sqlConn;
@@ -45,15 +47,38 @@ System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersRegisterBtn_Click(
     sqlCmd->ExecuteNonQuery();
     sqlConn->Close();
     // if the result was executed correctly, then @res is equal to the created userID
-    if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) != "0") {
+
+    if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "0") {
+        MessageBox::Show("Такой логин уже существует", "Ошибка", MessageBoxButtons::OK,
+            MessageBoxIcon::Error);
+        return;
+    }
+    else if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "-1") {
+        MessageBox::Show("Такой номер телефона уже зарегистрирован", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        return;
+    }
+    else {
         MessageBox::Show("Данные добавлены", "Успешно", MessageBoxButtons::OK);
         RevievAndViewDBForm^ form = gcnew RevievAndViewDBForm(sqlCmd->Parameters["@res"]->Value->ToString());
         form->Show();
         this->Hide();
     }
-    else {
-        MessageBox::Show("Такой логин уже существует", "Ошибка", MessageBoxButtons::OK,
-            MessageBoxIcon::Error);
-        return;
-    }
+}
+
+System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersRegisterForm_Load(System::Object^ sender, System::EventArgs^ e)
+{
+    this->usersBirthDayDtTmPckr->MaxDate = DateTime::Now;
+
+}
+
+System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersFioTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (!Char::IsLetter(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 46 && e->KeyChar != 127 && e->KeyChar != 32)
+        e->Handled = true;
+}
+
+System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersPhoneBTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 127 && e->KeyChar != 43)
+        e->Handled = true;
 }

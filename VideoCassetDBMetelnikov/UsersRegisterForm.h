@@ -19,6 +19,8 @@ namespace VideoCassetDBMetelnikov {
 	private: String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::TextBox^ usersPassTxtBx;
+	private: System::Windows::Forms::TextBox^ usersPhoneBTxtBx;
+
 
 	private: SqlConnection^ sqlConn;
 	public:
@@ -50,7 +52,7 @@ namespace VideoCassetDBMetelnikov {
 
 
 
-	private: System::Windows::Forms::TextBox^ usersPhoneBTxtBx;
+
 
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ usernameTxtBx;
@@ -86,7 +88,6 @@ namespace VideoCassetDBMetelnikov {
 			this->usersFioTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->usersPhoneBTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->usernameTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -97,6 +98,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersBirthDayDtTmPckr = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->usersPassTxtBx = (gcnew System::Windows::Forms::TextBox());
+			this->usersPhoneBTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -124,6 +126,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersFioTxtBx->Name = L"usersFioTxtBx";
 			this->usersFioTxtBx->Size = System::Drawing::Size(216, 22);
 			this->usersFioTxtBx->TabIndex = 2;
+			this->usersFioTxtBx->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &usersRegisterForm::usersFioTxtBx_KeyPress);
 			// 
 			// label3
 			// 
@@ -142,13 +145,6 @@ namespace VideoCassetDBMetelnikov {
 			this->label4->Size = System::Drawing::Size(109, 16);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"Дата рождения:";
-			// 
-			// usersPhoneBTxtBx
-			// 
-			this->usersPhoneBTxtBx->Location = System::Drawing::Point(154, 234);
-			this->usersPhoneBTxtBx->Name = L"usersPhoneBTxtBx";
-			this->usersPhoneBTxtBx->Size = System::Drawing::Size(216, 22);
-			this->usersPhoneBTxtBx->TabIndex = 8;
 			// 
 			// label5
 			// 
@@ -218,6 +214,7 @@ namespace VideoCassetDBMetelnikov {
 			// usersBirthDayDtTmPckr
 			// 
 			this->usersBirthDayDtTmPckr->Location = System::Drawing::Point(154, 194);
+			this->usersBirthDayDtTmPckr->MinDate = System::DateTime(1900, 1, 1, 0, 0, 0, 0);
 			this->usersBirthDayDtTmPckr->Name = L"usersBirthDayDtTmPckr";
 			this->usersBirthDayDtTmPckr->Size = System::Drawing::Size(215, 22);
 			this->usersBirthDayDtTmPckr->TabIndex = 15;
@@ -238,11 +235,20 @@ namespace VideoCassetDBMetelnikov {
 			this->usersPassTxtBx->Size = System::Drawing::Size(215, 22);
 			this->usersPassTxtBx->TabIndex = 17;
 			// 
+			// usersPhoneBTxtBx
+			// 
+			this->usersPhoneBTxtBx->Location = System::Drawing::Point(154, 234);
+			this->usersPhoneBTxtBx->Name = L"usersPhoneBTxtBx";
+			this->usersPhoneBTxtBx->Size = System::Drawing::Size(215, 22);
+			this->usersPhoneBTxtBx->TabIndex = 18;
+			this->usersPhoneBTxtBx->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &usersRegisterForm::usersPhoneBTxtBx_KeyPress);
+			// 
 			// usersRegisterForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(395, 377);
+			this->Controls->Add(this->usersPhoneBTxtBx);
 			this->Controls->Add(this->usersPassTxtBx);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->usersBirthDayDtTmPckr);
@@ -252,7 +258,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->usersRegisterBtn);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->usernameTxtBx);
-			this->Controls->Add(this->usersPhoneBTxtBx);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -265,6 +270,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"usersRegisterForm";
+			this->Load += gcnew System::EventHandler(this, &usersRegisterForm::usersRegisterForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -274,5 +280,8 @@ namespace VideoCassetDBMetelnikov {
 private: System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void BackBtn_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void usersRegisterBtn_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void usersRegisterForm_Load(System::Object^ sender, System::EventArgs^ e);
+private: System::Void usersFioTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+private: System::Void usersPhoneBTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 };
 }

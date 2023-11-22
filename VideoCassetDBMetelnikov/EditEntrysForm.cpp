@@ -33,7 +33,17 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 	String^ dirFilm = filmDirTextBox->Text;
 	String^ availability = availTextBox->Text;
 	String^ price = priceTextBox->Text;
+	// Получаем текущий год
+	time_t seconds = time(NULL);
+	timeInfo = localtime(&seconds);
 
+	int nowYear = timeInfo->tm_year + 1900;
+
+	int yrOfRls = Convert::ToInt64(yearOfRelease);
+	if (yrOfRls > nowYear || yrOfRls < 1900) {
+		MessageBox::Show("Дату премьеры можно вводить от 1900 до текущего года", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
 	try
 	{
 		SqlConnection SqlConn(connString);
@@ -51,11 +61,20 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 		command.Parameters->AddWithValue("@availability", availability);
 		command.Parameters->AddWithValue("@price", price);
 		
-
-		command.ExecuteNonQuery();
-		MessageBox::Show("Запись успешно изменена, для того, что бы увидеть изменения на, \n \
-			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK);
-		this->Hide();
+		try
+		{
+			command.ExecuteNonQuery();
+			MessageBox::Show("Запись успешно изменена, для того, что бы увидеть изменения, \n \
+			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			this->Hide();
+		}
+		catch (const Exception^ ex)
+		{
+			MessageBox::Show("Ошибка изменения записи. \n Фильм указанного режиссёра уже добавлен в базу", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Hide();
+		}
+		
+		
 	}
 	catch (const Exception^ ex)
 	{
@@ -64,14 +83,16 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 	
 }
 
-System::Void VideoCassetDBMetelnikov::EditEntrysForm::nameFilmTextBox_KeyPress(System::Object ^ sender, System::Windows::Forms::KeyPressEventArgs ^ e)
-{
-	if (Char::IsDigit(e->KeyChar))
-		e->Handled = true;
-}
+
 
 System::Void VideoCassetDBMetelnikov::EditEntrysForm::yearOfReleaseTextBox_KeyPress(System::Object ^ sender, System::Windows::Forms::KeyPressEventArgs ^ e)
 {
 	if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 46 && e->KeyChar != 127)
+		e->Handled = true;
+}
+
+System::Void VideoCassetDBMetelnikov::EditEntrysForm::genreComboBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+	if (Char::IsDigit(e->KeyChar))
 		e->Handled = true;
 }

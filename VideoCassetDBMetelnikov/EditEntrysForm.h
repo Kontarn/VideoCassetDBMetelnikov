@@ -19,8 +19,8 @@ namespace VideoCassetDBMetelnikov {
 	//private:
 	//	String^ nameFilm, nameGenre, yearOfRelease,
 	//		filmDir, availability, price;
-	private:
-		String^ filmID;
+	private:String^ filmID;
+	private: tm* timeInfo;
 	public:
 		EditEntrysForm(String^ filmID, String^ nameFilm, String^ nameGenre, String^ yearOfRelease,
 			String^ filmDir, String^ availability, String^ price)
@@ -45,6 +45,7 @@ namespace VideoCassetDBMetelnikov {
 			{
 				delete components;
 			}
+			delete timeInfo;
 		}
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::TextBox^  nameFilmTextBox;
@@ -124,14 +125,13 @@ namespace VideoCassetDBMetelnikov {
 			this->nameFilmTextBox->Name = L"nameFilmTextBox";
 			this->nameFilmTextBox->Size = System::Drawing::Size(306, 22);
 			this->nameFilmTextBox->TabIndex = 1;
-			this->nameFilmTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EditEntrysForm::nameFilmTextBox_KeyPress);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(11, 52);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(72, 17);
+			this->label2->Size = System::Drawing::Size(73, 16);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Название";
 			// 
@@ -140,7 +140,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(11, 164);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(43, 17);
+			this->label3->Size = System::Drawing::Size(40, 16);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Цена";
 			// 
@@ -149,7 +149,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(347, 112);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(86, 17);
+			this->label4->Size = System::Drawing::Size(85, 16);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"Количество";
 			// 
@@ -158,7 +158,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(122, 112);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(72, 17);
+			this->label5->Size = System::Drawing::Size(71, 16);
 			this->label5->TabIndex = 5;
 			this->label5->Text = L"Режиссёр";
 			// 
@@ -167,7 +167,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(11, 112);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(102, 17);
+			this->label6->Size = System::Drawing::Size(98, 16);
 			this->label6->TabIndex = 6;
 			this->label6->Text = L"Год премьеры";
 			// 
@@ -176,7 +176,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(323, 52);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(45, 17);
+			this->label7->Size = System::Drawing::Size(44, 16);
 			this->label7->TabIndex = 7;
 			this->label7->Text = L"Жанр";
 			// 
@@ -194,7 +194,7 @@ namespace VideoCassetDBMetelnikov {
 			this->filmDirTextBox->Name = L"filmDirTextBox";
 			this->filmDirTextBox->Size = System::Drawing::Size(210, 22);
 			this->filmDirTextBox->TabIndex = 9;
-			this->filmDirTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EditEntrysForm::nameFilmTextBox_KeyPress);
+			this->filmDirTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EditEntrysForm::genreComboBox_KeyPress);
 			// 
 			// yearOfReleaseTextBox
 			// 
@@ -219,7 +219,7 @@ namespace VideoCassetDBMetelnikov {
 			this->genreComboBox->Name = L"genreComboBox";
 			this->genreComboBox->Size = System::Drawing::Size(107, 24);
 			this->genreComboBox->TabIndex = 13;
-			this->genreComboBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EditEntrysForm::nameFilmTextBox_KeyPress);
+			this->genreComboBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EditEntrysForm::genreComboBox_KeyPress);
 			// 
 			// editButton
 			// 
@@ -269,18 +269,16 @@ namespace VideoCassetDBMetelnikov {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Изменение";
 			this->Load += gcnew System::EventHandler(this, &EditEntrysForm::EditEntrysForm_Load);
+			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EditEntrysForm::genreComboBox_KeyPress);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-
-
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void EditEntrysForm_Load(System::Object^  sender, System::EventArgs^  e);
 private: System::Void editButton_Click(System::Object^  sender, System::EventArgs^  e);
-
-private: System::Void nameFilmTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void yearOfReleaseTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
+private: System::Void genreComboBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 };
 }

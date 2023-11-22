@@ -111,6 +111,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersPassTxtBx->Name = L"usersPassTxtBx";
 			this->usersPassTxtBx->Size = System::Drawing::Size(196, 22);
 			this->usersPassTxtBx->TabIndex = 4;
+			this->usersPassTxtBx->UseSystemPasswordChar = true;
 			// 
 			// label3
 			// 

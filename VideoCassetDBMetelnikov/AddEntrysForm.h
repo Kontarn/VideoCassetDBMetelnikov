@@ -1,5 +1,5 @@
 #pragma once
-
+#include <ctime>
 
 namespace VideoCassetDBMetelnikov {
 
@@ -10,12 +10,14 @@ namespace VideoCassetDBMetelnikov {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
+	
 
 	/// <summary>
 	/// Summary for AddEntrysForm
 	/// </summary>
 	public ref class AddEntrysForm : public System::Windows::Forms::Form
 	{
+	private: tm* timeInfo;
 	public:
 		AddEntrysForm(void)
 		{
@@ -35,6 +37,7 @@ namespace VideoCassetDBMetelnikov {
 			{
 				delete components;
 			}
+			delete timeInfo;
 		}
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  BackButton;

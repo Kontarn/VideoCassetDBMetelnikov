@@ -127,11 +127,11 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(Syst
 	try
 	{
 		sqlConn = gcnew SqlConnection(connString);
-		if (dataGridView1->SelectedRows->Count != 1) {
+		/*if (dataGridView1->SelectedRows->Count != 1) {
 			MessageBox::Show("Пожалуйста, выделите запись для удаления", "Ошибка");
 			return;
-		}
-		int indexLine = dataGridView1->SelectedRows[0]->Index;
+		}*/
+		int indexLine = dataGridView1->CurrentCell->RowIndex;
 		String^ filmID = dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString();
 		sqlConn->Open();
 		sqlDA = gcnew SqlDataAdapter("DELETE FROM Film WHERE FilmID = @filmID", sqlConn);
@@ -185,11 +185,12 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(Syst
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	if (dataGridView1->SelectedRows->Count != 1) {
+	/*if (dataGridView1->SelectedRows->Count != 1) {
 		MessageBox::Show("Для редактирования выделите одно поле", "Ошибка", MessageBoxButtons::OK ,MessageBoxIcon::Error);
 		return;
-	}
-	int indexLine = dataGridView1->SelectedRows[0]->Index;
+	}*/
+	/*int indexLine = dataGridView1->SelectedRows[0]->Index;*/
+	int indexLine = dataGridView1->CurrentCell->RowIndex;
 	String^ filmID = dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString();
 	String^ titleFilm = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();
 	String^ genre = dataGridView1->Rows[indexLine]->Cells[2]->Value->ToString();
