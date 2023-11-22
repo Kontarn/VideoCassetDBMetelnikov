@@ -16,6 +16,8 @@ namespace VideoCassetDBMetelnikov {
 	/// </summary>
 	public ref class LogInForStaffForm : public System::Windows::Forms::Form
 	{
+	private: String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
+	private: SqlConnection^ sqlConn;
 	public:
 		LogInForStaffForm(void)
 		{
@@ -37,8 +39,9 @@ namespace VideoCassetDBMetelnikov {
 			}
 		}
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::TextBox^ authCodeTxtBx;
 	protected:
-	private: System::Windows::Forms::TextBox^  textBox1;
+
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Button^  OkButton;
 	private: System::Windows::Forms::Button^  BackButton;
@@ -57,7 +60,7 @@ namespace VideoCassetDBMetelnikov {
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->authCodeTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->OkButton = (gcnew System::Windows::Forms::Button());
 			this->BackButton = (gcnew System::Windows::Forms::Button());
@@ -73,12 +76,13 @@ namespace VideoCassetDBMetelnikov {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"¬ход";
 			// 
-			// textBox1
+			// authCodeTxtBx
 			// 
-			this->textBox1->Location = System::Drawing::Point(13, 116);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(194, 22);
-			this->textBox1->TabIndex = 1;
+			this->authCodeTxtBx->Location = System::Drawing::Point(13, 116);
+			this->authCodeTxtBx->Name = L"authCodeTxtBx";
+			this->authCodeTxtBx->Size = System::Drawing::Size(194, 22);
+			this->authCodeTxtBx->TabIndex = 1;
+			this->authCodeTxtBx->UseSystemPasswordChar = true;
 			// 
 			// label2
 			// 
@@ -118,7 +122,7 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->BackButton);
 			this->Controls->Add(this->OkButton);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->authCodeTxtBx);
 			this->Controls->Add(this->label1);
 			this->MaximizeBox = false;
 			this->Name = L"LogInForStaffForm";

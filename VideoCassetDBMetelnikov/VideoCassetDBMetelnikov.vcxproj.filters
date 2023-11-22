@@ -66,6 +66,9 @@
     <ClCompile Include="RentFilmCommentBoxForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EditAccessCodeForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartMenuForm.h">
@@ -117,6 +120,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RentFilmCommentBoxForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditAccessCodeForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

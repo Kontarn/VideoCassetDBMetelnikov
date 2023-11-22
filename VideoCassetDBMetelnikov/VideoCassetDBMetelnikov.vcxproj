@@ -139,6 +139,7 @@
     <ClCompile Include="AdditionalInfoFilmForm.cpp" />
     <ClCompile Include="AdvancedSearchForm.cpp" />
     <ClCompile Include="AdvSearchUserForm.cpp" />
+    <ClCompile Include="EditAccessCodeForm.cpp" />
     <ClCompile Include="EditAndViewDBForm.cpp" />
     <ClCompile Include="EditEntrysForm.cpp" />
     <ClCompile Include="HystoryAdvanedSearchForm.cpp" />
@@ -164,6 +165,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="AdvSearchUserForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EditAccessCodeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EditAndViewDBForm.h">
@@ -218,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdvSearchUserForm.resx">
       <DependentUpon>AdvSearchUserForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAccessCodeForm.resx">
+      <DependentUpon>EditAccessCodeForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAndViewDBForm.resx">
       <DependentUpon>EditAndViewDBForm.h</DependentUpon>

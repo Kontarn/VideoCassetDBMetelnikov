@@ -4,6 +4,8 @@
 #include "HystoryAdvanedSearchForm.h"
 #include "StartMenuForm.h"
 #include "EditAndViewDBForm.h"
+#include "LogInForStaffForm.h"
+#include "EditAccessCodeForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -112,6 +114,7 @@ namespace VideoCassetDBMetelnikov {
 			this->dataGridView1->Location = System::Drawing::Point(19, 31);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->Size = System::Drawing::Size(829, 551);
 			this->dataGridView1->TabIndex = 0;
 			// 
@@ -178,27 +181,29 @@ namespace VideoCassetDBMetelnikov {
 					this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem, this->âûõîäÈçÀêêàóíòàToolStripMenuItem
 			});
 			this->ìåíşToolStripMenuItem->Name = L"ìåíşToolStripMenuItem";
-			this->ìåíşToolStripMenuItem->Size = System::Drawing::Size(63, 24);
+			this->ìåíşToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->ìåíşToolStripMenuItem->Text = L"Ìåíş";
 			// 
 			// ğåäàêòèğîâàíèåÁÄToolStripMenuItem
 			// 
 			this->ğåäàêòèğîâàíèåÁÄToolStripMenuItem->Name = L"ğåäàêòèğîâàíèåÁÄToolStripMenuItem";
-			this->ğåäàêòèğîâàíèåÁÄToolStripMenuItem->Size = System::Drawing::Size(239, 26);
+			this->ğåäàêòèğîâàíèåÁÄToolStripMenuItem->Size = System::Drawing::Size(247, 26);
 			this->ğåäàêòèğîâàíèåÁÄToolStripMenuItem->Text = L"Ğåäàêòèğîâàíèå ÁÄ";
 			this->ğåäàêòèğîâàíèåÁÄToolStripMenuItem->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::ğåäàêòèğîâàíèåÁÄToolStripMenuItem_Click);
 			// 
 			// èçìåíèòüÊîäÄîñòóïàToolStripMenuItem
 			// 
 			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Name = L"èçìåíèòüÊîäÄîñòóïàToolStripMenuItem";
-			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Size = System::Drawing::Size(239, 26);
+			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Size = System::Drawing::Size(247, 26);
 			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Text = L"Èçìåíèòü êîä äîñòóïà";
+			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::èçìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click);
 			// 
 			// âûõîäÈçÀêêàóíòàToolStripMenuItem
 			// 
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Name = L"âûõîäÈçÀêêàóíòàToolStripMenuItem";
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Size = System::Drawing::Size(239, 26);
+			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Size = System::Drawing::Size(247, 26);
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Text = L"Âûõîä èç àêêàóíòà";
+			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click);
 			// 
 			// HystoryOfBuyForm
 			// 
@@ -236,5 +241,7 @@ private: System::Void ShowAllEntrysButton_Click(System::Object^  sender, System:
 
 private: System::Void toStartMenuBtn_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void ğåäàêòèğîâàíèåÁÄToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void èçìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

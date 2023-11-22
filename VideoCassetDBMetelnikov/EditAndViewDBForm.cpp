@@ -246,3 +246,17 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::toStartMenuBtn_Click(Sy
 	form->Show();
 	this->Hide();
 }
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	LogInForStaffForm^ form = gcnew LogInForStaffForm();
+	form->Show();
+	this->Hide();
+}
+
+System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::ñìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	EditAccessCodeForm^ form = gcnew EditAccessCodeForm();
+	form->ShowDialog();
+	
+}

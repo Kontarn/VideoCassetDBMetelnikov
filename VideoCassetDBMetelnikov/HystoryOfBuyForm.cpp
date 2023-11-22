@@ -93,3 +93,16 @@ System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::ðåäàêòèðîâàíèåÁÄToolStri
 	form->Show();
 	this->Hide();
 }
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	LogInForStaffForm^ form = gcnew LogInForStaffForm();
+	form->Show();
+	this->Hide();
+}
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::èçìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	EditAccessCodeForm^ form = gcnew EditAccessCodeForm();
+	form->ShowDialog();
+}

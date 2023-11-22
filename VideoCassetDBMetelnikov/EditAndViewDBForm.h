@@ -6,6 +6,8 @@
 #include "SortMethodForm.h"
 #include "HystoryOfBuyForm.h"
 #include "StartMenuForm.h"
+#include "LogInForStaffForm.h"
+#include "EditAccessCodeForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -125,6 +127,7 @@ namespace VideoCassetDBMetelnikov {
 			this->dataGridView1->Location = System::Drawing::Point(12, 31);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(697, 446);
 			this->dataGridView1->TabIndex = 0;
@@ -255,27 +258,29 @@ namespace VideoCassetDBMetelnikov {
 					this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem, this->âûõîäÈçÀêêàóíòàToolStripMenuItem
 			});
 			this->ìåíşToolStripMenuItem->Name = L"ìåíşToolStripMenuItem";
-			this->ìåíşToolStripMenuItem->Size = System::Drawing::Size(63, 24);
+			this->ìåíşToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->ìåíşToolStripMenuItem->Text = L"Ìåíş";
 			// 
 			// èñòîğèÿÇàêàçîâToolStripMenuItem
 			// 
 			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Name = L"èñòîğèÿÇàêàçîâToolStripMenuItem";
-			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Size = System::Drawing::Size(238, 26);
 			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Text = L"Èñòîğèÿ çàêàçîâ";
 			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::èñòîğèÿÇàêàçîâToolStripMenuItem_Click);
 			// 
 			// ñìåíèòüÊîäÄîñòóïàToolStripMenuItem
 			// 
 			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Name = L"ñìåíèòüÊîäÄîñòóïàToolStripMenuItem";
-			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Size = System::Drawing::Size(238, 26);
 			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Text = L"Ñìåíèòü êîä äîñòóïà";
+			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ñìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click);
 			// 
 			// âûõîäÈçÀêêàóíòàToolStripMenuItem
 			// 
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Name = L"âûõîäÈçÀêêàóíòàToolStripMenuItem";
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Size = System::Drawing::Size(238, 26);
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Text = L"Âûõîä èç àêêàóíòà";
+			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click);
 			// 
 			// EditAndViewDBForm
 			// 
@@ -330,5 +335,7 @@ private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, System:
 private: System::Void SortButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void èñòîğèÿÇàêàçîâToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void toStartMenuBtn_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void ñìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
