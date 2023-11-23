@@ -37,3 +37,8 @@ System::Void VideoCassetDBMetelnikov::StartMenuForm::SignInButton_Click(System::
 	form->Show();
 	this->Hide();
 }
+
+System::Void VideoCassetDBMetelnikov::StartMenuForm::StartMenuForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+	Application::Exit();
+}

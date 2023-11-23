@@ -129,6 +129,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"¬ход";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &LogInForStaffForm::LogInForStaffForm_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -137,5 +138,6 @@ namespace VideoCassetDBMetelnikov {
 
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void OkButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void LogInForStaffForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 };
 }

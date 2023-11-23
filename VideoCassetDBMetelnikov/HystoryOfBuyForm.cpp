@@ -106,3 +106,28 @@ System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::èçìåíèòüÊîäÄîñòóïàToolSt
 	EditAccessCodeForm^ form = gcnew EditAccessCodeForm();
 	form->ShowDialog();
 }
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::HystoryOfBuyForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+	Application::Exit();
+}
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::ğåäàêòèğîâàíèåÁÄToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e)
+{
+	EditAndViewDBForm^ form = gcnew EditAndViewDBForm();
+	form->Show();
+	this->Hide();
+}
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::èçìåíèòüÊîäÄîñòóïàToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	EditAccessCodeForm^ form = gcnew EditAccessCodeForm();
+	form->ShowDialog();
+}
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::âûõîäÈçÀêêàóíòàToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	LogInForStaffForm^ form = gcnew LogInForStaffForm();
+	form->Show();
+	this->Hide();
+}

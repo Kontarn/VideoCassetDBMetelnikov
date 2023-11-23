@@ -83,10 +83,13 @@ namespace VideoCassetDBMetelnikov {
 	private: DataSet^ dataset;
 	private: System::Windows::Forms::Button^  EditEntryButton;
 	private: System::Windows::Forms::MenuStrip^  menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^  ìåíşToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  èñòîğèÿÇàêàçîâToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  ñìåíèòüÊîäÄîñòóïàToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  âûõîäÈçÀêêàóíòàToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ èñòîğèÿÇàêàçîâToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ èçìåíèòüÊîäÄîñòóïàToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ âûõîäÈçÀêêàóíòàToolStripMenuItem;
+
+
+
+
 			 String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 
 
@@ -110,9 +113,8 @@ namespace VideoCassetDBMetelnikov {
 			this->ExitButton = (gcnew System::Windows::Forms::Button());
 			this->EditEntryButton = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->ìåíşToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->èñòîğèÿÇàêàçîâToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
@@ -244,43 +246,36 @@ namespace VideoCassetDBMetelnikov {
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ìåíşToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->èñòîğèÿÇàêàçîâToolStripMenuItem,
+					this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem, this->âûõîäÈçÀêêàóíòàToolStripMenuItem
+			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(721, 28);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// ìåíşToolStripMenuItem
-			// 
-			this->ìåíşToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->èñòîğèÿÇàêàçîâToolStripMenuItem,
-					this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem, this->âûõîäÈçÀêêàóíòàToolStripMenuItem
-			});
-			this->ìåíşToolStripMenuItem->Name = L"ìåíşToolStripMenuItem";
-			this->ìåíşToolStripMenuItem->Size = System::Drawing::Size(65, 24);
-			this->ìåíşToolStripMenuItem->Text = L"Ìåíş";
-			// 
 			// èñòîğèÿÇàêàçîâToolStripMenuItem
 			// 
 			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Name = L"èñòîğèÿÇàêàçîâToolStripMenuItem";
-			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Size = System::Drawing::Size(238, 26);
+			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Size = System::Drawing::Size(140, 24);
 			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Text = L"Èñòîğèÿ çàêàçîâ";
-			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::èñòîğèÿÇàêàçîâToolStripMenuItem_Click);
+			this->èñòîğèÿÇàêàçîâToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::èñòîğèÿÇàêàçîâToolStripMenuItem_Click_1);
 			// 
-			// ñìåíèòüÊîäÄîñòóïàToolStripMenuItem
+			// èçìåíèòüÊîäÄîñòóïàToolStripMenuItem
 			// 
-			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Name = L"ñìåíèòüÊîäÄîñòóïàToolStripMenuItem";
-			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Size = System::Drawing::Size(238, 26);
-			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Text = L"Ñìåíèòü êîä äîñòóïà";
-			this->ñìåíèòüÊîäÄîñòóïàToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ñìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click);
+			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Name = L"èçìåíèòüÊîäÄîñòóïàToolStripMenuItem";
+			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Size = System::Drawing::Size(178, 24);
+			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Text = L"Èçìåíèòü êîä äîñòóïà";
+			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::èçìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click);
 			// 
 			// âûõîäÈçÀêêàóíòàToolStripMenuItem
 			// 
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Name = L"âûõîäÈçÀêêàóíòàToolStripMenuItem";
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Size = System::Drawing::Size(238, 26);
+			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Size = System::Drawing::Size(151, 24);
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Text = L"Âûõîä èç àêêàóíòà";
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click);
+			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click_1);
 			// 
 			// EditAndViewDBForm
 			// 
@@ -305,6 +300,7 @@ namespace VideoCassetDBMetelnikov {
 			this->Name = L"EditAndViewDBForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &EditAndViewDBForm::EditAndViewDBForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &EditAndViewDBForm::EditAndViewDBForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
@@ -337,5 +333,9 @@ private: System::Void èñòîğèÿÇàêàçîâToolStripMenuItem_Click(System::Object^  sen
 private: System::Void toStartMenuBtn_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void ñìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void EditAndViewDBForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
+private: System::Void âûõîäÈçÀêêàóíòàToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e);
+private: System::Void èçìåíèòüÊîäÄîñòóïàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void èñòîğèÿÇàêàçîâToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -82,3 +82,8 @@ System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersPhoneBTxtBx_KeyPre
     if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 127 && e->KeyChar != 43)
         e->Handled = true;
 }
+
+System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersRegisterForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+    Application::Exit();
+}

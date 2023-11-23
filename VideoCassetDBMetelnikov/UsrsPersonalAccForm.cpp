@@ -134,12 +134,16 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsrsDataBtn_Click
     sqlCmd->Parameters["@phoneNum"]->Value = PhnNumTxtBx->Text;
     sqlCmd->Parameters->Add("@userID", SqlDbType::Int);
     sqlCmd->Parameters["@userID"]->Value = Convert::ToInt32(userID);
+    sqlCmd->Parameters->Add("@res", SqlDbType::Int);
+    sqlCmd->Parameters["@res"]->Direction = ParameterDirection::Output;
 
     sqlConn->Open();
     sqlCmd->ExecuteNonQuery();
     sqlConn->Close();
-
-    MessageBox::Show("Данные изменены", "Успешно", MessageBoxButtons::OK);
+    if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "0")
+        MessageBox::Show("Такой логин уже занят", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+    else
+        MessageBox::Show("Данные изменены", "Успешно", MessageBoxButtons::OK);
 }
 // Prohibition on entering numbers and other symbols except words in the textBox, 'BS', 'DEL', '.' and 'space'
 // On ASCII: BS - 8, DEL - 127, point - 46
@@ -194,6 +198,11 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::выходИзАккаунтаToolSt
     SignInForm^ form = gcnew SignInForm();
     form->Show();
     this->Hide();
+}
+
+System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::UsrsPersonalAccForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+    Application::Exit();
 }
 
 

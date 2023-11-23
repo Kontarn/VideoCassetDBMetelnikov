@@ -270,6 +270,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"usersRegisterForm";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &usersRegisterForm::usersRegisterForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &usersRegisterForm::usersRegisterForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -283,5 +284,6 @@ private: System::Void usersRegisterBtn_Click(System::Object^ sender, System::Eve
 private: System::Void usersRegisterForm_Load(System::Object^ sender, System::EventArgs^ e);
 private: System::Void usersFioTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 private: System::Void usersPhoneBTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+private: System::Void usersRegisterForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 };
 }

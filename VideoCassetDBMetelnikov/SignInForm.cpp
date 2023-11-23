@@ -28,7 +28,7 @@ System::Void VideoCassetDBMetelnikov::SignInForm::SignInButton_Click(System::Obj
 		//int userId = (int)sqlCmd->Parameters["@user_id"]->Value;
 		RevievAndViewDBForm^ form = gcnew RevievAndViewDBForm(sqlCmd->Parameters["@user_id"]->Value->ToString());
 		form->Show();
-		this->Close();
+		this->Hide();
 		//MessageBox::Show(Convert::ToString(userId), "Результат");
 	}
 	else
@@ -51,3 +51,15 @@ System::Void VideoCassetDBMetelnikov::SignInForm::RegistrationButton_Click(Syste
 	form->Show();
 	this->Hide();
 }
+
+System::Void VideoCassetDBMetelnikov::SignInForm::SignInForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+	Application::Exit();
+}
+
+
+
+
+
+
+

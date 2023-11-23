@@ -110,7 +110,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(13, 75);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(127, 17);
+			this->label1->Size = System::Drawing::Size(127, 16);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Название фильма";
 			// 
@@ -138,7 +138,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
 			this->label2->Location = System::Drawing::Point(12, 36);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(189, 24);
+			this->label2->Size = System::Drawing::Size(177, 22);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Добавление записи";
 			// 
@@ -147,7 +147,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(14, 119);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(45, 17);
+			this->label3->Size = System::Drawing::Size(44, 16);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Жанр";
 			// 
@@ -156,7 +156,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(267, 119);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(102, 17);
+			this->label4->Size = System::Drawing::Size(98, 16);
 			this->label4->TabIndex = 6;
 			this->label4->Text = L"Год премьеры";
 			// 
@@ -165,7 +165,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(125, 119);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(72, 17);
+			this->label5->Size = System::Drawing::Size(71, 16);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Режиссёр";
 			// 
@@ -183,7 +183,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(13, 167);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(136, 17);
+			this->label6->Size = System::Drawing::Size(133, 16);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Наличие на складе";
 			// 
@@ -192,7 +192,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(160, 167);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(43, 17);
+			this->label7->Size = System::Drawing::Size(40, 16);
 			this->label7->TabIndex = 15;
 			this->label7->Text = L"Цена";
 			// 

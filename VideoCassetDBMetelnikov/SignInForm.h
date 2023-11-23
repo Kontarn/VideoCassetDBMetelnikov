@@ -170,6 +170,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"SignInForm";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &SignInForm::SignInForm_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -178,5 +179,6 @@ namespace VideoCassetDBMetelnikov {
 private: System::Void SignInButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void RegistrationButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void SignInForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 };
 }

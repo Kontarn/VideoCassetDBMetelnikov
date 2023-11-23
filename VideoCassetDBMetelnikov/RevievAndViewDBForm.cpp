@@ -107,17 +107,24 @@ System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::ShwAllEntrsBtn_Click(
 	loadData();
 }
 
-System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::ëè÷íûéÊàáèíåòToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+
+System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::RevievAndViewDBForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+	Application::Exit();
+}
+
+System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::ëè÷íûéÊàáèíåòToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e)
 {
 	UsrsPersonalAccForm^ form = gcnew UsrsPersonalAccForm(userID);
 	form->Show();
 	this->Hide();
 }
 
-System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::âûõîäÈçÑèñòåìûToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	SignInForm^ form = gcnew SignInForm();
 	form->Show();
 	this->Hide();
 }
+
 

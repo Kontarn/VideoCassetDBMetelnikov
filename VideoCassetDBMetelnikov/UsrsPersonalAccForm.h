@@ -28,7 +28,10 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::DataGridView^ rentFilmsDtGrdView;
 
 	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::MaskedTextBox^ PhnNumTxtBx;
+	private: System::Windows::Forms::TextBox^ PhnNumTxtBx;
+	private: System::Windows::Forms::ToolStripMenuItem^ Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem;
+
 
 	private: SqlConnection^ sqlConn;
 	public:
@@ -83,9 +86,9 @@ namespace VideoCassetDBMetelnikov {
 
 
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^ ÏÂÌ˛ToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem;
+
+
+
 
 
 
@@ -119,7 +122,6 @@ namespace VideoCassetDBMetelnikov {
 			this->deleteFromFavoritesBtn = (gcnew System::Windows::Forms::Button());
 			this->ExitBtn = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->ÏÂÌ˛ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -129,7 +131,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersNewPassTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->rentFilmsDtGrdView = (gcnew System::Windows::Forms::DataGridView());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->PhnNumTxtBx = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->PhnNumTxtBx = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->favoriteMoviesDtGrdView))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->rentFilmsDtGrdView))->BeginInit();
@@ -148,7 +150,7 @@ namespace VideoCassetDBMetelnikov {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(342, 57);
+			this->label2->Location = System::Drawing::Point(16, 76);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(46, 16);
 			this->label2->TabIndex = 1;
@@ -157,7 +159,7 @@ namespace VideoCassetDBMetelnikov {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 73);
+			this->label3->Location = System::Drawing::Point(16, 113);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(41, 16);
 			this->label3->TabIndex = 3;
@@ -165,14 +167,14 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// usernameTxtBx
 			// 
-			this->usernameTxtBx->Location = System::Drawing::Point(345, 73);
+			this->usernameTxtBx->Location = System::Drawing::Point(151, 73);
 			this->usernameTxtBx->Name = L"usernameTxtBx";
-			this->usernameTxtBx->Size = System::Drawing::Size(184, 22);
+			this->usernameTxtBx->Size = System::Drawing::Size(169, 22);
 			this->usernameTxtBx->TabIndex = 4;
 			// 
 			// usersFioTxtBx
 			// 
-			this->usersFioTxtBx->Location = System::Drawing::Point(147, 70);
+			this->usersFioTxtBx->Location = System::Drawing::Point(151, 110);
 			this->usersFioTxtBx->Name = L"usersFioTxtBx";
 			this->usersFioTxtBx->Size = System::Drawing::Size(169, 22);
 			this->usersFioTxtBx->TabIndex = 5;
@@ -181,7 +183,7 @@ namespace VideoCassetDBMetelnikov {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(12, 105);
+			this->label4->Location = System::Drawing::Point(16, 145);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(36, 16);
 			this->label4->TabIndex = 6;
@@ -190,7 +192,7 @@ namespace VideoCassetDBMetelnikov {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(12, 143);
+			this->label5->Location = System::Drawing::Point(16, 183);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(109, 16);
 			this->label5->TabIndex = 8;
@@ -198,7 +200,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// BirthdayfDtTmPckr
 			// 
-			this->BirthdayfDtTmPckr->Location = System::Drawing::Point(147, 138);
+			this->BirthdayfDtTmPckr->Location = System::Drawing::Point(151, 178);
 			this->BirthdayfDtTmPckr->Name = L"BirthdayfDtTmPckr";
 			this->BirthdayfDtTmPckr->Size = System::Drawing::Size(169, 22);
 			this->BirthdayfDtTmPckr->TabIndex = 9;
@@ -206,7 +208,7 @@ namespace VideoCassetDBMetelnikov {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(12, 176);
+			this->label6->Location = System::Drawing::Point(16, 216);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(122, 16);
 			this->label6->TabIndex = 11;
@@ -217,14 +219,14 @@ namespace VideoCassetDBMetelnikov {
 			this->genderCmbBx->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->genderCmbBx->FormattingEnabled = true;
 			this->genderCmbBx->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Ã", L"∆" });
-			this->genderCmbBx->Location = System::Drawing::Point(147, 102);
+			this->genderCmbBx->Location = System::Drawing::Point(151, 142);
 			this->genderCmbBx->Name = L"genderCmbBx";
 			this->genderCmbBx->Size = System::Drawing::Size(169, 24);
 			this->genderCmbBx->TabIndex = 12;
 			// 
 			// editUsrsDataBtn
 			// 
-			this->editUsrsDataBtn->Location = System::Drawing::Point(16, 214);
+			this->editUsrsDataBtn->Location = System::Drawing::Point(122, 252);
 			this->editUsrsDataBtn->Name = L"editUsrsDataBtn";
 			this->editUsrsDataBtn->Size = System::Drawing::Size(198, 43);
 			this->editUsrsDataBtn->TabIndex = 13;
@@ -275,41 +277,34 @@ namespace VideoCassetDBMetelnikov {
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ÏÂÌ˛ToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem,
+					this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem
+			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(1268, 28);
 			this->menuStrip1->TabIndex = 19;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// ÏÂÌ˛ToolStripMenuItem
-			// 
-			this->ÏÂÌ˛ToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem,
-					this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem
-			});
-			this->ÏÂÌ˛ToolStripMenuItem->Name = L"ÏÂÌ˛ToolStripMenuItem";
-			this->ÏÂÌ˛ToolStripMenuItem->Size = System::Drawing::Size(65, 24);
-			this->ÏÂÌ˛ToolStripMenuItem->Text = L"ÃÂÌ˛";
-			// 
 			// Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem
 			// 
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Name = L"Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem";
-			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Size = System::Drawing::Size(220, 26);
+			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Size = System::Drawing::Size(144, 24);
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Text = L" ‡Ú‡ÎÓ„ ÙËÎ¸ÏÓ‚";
 			this->Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem->Click += gcnew System::EventHandler(this, &UsrsPersonalAccForm::Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem_Click);
 			// 
 			// ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem
 			// 
 			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Name = L"‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem";
-			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Size = System::Drawing::Size(220, 26);
+			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Size = System::Drawing::Size(151, 24);
 			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Text = L"¬˚ıÓ‰ ËÁ ‡ÍÍ‡ÛÌÚ‡";
 			this->‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem->Click += gcnew System::EventHandler(this, &UsrsPersonalAccForm::‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem_Click);
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(342, 110);
+			this->label8->Location = System::Drawing::Point(342, 148);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(166, 16);
 			this->label8->TabIndex = 20;
@@ -317,14 +312,14 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// usersOldPasTxtBx
 			// 
-			this->usersOldPasTxtBx->Location = System::Drawing::Point(345, 129);
+			this->usersOldPasTxtBx->Location = System::Drawing::Point(345, 167);
 			this->usersOldPasTxtBx->Name = L"usersOldPasTxtBx";
 			this->usersOldPasTxtBx->Size = System::Drawing::Size(184, 22);
 			this->usersOldPasTxtBx->TabIndex = 21;
 			// 
 			// editUsersPassBtn
 			// 
-			this->editUsersPassBtn->Location = System::Drawing::Point(345, 214);
+			this->editUsersPassBtn->Location = System::Drawing::Point(345, 252);
 			this->editUsersPassBtn->Name = L"editUsersPassBtn";
 			this->editUsersPassBtn->Size = System::Drawing::Size(184, 43);
 			this->editUsersPassBtn->TabIndex = 22;
@@ -335,7 +330,7 @@ namespace VideoCassetDBMetelnikov {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(342, 154);
+			this->label9->Location = System::Drawing::Point(342, 192);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(157, 16);
 			this->label9->TabIndex = 23;
@@ -343,7 +338,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// usersNewPassTxtBx
 			// 
-			this->usersNewPassTxtBx->Location = System::Drawing::Point(345, 173);
+			this->usersNewPassTxtBx->Location = System::Drawing::Point(345, 211);
 			this->usersNewPassTxtBx->Name = L"usersNewPassTxtBx";
 			this->usersNewPassTxtBx->Size = System::Drawing::Size(184, 22);
 			this->usersNewPassTxtBx->TabIndex = 24;
@@ -353,7 +348,7 @@ namespace VideoCassetDBMetelnikov {
 			this->rentFilmsDtGrdView->AllowUserToAddRows = false;
 			this->rentFilmsDtGrdView->AllowUserToDeleteRows = false;
 			this->rentFilmsDtGrdView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->rentFilmsDtGrdView->Location = System::Drawing::Point(16, 297);
+			this->rentFilmsDtGrdView->Location = System::Drawing::Point(16, 367);
 			this->rentFilmsDtGrdView->Name = L"rentFilmsDtGrdView";
 			this->rentFilmsDtGrdView->ReadOnly = true;
 			this->rentFilmsDtGrdView->RowHeadersWidth = 51;
@@ -365,7 +360,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
-			this->label10->Location = System::Drawing::Point(12, 274);
+			this->label10->Location = System::Drawing::Point(11, 334);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(225, 20);
 			this->label10->TabIndex = 26;
@@ -373,11 +368,10 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// PhnNumTxtBx
 			// 
-			this->PhnNumTxtBx->Location = System::Drawing::Point(147, 170);
-			this->PhnNumTxtBx->Mask = L"+9(999)999-99-99";
+			this->PhnNumTxtBx->Location = System::Drawing::Point(151, 213);
 			this->PhnNumTxtBx->Name = L"PhnNumTxtBx";
-			this->PhnNumTxtBx->Size = System::Drawing::Size(120, 22);
-			this->PhnNumTxtBx->TabIndex = 27;
+			this->PhnNumTxtBx->Size = System::Drawing::Size(169, 22);
+			this->PhnNumTxtBx->TabIndex = 28;
 			// 
 			// UsrsPersonalAccForm
 			// 
@@ -415,6 +409,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"UsrsPersonalAccForm";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &UsrsPersonalAccForm::UsrsPersonalAccForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &UsrsPersonalAccForm::UsrsPersonalAccForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->favoriteMoviesDtGrdView))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
@@ -425,7 +420,6 @@ namespace VideoCassetDBMetelnikov {
 
 		}
 #pragma endregion
-	private: System::Void Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void UsrsPersonalAccForm_Load(System::Object^ sender, System::EventArgs^ e);
 private: System::Void deleteFromFavoritesBtn_Click(System::Object^ sender, System::EventArgs^ e);
@@ -434,6 +428,9 @@ private: System::Void editUsrsDataBtn_Click(System::Object^ sender, System::Even
 private: System::Void usersFioTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 private: System::Void PhnNumTxtBx_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 private: System::Void editUsersPassBtn_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void UsrsPersonalAccForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
+
+private: System::Void Í‡Ú‡ÎÓ„‘ËÎ¸ÏÓ‚ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void ‚˚ıÓ‰»Á¿ÍÍ‡ÛÌÚ‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

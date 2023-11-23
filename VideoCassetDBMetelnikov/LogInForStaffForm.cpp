@@ -38,3 +38,8 @@ System::Void VideoCassetDBMetelnikov::LogInForStaffForm::OkButton_Click(System::
 		return;
 	}
 }
+
+System::Void VideoCassetDBMetelnikov::LogInForStaffForm::LogInForStaffForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+	Application::Exit();
+}

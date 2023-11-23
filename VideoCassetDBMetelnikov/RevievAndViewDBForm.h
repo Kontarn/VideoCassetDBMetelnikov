@@ -31,10 +31,12 @@ namespace VideoCassetDBMetelnikov {
 		DataSet^ dataSet;
 	private: System::Windows::Forms::Button^  ShwAllEntrsBtn;
 	private: System::Windows::Forms::MenuStrip^  menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^  ìåíşToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  ëè÷íûéÊàáèíåòToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ëè÷íûéÊàáèíåòToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ âûõîäÈçÑèñòåìûToolStripMenuItem;
 
-	private: System::Windows::Forms::ToolStripMenuItem^  âûõîäÈçÀêêàóíòàToolStripMenuItem;
+
+
+
 	private: System::Windows::Forms::Button^  FindToDBButton;
 
 	public:
@@ -86,9 +88,8 @@ namespace VideoCassetDBMetelnikov {
 			this->FindToDBButton = (gcnew System::Windows::Forms::Button());
 			this->ShwAllEntrsBtn = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->ìåíşToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ëè÷íûéÊàáèíåòToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->âûõîäÈçÑèñòåìûToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -159,36 +160,29 @@ namespace VideoCassetDBMetelnikov {
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ìåíşToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ëè÷íûéÊàáèíåòToolStripMenuItem,
+					this->âûõîäÈçÑèñòåìûToolStripMenuItem
+			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(429, 28);
 			this->menuStrip1->TabIndex = 6;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// ìåíşToolStripMenuItem
-			// 
-			this->ìåíşToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->ëè÷íûéÊàáèíåòToolStripMenuItem,
-					this->âûõîäÈçÀêêàóíòàToolStripMenuItem
-			});
-			this->ìåíşToolStripMenuItem->Name = L"ìåíşToolStripMenuItem";
-			this->ìåíşToolStripMenuItem->Size = System::Drawing::Size(65, 24);
-			this->ìåíşToolStripMenuItem->Text = L"Ìåíş";
-			// 
 			// ëè÷íûéÊàáèíåòToolStripMenuItem
 			// 
 			this->ëè÷íûéÊàáèíåòToolStripMenuItem->Name = L"ëè÷íûéÊàáèíåòToolStripMenuItem";
-			this->ëè÷íûéÊàáèíåòToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->ëè÷íûéÊàáèíåòToolStripMenuItem->Size = System::Drawing::Size(139, 24);
 			this->ëè÷íûéÊàáèíåòToolStripMenuItem->Text = L"Ëè÷íûé êàáèíåò";
-			this->ëè÷íûéÊàáèíåòToolStripMenuItem->Click += gcnew System::EventHandler(this, &RevievAndViewDBForm::ëè÷íûéÊàáèíåòToolStripMenuItem_Click);
+			this->ëè÷íûéÊàáèíåòToolStripMenuItem->Click += gcnew System::EventHandler(this, &RevievAndViewDBForm::ëè÷íûéÊàáèíåòToolStripMenuItem_Click_1);
 			// 
-			// âûõîäÈçÀêêàóíòàToolStripMenuItem
+			// âûõîäÈçÑèñòåìûToolStripMenuItem
 			// 
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Name = L"âûõîäÈçÀêêàóíòàToolStripMenuItem";
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Text = L"Âûõîä èç àêêàóíòà";
-			this->âûõîäÈçÀêêàóíòàToolStripMenuItem->Click += gcnew System::EventHandler(this, &RevievAndViewDBForm::âûõîäÈçÀêêàóíòàToolStripMenuItem_Click);
+			this->âûõîäÈçÑèñòåìûToolStripMenuItem->Name = L"âûõîäÈçÑèñòåìûToolStripMenuItem";
+			this->âûõîäÈçÑèñòåìûToolStripMenuItem->Size = System::Drawing::Size(150, 24);
+			this->âûõîäÈçÑèñòåìûToolStripMenuItem->Text = L"Âûõîä èç ñèñòåìû";
+			this->âûõîäÈçÑèñòåìûToolStripMenuItem->Click += gcnew System::EventHandler(this, &RevievAndViewDBForm::âûõîäÈçÑèñòåìûToolStripMenuItem_Click);
 			// 
 			// RevievAndViewDBForm
 			// 
@@ -209,6 +203,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"RevievAndViewDBForm";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &RevievAndViewDBForm::RevievAndViewDBForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &RevievAndViewDBForm::RevievAndViewDBForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
@@ -227,7 +222,8 @@ private: System::Void BackButton_Click(System::Object^  sender, System::EventArg
 private: System::Void FindToDBButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void MoreInfoAboutFilmButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void ShwAllEntrsBtn_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void ëè÷íûéÊàáèíåòToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void âûõîäÈçÀêêàóíòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void RevievAndViewDBForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
+private: System::Void ëè÷íûéÊàáèíåòToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e);
+private: System::Void âûõîäÈçÑèñòåìûToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

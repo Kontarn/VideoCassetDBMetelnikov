@@ -152,6 +152,7 @@ namespace VideoCassetDBMetelnikov {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"StartMenuForm";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &StartMenuForm::StartMenuForm_FormClosing);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -164,5 +165,6 @@ private: System::Void ExitButton_Click(System::Object^  sender, System::EventArg
 private: System::Void StaffButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void LogInButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void SignInButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void StartMenuForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 };
 }
