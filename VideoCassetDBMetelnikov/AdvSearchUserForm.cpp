@@ -37,6 +37,11 @@ System::Void VideoCassetDBMetelnikov::AdvSearchUserForm::findBtn_Click(System::O
 	int iVal = 0; // Array of value index
 	array<String^>^ key = gcnew array<String^>(size); // Stores of column name from the Film table
 	array<String^>^ val = gcnew array<String^>(size); //  
+	if ((frmPriceTxtBx->Text->Length != 0 && frmPriceTxtBx->Text->Length == 0) ||
+		(frmPriceTxtBx->Text->Length == 0 && frmPriceTxtBx->Text->Length != 0)) {
+		MessageBox::Show("Пожалуйста, заполните оба поля для цен", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
 	if (nameTxtBx->Text->Length != 0) {
 		key[iKey++] = "Film.Name";
 		val[iVal++] = "'%" + nameTxtBx->Text + "%'";

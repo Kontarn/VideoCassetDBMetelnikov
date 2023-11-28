@@ -166,10 +166,11 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(254, 282);
+			this->MinimumSize = System::Drawing::Size(254, 282);
 			this->Name = L"SignInForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"SignInForm";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &SignInForm::SignInForm_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();

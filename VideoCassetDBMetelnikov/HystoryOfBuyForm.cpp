@@ -131,3 +131,18 @@ System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::выход»зјккаунтаToolStrip
 	form->Show();
 	this->Hide();
 }
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::moreAboutUserBtn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	int indexLine = dataGridView1->CurrentCell->RowIndex;
+	if (dataGridView1->Rows[indexLine]->Cells[0]->Value != nullptr) {
+		//String^ genreID = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();
+
+		String^ userID = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();
+		MoreInfoAboutUserForm^ form = gcnew MoreInfoAboutUserForm(userID);
+		form->ShowDialog();
+	}
+	else {
+		MessageBox::Show("ѕожалуйста, веберите заполненную строку", "ќшибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+}

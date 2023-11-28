@@ -42,9 +42,9 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::Button^  SignInButton;
 	private: System::Windows::Forms::Button^  StaffButton;
 	private: System::Windows::Forms::Button^  ExitButton;
-	private: System::Windows::Forms::MenuStrip^  menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^  ïîìîùüToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem;
+
+
+
 
 	private:
 		/// <summary>
@@ -63,16 +63,12 @@ namespace VideoCassetDBMetelnikov {
 			this->SignInButton = (gcnew System::Windows::Forms::Button());
 			this->StaffButton = (gcnew System::Windows::Forms::Button());
 			this->ExitButton = (gcnew System::Windows::Forms::Button());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->ïîìîùüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// LogInButton
 			// 
 			this->LogInButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
-			this->LogInButton->Location = System::Drawing::Point(67, 43);
+			this->LogInButton->Location = System::Drawing::Point(70, 19);
 			this->LogInButton->Name = L"LogInButton";
 			this->LogInButton->Size = System::Drawing::Size(258, 54);
 			this->LogInButton->TabIndex = 0;
@@ -83,7 +79,7 @@ namespace VideoCassetDBMetelnikov {
 			// SignInButton
 			// 
 			this->SignInButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
-			this->SignInButton->Location = System::Drawing::Point(67, 103);
+			this->SignInButton->Location = System::Drawing::Point(70, 79);
 			this->SignInButton->Name = L"SignInButton";
 			this->SignInButton->Size = System::Drawing::Size(258, 52);
 			this->SignInButton->TabIndex = 1;
@@ -94,7 +90,7 @@ namespace VideoCassetDBMetelnikov {
 			// StaffButton
 			// 
 			this->StaffButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
-			this->StaffButton->Location = System::Drawing::Point(14, 162);
+			this->StaffButton->Location = System::Drawing::Point(17, 138);
 			this->StaffButton->Name = L"StaffButton";
 			this->StaffButton->Size = System::Drawing::Size(198, 42);
 			this->StaffButton->TabIndex = 2;
@@ -105,7 +101,7 @@ namespace VideoCassetDBMetelnikov {
 			// ExitButton
 			// 
 			this->ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F));
-			this->ExitButton->Location = System::Drawing::Point(218, 161);
+			this->ExitButton->Location = System::Drawing::Point(221, 137);
 			this->ExitButton->Name = L"ExitButton";
 			this->ExitButton->Size = System::Drawing::Size(158, 43);
 			this->ExitButton->TabIndex = 3;
@@ -113,50 +109,23 @@ namespace VideoCassetDBMetelnikov {
 			this->ExitButton->UseVisualStyleBackColor = true;
 			this->ExitButton->Click += gcnew System::EventHandler(this, &StartMenuForm::ExitButton_Click);
 			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ïîìîùüToolStripMenuItem });
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(391, 28);
-			this->menuStrip1->TabIndex = 4;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
-			// ïîìîùüToolStripMenuItem
-			// 
-			this->ïîìîùüToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem });
-			this->ïîìîùüToolStripMenuItem->Name = L"ïîìîùüToolStripMenuItem";
-			this->ïîìîùüToolStripMenuItem->Size = System::Drawing::Size(83, 24);
-			this->ïîìîùüToolStripMenuItem->Text = L"Ïîìîùü";
-			// 
-			// ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem
-			// 
-			this->ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem->Name = L"ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem";
-			this->ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem->Size = System::Drawing::Size(270, 26);
-			this->ğóêîâîäñòâîÏîëüçîâòåëÿToolStripMenuItem->Text = L"Ğóêîâîäñòâî ïîëüçîâòåëÿ";
-			// 
 			// StartMenuForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(391, 225);
+			this->ClientSize = System::Drawing::Size(391, 195);
 			this->Controls->Add(this->ExitButton);
 			this->Controls->Add(this->StaffButton);
 			this->Controls->Add(this->SignInButton);
 			this->Controls->Add(this->LogInButton);
-			this->Controls->Add(this->menuStrip1);
-			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(409, 242);
+			this->MinimumSize = System::Drawing::Size(409, 242);
 			this->Name = L"StartMenuForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"StartMenuForm";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &StartMenuForm::StartMenuForm_FormClosing);
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

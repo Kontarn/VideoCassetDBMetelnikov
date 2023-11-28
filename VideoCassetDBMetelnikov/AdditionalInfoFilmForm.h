@@ -338,7 +338,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Name = L"AdditionalInfoFilmForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"AdditionalInfoFilmForm";
 			this->Load += gcnew System::EventHandler(this, &AdditionalInfoFilmForm::AdditionalInfoFilmForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

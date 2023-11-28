@@ -126,7 +126,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label8->AutoSize = true;
 			this->label8->Location = System::Drawing::Point(9, 8);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(231, 17);
+			this->label8->Size = System::Drawing::Size(230, 16);
 			this->label8->TabIndex = 54;
 			this->label8->Text = L"Последовательность сортировки:";
 			// 
@@ -145,7 +145,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(9, 352);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(0, 17);
+			this->label7->Size = System::Drawing::Size(0, 16);
 			this->label7->TabIndex = 52;
 			// 
 			// AddReturnDateButton
@@ -253,7 +253,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(9, 205);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(117, 17);
+			this->label4->Size = System::Drawing::Size(117, 16);
 			this->label4->TabIndex = 35;
 			this->label4->Text = L"По дате возврта";
 			// 
@@ -262,7 +262,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(9, 160);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(110, 17);
+			this->label3->Size = System::Drawing::Size(109, 16);
 			this->label3->TabIndex = 34;
 			this->label3->Text = L"По дате заказа";
 			// 
@@ -271,7 +271,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(9, 114);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(64, 17);
+			this->label2->Size = System::Drawing::Size(59, 16);
 			this->label2->TabIndex = 33;
 			this->label2->Text = L"По ФИО";
 			// 
@@ -280,7 +280,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(9, 67);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(118, 17);
+			this->label1->Size = System::Drawing::Size(116, 16);
 			this->label1->TabIndex = 32;
 			this->label1->Text = L"По коду клиента";
 			// 
@@ -310,8 +310,8 @@ namespace VideoCassetDBMetelnikov {
 			this->MaximumSize = System::Drawing::Size(321, 384);
 			this->MinimumSize = System::Drawing::Size(321, 384);
 			this->Name = L"HystorySortMethodForm";
+			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"HystorySortMethodForm";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

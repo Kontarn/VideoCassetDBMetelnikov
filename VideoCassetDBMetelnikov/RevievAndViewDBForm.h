@@ -119,7 +119,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// BackButton
 			// 
-			this->BackButton->Location = System::Drawing::Point(176, 561);
+			this->BackButton->Location = System::Drawing::Point(146, 561);
 			this->BackButton->Name = L"BackButton";
 			this->BackButton->Size = System::Drawing::Size(113, 45);
 			this->BackButton->TabIndex = 2;
@@ -129,21 +129,21 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// ExitButton
 			// 
-			this->ExitButton->Location = System::Drawing::Point(305, 563);
+			this->ExitButton->Location = System::Drawing::Point(265, 561);
 			this->ExitButton->Name = L"ExitButton";
-			this->ExitButton->Size = System::Drawing::Size(110, 43);
+			this->ExitButton->Size = System::Drawing::Size(150, 45);
 			this->ExitButton->TabIndex = 3;
-			this->ExitButton->Text = L"Выход";
+			this->ExitButton->Text = L"Закрыть программу";
 			this->ExitButton->UseVisualStyleBackColor = true;
 			this->ExitButton->Click += gcnew System::EventHandler(this, &RevievAndViewDBForm::ExitButton_Click);
 			// 
 			// FindToDBButton
 			// 
-			this->FindToDBButton->Location = System::Drawing::Point(282, 497);
+			this->FindToDBButton->Location = System::Drawing::Point(265, 497);
 			this->FindToDBButton->Name = L"FindToDBButton";
-			this->FindToDBButton->Size = System::Drawing::Size(133, 46);
+			this->FindToDBButton->Size = System::Drawing::Size(150, 46);
 			this->FindToDBButton->TabIndex = 4;
-			this->FindToDBButton->Text = L"Поиск по базе ";
+			this->FindToDBButton->Text = L"Поиск по каталогу";
 			this->FindToDBButton->UseVisualStyleBackColor = true;
 			this->FindToDBButton->Click += gcnew System::EventHandler(this, &RevievAndViewDBForm::FindToDBButton_Click);
 			// 
@@ -198,11 +198,12 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(447, 670);
 			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(447, 670);
 			this->Name = L"RevievAndViewDBForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"RevievAndViewDBForm";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &RevievAndViewDBForm::RevievAndViewDBForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &RevievAndViewDBForm::RevievAndViewDBForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

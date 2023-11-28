@@ -110,7 +110,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(12, 17);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(53, 17);
+			this->label1->Size = System::Drawing::Size(50, 16);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Ôèëüì";
 			// 
@@ -119,7 +119,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(12, 68);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(45, 17);
+			this->label2->Size = System::Drawing::Size(44, 16);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Æàíð";
 			// 
@@ -136,7 +136,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(12, 144);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(30, 17);
+			this->label3->Size = System::Drawing::Size(27, 16);
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Îò:";
 			// 
@@ -145,7 +145,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(12, 115);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(43, 17);
+			this->label4->Size = System::Drawing::Size(40, 16);
 			this->label4->TabIndex = 7;
 			this->label4->Text = L"Öåíà";
 			// 
@@ -154,7 +154,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(102, 144);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(31, 17);
+			this->label5->Size = System::Drawing::Size(27, 16);
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"Äî:";
 			// 
@@ -205,7 +205,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Name = L"AdvSearchUserForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"AdvSearchUserForm";
 			this->Load += gcnew System::EventHandler(this, &AdvSearchUserForm::AdvSearchUserForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -46,7 +46,7 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::UsrsPersonalAccForm_L
     usersFioTxtBx->Text = sqlCmd->Parameters["@usersFio"]->Value->ToString();
     genderCmbBx->Text = sqlCmd->Parameters["@usersGender"]->Value->ToString();
     BirthdayfDtTmPckr->Text = sqlCmd->Parameters["@usersBirthD"]->Value->ToString();
-    PhnNumTxtBx->Text = sqlCmd->Parameters["@usersPhoneNum"]->Value->ToString();
+    PhnNumMskdTxtBx->Text = sqlCmd->Parameters["@usersPhoneNum"]->Value->ToString();
     loadDataToFavoriteFilmsDtGrd();
     
     SqlParameter^ ClientID = gcnew SqlParameter();
@@ -114,6 +114,10 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsrsDataBtn_Click
         MessageBox::Show("Пожалуйста, заполните поле ФИО", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
         return;
     }
+    if (!PhnNumMskdTxtBx->MaskFull) {
+        MessageBox::Show("Пожалуйста, заполните поле номера телефона полностью", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        return;
+    }
     sqlConn = gcnew SqlConnection(connString);
 
     SqlCommand^ sqlCmd = gcnew SqlCommand();
@@ -131,7 +135,7 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsrsDataBtn_Click
     sqlCmd->Parameters->Add("@birthD", SqlDbType::SmallDateTime);
     sqlCmd->Parameters["@birthD"]->Value = BirthdayfDtTmPckr->Text->ToString();
     sqlCmd->Parameters->Add("@phoneNum", SqlDbType::VarChar, 20);
-    sqlCmd->Parameters["@phoneNum"]->Value = PhnNumTxtBx->Text;
+    sqlCmd->Parameters["@phoneNum"]->Value = PhnNumMskdTxtBx->Text;
     sqlCmd->Parameters->Add("@userID", SqlDbType::Int);
     sqlCmd->Parameters["@userID"]->Value = Convert::ToInt32(userID);
     sqlCmd->Parameters->Add("@res", SqlDbType::Int);
@@ -164,6 +168,10 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsersPassBtn_Clic
 {
     if(usersOldPasTxtBx->Text->Length == 0 && usersNewPassTxtBx->Text->Length == 0) {
         MessageBox::Show("Пожалуйста, заполните укажите старый и новый пароль", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        return;
+    }
+    if (usersNewPassTxtBx->Text->Length < 4) {
+        MessageBox::Show("Пароль должен состоять минимум из 4-х символов", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
         return;
     }
 

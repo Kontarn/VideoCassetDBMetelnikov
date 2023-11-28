@@ -13,6 +13,7 @@ System::Void VideoCassetDBMetelnikov::LogInForStaffForm::OkButton_Click(System::
 		MessageBox::Show("Пожалуйста, заполните поле с кодом", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		return;
 	}
+	
 	sqlConn = gcnew SqlConnection(connString);
 	SqlCommand^ sqlCmd = gcnew SqlCommand();
 	sqlCmd->Connection = sqlConn;

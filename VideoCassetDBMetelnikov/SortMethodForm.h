@@ -119,7 +119,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(21, 70);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(94, 17);
+			this->label1->Size = System::Drawing::Size(94, 16);
 			this->label1->TabIndex = 7;
 			this->label1->Text = L"По названию";
 			// 
@@ -128,7 +128,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(21, 117);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(70, 17);
+			this->label2->Size = System::Drawing::Size(69, 16);
 			this->label2->TabIndex = 8;
 			this->label2->Text = L"По жанру";
 			// 
@@ -137,7 +137,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(21, 163);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(131, 17);
+			this->label3->Size = System::Drawing::Size(127, 16);
 			this->label3->TabIndex = 9;
 			this->label3->Text = L"По дате премьеры";
 			// 
@@ -146,7 +146,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(21, 208);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(100, 17);
+			this->label4->Size = System::Drawing::Size(99, 16);
 			this->label4->TabIndex = 10;
 			this->label4->Text = L"По режиссёру";
 			// 
@@ -155,7 +155,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(21, 254);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(88, 17);
+			this->label5->Size = System::Drawing::Size(86, 16);
 			this->label5->TabIndex = 11;
 			this->label5->Text = L"По наличию";
 			// 
@@ -164,7 +164,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(21, 301);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(62, 17);
+			this->label6->Size = System::Drawing::Size(60, 16);
 			this->label6->TabIndex = 12;
 			this->label6->Text = L"По цене";
 			// 
@@ -313,7 +313,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(21, 355);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(0, 17);
+			this->label7->Size = System::Drawing::Size(0, 16);
 			this->label7->TabIndex = 28;
 			// 
 			// ClearSortButton
@@ -331,7 +331,7 @@ namespace VideoCassetDBMetelnikov {
 			this->label8->AutoSize = true;
 			this->label8->Location = System::Drawing::Point(21, 11);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(231, 17);
+			this->label8->Size = System::Drawing::Size(230, 16);
 			this->label8->TabIndex = 30;
 			this->label8->Text = L"Последовательность сортировки:";
 			// 
@@ -372,6 +372,8 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(339, 480);
+			this->MinimumSize = System::Drawing::Size(339, 480);
 			this->Name = L"SortMethodForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;

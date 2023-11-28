@@ -28,9 +28,10 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::DataGridView^ rentFilmsDtGrdView;
 
 	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::TextBox^ PhnNumTxtBx;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ êàòàëîãÔèëüìîâToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ âûõîäÈçÀêêàóíòàToolStripMenuItem;
+	private: System::Windows::Forms::MaskedTextBox^ PhnNumMskdTxtBx;
 
 
 	private: SqlConnection^ sqlConn;
@@ -131,7 +132,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersNewPassTxtBx = (gcnew System::Windows::Forms::TextBox());
 			this->rentFilmsDtGrdView = (gcnew System::Windows::Forms::DataGridView());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->PhnNumTxtBx = (gcnew System::Windows::Forms::TextBox());
+			this->PhnNumMskdTxtBx = (gcnew System::Windows::Forms::MaskedTextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->favoriteMoviesDtGrdView))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->rentFilmsDtGrdView))->BeginInit();
@@ -169,14 +170,14 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->usernameTxtBx->Location = System::Drawing::Point(151, 73);
 			this->usernameTxtBx->Name = L"usernameTxtBx";
-			this->usernameTxtBx->Size = System::Drawing::Size(169, 22);
+			this->usernameTxtBx->Size = System::Drawing::Size(378, 22);
 			this->usernameTxtBx->TabIndex = 4;
 			// 
 			// usersFioTxtBx
 			// 
 			this->usersFioTxtBx->Location = System::Drawing::Point(151, 110);
 			this->usersFioTxtBx->Name = L"usersFioTxtBx";
-			this->usersFioTxtBx->Size = System::Drawing::Size(169, 22);
+			this->usersFioTxtBx->Size = System::Drawing::Size(378, 22);
 			this->usersFioTxtBx->TabIndex = 5;
 			this->usersFioTxtBx->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &UsrsPersonalAccForm::usersFioTxtBx_KeyPress);
 			// 
@@ -268,9 +269,9 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->ExitBtn->Location = System::Drawing::Point(553, 556);
 			this->ExitBtn->Name = L"ExitBtn";
-			this->ExitBtn->Size = System::Drawing::Size(141, 45);
+			this->ExitBtn->Size = System::Drawing::Size(173, 45);
 			this->ExitBtn->TabIndex = 18;
-			this->ExitBtn->Text = L"Âûõîä";
+			this->ExitBtn->Text = L"Çàêðûòü ïðîãðàììó";
 			this->ExitBtn->UseVisualStyleBackColor = true;
 			this->ExitBtn->Click += gcnew System::EventHandler(this, &UsrsPersonalAccForm::ExitBtn_Click);
 			// 
@@ -316,6 +317,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersOldPasTxtBx->Name = L"usersOldPasTxtBx";
 			this->usersOldPasTxtBx->Size = System::Drawing::Size(184, 22);
 			this->usersOldPasTxtBx->TabIndex = 21;
+			this->usersOldPasTxtBx->UseSystemPasswordChar = true;
 			// 
 			// editUsersPassBtn
 			// 
@@ -342,6 +344,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersNewPassTxtBx->Name = L"usersNewPassTxtBx";
 			this->usersNewPassTxtBx->Size = System::Drawing::Size(184, 22);
 			this->usersNewPassTxtBx->TabIndex = 24;
+			this->usersNewPassTxtBx->UseSystemPasswordChar = true;
 			// 
 			// rentFilmsDtGrdView
 			// 
@@ -366,19 +369,20 @@ namespace VideoCassetDBMetelnikov {
 			this->label10->TabIndex = 26;
 			this->label10->Text = L"Ôèëüìû âçÿòûå â àðåíäó";
 			// 
-			// PhnNumTxtBx
+			// PhnNumMskdTxtBx
 			// 
-			this->PhnNumTxtBx->Location = System::Drawing::Point(151, 213);
-			this->PhnNumTxtBx->Name = L"PhnNumTxtBx";
-			this->PhnNumTxtBx->Size = System::Drawing::Size(169, 22);
-			this->PhnNumTxtBx->TabIndex = 28;
+			this->PhnNumMskdTxtBx->Location = System::Drawing::Point(151, 216);
+			this->PhnNumMskdTxtBx->Mask = L"+9(999)999-99-99";
+			this->PhnNumMskdTxtBx->Name = L"PhnNumMskdTxtBx";
+			this->PhnNumMskdTxtBx->Size = System::Drawing::Size(128, 22);
+			this->PhnNumMskdTxtBx->TabIndex = 29;
 			// 
 			// UsrsPersonalAccForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1268, 613);
-			this->Controls->Add(this->PhnNumTxtBx);
+			this->Controls->Add(this->PhnNumMskdTxtBx);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->rentFilmsDtGrdView);
 			this->Controls->Add(this->usersNewPassTxtBx);
@@ -404,11 +408,12 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(1286, 660);
 			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(1286, 660);
 			this->Name = L"UsrsPersonalAccForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"UsrsPersonalAccForm";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &UsrsPersonalAccForm::UsrsPersonalAccForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &UsrsPersonalAccForm::UsrsPersonalAccForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->favoriteMoviesDtGrdView))->EndInit();

@@ -48,6 +48,16 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 	int iVal = 0; // Array of value index
 	array<String^>^ key = gcnew array<String^>(size); // Stores of column name from the Film table
 	array<String^>^ val = gcnew array<String^>(size); //  
+	if ((PriceBeginTextBox->Text->Length != 0 && PriceEndTextBox->Text->Length == 0) ||
+		(PriceBeginTextBox->Text->Length == 0 && PriceEndTextBox->Text->Length != 0)) {
+		MessageBox::Show("Пожалуйста, заполните оба поля для цен", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if ((AvailBeginTextBox->Text->Length == 0 && AvailEndTextBox->Text->Length != 0) ||
+		(AvailBeginTextBox->Text->Length != 0 && AvailEndTextBox->Text->Length == 0)) {
+		MessageBox::Show("Пожалуйста, заполните оба поля наличия", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
 	if (NameTextBox->Text->Length != 0) {
 		key[iKey++] = "Film.Name";
 		val[iVal++] = "'%" + NameTextBox->Text + "%'";
@@ -68,7 +78,7 @@ System::Void VideoCassetDBMetelnikov::AdvancedSearchForm::findButton_Click(Syste
 		key[iKey++] = "Availability";
 		val[iVal++] = "BETWEEN " + AvailBeginTextBox->Text + " AND " + AvailEndTextBox->Text;
 	}
-	if (PriceBeginTextBox->Text->Length != 0 && PriceBeginTextBox->Text->Length != 0){
+	if (PriceBeginTextBox->Text->Length != 0 && PriceEndTextBox->Text->Length != 0){
 		key[iKey++] = "Price";
 		val[iVal++] = "BETWEEN " + PriceBeginTextBox->Text + " AND " + PriceEndTextBox->Text;
 	}

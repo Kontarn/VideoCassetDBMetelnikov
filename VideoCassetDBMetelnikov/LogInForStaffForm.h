@@ -125,10 +125,11 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->authCodeTxtBx);
 			this->Controls->Add(this->label1);
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(244, 259);
+			this->MinimumSize = System::Drawing::Size(244, 259);
 			this->Name = L"LogInForStaffForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"¬ход";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &LogInForStaffForm::LogInForStaffForm_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();

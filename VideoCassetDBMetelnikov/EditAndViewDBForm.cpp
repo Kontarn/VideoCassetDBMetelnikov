@@ -211,6 +211,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AdvancedSearchButton_Cl
 
 void VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber(System::Object ^ sender, System::EventArgs ^ e, System::String^ str)
 {
+	
 	try
 	{
 		sqlDA = gcnew SqlDataAdapter(str, sqlConn);

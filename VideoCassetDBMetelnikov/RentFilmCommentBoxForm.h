@@ -135,11 +135,12 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->commentToOrderTxtBx);
 			this->Controls->Add(this->label1);
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(410, 353);
 			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(410, 353);
 			this->Name = L"RentFilmCommentBoxForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"RentFilmCommentBoxForm";
 			this->Load += gcnew System::EventHandler(this, &RentFilmCommentBoxForm::RentFilmCommentBoxForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

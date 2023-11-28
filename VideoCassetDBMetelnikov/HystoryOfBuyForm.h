@@ -6,6 +6,7 @@
 #include "EditAndViewDBForm.h"
 #include "LogInForStaffForm.h"
 #include "EditAccessCodeForm.h"
+#include "MoreInfoAboutUserForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -130,9 +131,9 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// toStartMenuBtn
 			// 
-			this->toStartMenuBtn->Location = System::Drawing::Point(689, 588);
+			this->toStartMenuBtn->Location = System::Drawing::Point(718, 588);
 			this->toStartMenuBtn->Name = L"toStartMenuBtn";
-			this->toStartMenuBtn->Size = System::Drawing::Size(159, 42);
+			this->toStartMenuBtn->Size = System::Drawing::Size(130, 42);
 			this->toStartMenuBtn->TabIndex = 8;
 			this->toStartMenuBtn->Text = L"В главное меню";
 			this->toStartMenuBtn->UseVisualStyleBackColor = true;
@@ -152,9 +153,9 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->ExitButton->Location = System::Drawing::Point(566, 589);
 			this->ExitButton->Name = L"ExitButton";
-			this->ExitButton->Size = System::Drawing::Size(117, 42);
+			this->ExitButton->Size = System::Drawing::Size(146, 42);
 			this->ExitButton->TabIndex = 11;
-			this->ExitButton->Text = L"Выход";
+			this->ExitButton->Text = L"Закрыть программу";
 			this->ExitButton->UseVisualStyleBackColor = true;
 			this->ExitButton->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::ExitButton_Click);
 			// 
@@ -210,6 +211,7 @@ namespace VideoCassetDBMetelnikov {
 			this->moreAboutUserBtn->TabIndex = 14;
 			this->moreAboutUserBtn->Text = L"Подробнее о пользователе";
 			this->moreAboutUserBtn->UseVisualStyleBackColor = true;
+			this->moreAboutUserBtn->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::moreAboutUserBtn_Click);
 			// 
 			// HystoryOfBuyForm
 			// 
@@ -225,10 +227,11 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->dataGridView1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(878, 689);
+			this->MinimumSize = System::Drawing::Size(878, 689);
 			this->Name = L"HystoryOfBuyForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"История клиентских заказов";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &HystoryOfBuyForm::HystoryOfBuyForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &HystoryOfBuyForm::HystoryOfBuyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -256,5 +259,6 @@ private: System::Void HystoryOfBuyForm_FormClosing(System::Object^ sender, Syste
 private: System::Void редактированиеБДToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e);
 private: System::Void изменитьКодДоступаToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void выходИзАккаунтаToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void moreAboutUserBtn_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

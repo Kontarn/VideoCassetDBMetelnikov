@@ -15,9 +15,13 @@ System::Void VideoCassetDBMetelnikov::usersRegisterForm::BackBtn_Click(System::O
 System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersRegisterBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if (usersFioTxtBx->Text->Length == 0 || usernameTxtBx->Text->Length == 0 || usersPassTxtBx->Text->Length == 0 
-        || usersGenderCmbBx->Text->Length == 0 || usersPhoneBTxtBx->Text->Length == 0 || usersBirthDayDtTmPckr->Text->Length == 0) {
-        MessageBox::Show("Пожалуйста, заполните все обязательные поля", "Ошибка", MessageBoxButtons::OK,
+        || !usersPhoneMskdTxtBx->MaskFull || usersGenderCmbBx->Text->Length == 0) {
+        MessageBox::Show("Пожалуйста, заполните все обязательные поля (ФИО, Логин, Пароль, номер телефона)", "Ошибка", MessageBoxButtons::OK,
             MessageBoxIcon::Error);
+        return;
+    }
+    if (usersPassTxtBx->Text->Length < 4) {
+        MessageBox::Show("Пароль должен состоять минимум из 4-х символов", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
         return;
     }
    
@@ -37,7 +41,7 @@ System::Void VideoCassetDBMetelnikov::usersRegisterForm::usersRegisterBtn_Click(
     sqlCmd->Parameters->Add("@birthD", SqlDbType::SmallDateTime);
     sqlCmd->Parameters["@birthD"]->Value = usersBirthDayDtTmPckr->Text->ToString();
     sqlCmd->Parameters->Add("@phoneNum", SqlDbType::VarChar, 20);
-    sqlCmd->Parameters["@phoneNum"]->Value = usersPhoneBTxtBx->Text->ToString();
+    sqlCmd->Parameters["@phoneNum"]->Value = usersPhoneMskdTxtBx->Text->ToString();
     sqlCmd->Parameters->Add("@pass", SqlDbType::VarChar, 30);
     sqlCmd->Parameters["@pass"]->Value = usersPassTxtBx->Text->ToString();
     sqlCmd->Parameters->Add("@res", SqlDbType::Int);

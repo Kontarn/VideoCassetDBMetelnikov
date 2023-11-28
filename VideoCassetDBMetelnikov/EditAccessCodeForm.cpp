@@ -11,6 +11,9 @@ System::Void VideoCassetDBMetelnikov::EditAccessCodeForm::editAcessCodeBtn_Click
 		MessageBox::Show("Пожалуйста, заполните все поля", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		return;
 	}
+	if (newCodeTxtBx->Text->Length < 4) {
+		MessageBox::Show("Пароль должен состоять минимум из 4-х символов", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 	sqlConn = gcnew SqlConnection(connString);
 	SqlCommand^ sqlCmd = gcnew SqlCommand();
 	sqlCmd->Connection = sqlConn;

@@ -156,10 +156,11 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(164, 506);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F));
+			this->textBox1->Location = System::Drawing::Point(164, 512);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(446, 34);
+			this->textBox1->Size = System::Drawing::Size(446, 24);
 			this->textBox1->TabIndex = 4;
 			// 
 			// FindButton
@@ -225,11 +226,11 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// ExitButton
 			// 
-			this->ExitButton->Location = System::Drawing::Point(456, 621);
+			this->ExitButton->Location = System::Drawing::Point(403, 621);
 			this->ExitButton->Name = L"ExitButton";
-			this->ExitButton->Size = System::Drawing::Size(105, 41);
+			this->ExitButton->Size = System::Drawing::Size(158, 41);
 			this->ExitButton->TabIndex = 10;
-			this->ExitButton->Text = L"Выход";
+			this->ExitButton->Text = L"Закрыть программу";
 			this->ExitButton->UseVisualStyleBackColor = true;
 			this->ExitButton->Click += gcnew System::EventHandler(this, &EditAndViewDBForm::ExitButton_Click);
 			// 

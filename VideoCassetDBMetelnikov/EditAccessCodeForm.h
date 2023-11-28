@@ -148,10 +148,12 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->oldCodeTxtBx);
 			this->Controls->Add(this->label1);
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(327, 257);
 			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(327, 257);
 			this->Name = L"EditAccessCodeForm";
+			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"EditAccessCodeForm";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

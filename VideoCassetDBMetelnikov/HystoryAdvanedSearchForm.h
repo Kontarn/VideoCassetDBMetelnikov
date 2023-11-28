@@ -261,7 +261,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Name = L"HystoryAdvanedSearchForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"HystoryAdvanedSearchForm";
 			this->Load += gcnew System::EventHandler(this, &HystoryAdvanedSearchForm::HystoryAdvanedSearchForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

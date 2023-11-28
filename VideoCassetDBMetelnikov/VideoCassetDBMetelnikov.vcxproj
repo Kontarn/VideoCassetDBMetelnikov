@@ -146,6 +146,7 @@
     <ClCompile Include="HystoryOfBuyForm.cpp" />
     <ClCompile Include="HystorySortMethodForm.cpp" />
     <ClCompile Include="LogInForStaffForm.cpp" />
+    <ClCompile Include="MoreInfoAboutUserForm.cpp" />
     <ClCompile Include="RentFilmCommentBoxForm.cpp" />
     <ClCompile Include="RevievAndViewDBForm.cpp" />
     <ClCompile Include="SignInForm.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="StartMenuForm.cpp" />
     <ClCompile Include="UsersRegisterForm.cpp" />
     <ClCompile Include="UsrsPersonalAccForm.cpp" />
+    <ClCompile Include="WelcomeForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddEntrysForm.h">
@@ -188,6 +190,9 @@
     <ClInclude Include="LogInForStaffForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MoreInfoAboutUserForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="RentFilmCommentBoxForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -207,6 +212,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="UsrsPersonalAccForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="WelcomeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -244,6 +252,9 @@
     <EmbeddedResource Include="LogInForStaffForm.resx">
       <DependentUpon>LogInForStaffForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MoreInfoAboutUserForm.resx">
+      <DependentUpon>MoreInfoAboutUserForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RentFilmCommentBoxForm.resx">
       <DependentUpon>RentFilmCommentBoxForm.h</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsrsPersonalAccForm.resx">
       <DependentUpon>UsrsPersonalAccForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -267,7 +267,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Name = L"EditEntrysForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Изменение";
 			this->Load += gcnew System::EventHandler(this, &EditEntrysForm::EditEntrysForm_Load);
 			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EditEntrysForm::genreComboBox_KeyPress);
 			this->ResumeLayout(false);

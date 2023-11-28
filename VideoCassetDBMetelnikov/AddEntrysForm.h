@@ -268,7 +268,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Name = L"AddEntrysForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Добавление";
 			this->Load += gcnew System::EventHandler(this, &AddEntrysForm::AddEntrysForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
