@@ -1,5 +1,6 @@
 #pragma once
-#include "EditAndViewDBForm.h"
+#include <ctime>
+//#include "EditAndViewDBForm.h"
 
 namespace VideoCassetDBMetelnikov {
 
@@ -10,6 +11,7 @@ namespace VideoCassetDBMetelnikov {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for EditEntrysForm
@@ -21,6 +23,9 @@ namespace VideoCassetDBMetelnikov {
 	//		filmDir, availability, price;
 	private:String^ filmID;
 	private: tm* timeInfo;
+	public: delegate void EventDelegate1(System::Object^ sender,
+		System::EventArgs^ e);
+	public: event EventDelegate1^ myEvent1;
 	public:
 		EditEntrysForm(String^ filmID, String^ nameFilm, String^ nameGenre, String^ yearOfRelease,
 			String^ filmDir, String^ availability, String^ price)
@@ -33,6 +38,10 @@ namespace VideoCassetDBMetelnikov {
 			filmDirTextBox->Text = filmDir;
 			availTextBox->Text = availability;
 			priceTextBox->Text = price;
+		}
+		EditEntrysForm(void)
+		{
+			InitializeComponent();
 		}
 
 	protected:
@@ -279,5 +288,6 @@ private: System::Void EditEntrysForm_Load(System::Object^  sender, System::Event
 private: System::Void editButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void yearOfReleaseTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void genreComboBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+public:  void issueEvent1(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -24,6 +24,8 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::LoadCombo() {
 
 System::Void VideoCassetDBMetelnikov::AddEntrysForm::BackButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
+	//ClearTxtBxs();
+	GenreComboBox->Items->Clear();
 	this->Hide();
 }
 
@@ -77,8 +79,10 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 		try
 		{
 			command.ExecuteNonQuery();
-			MessageBox::Show("Запись успешно добавлена, для того, что бы увидеть изменения, \
-			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK);
+			/*MessageBox::Show("Запись успешно добавлена, для того, что бы увидеть изменения, \
+			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK);*/
+			this->issueEvent1(sender, e);
+			ClearTxtBxs();
 			this->Hide();
 		}
 		catch (const Exception^ ex)
@@ -115,6 +119,21 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::DirectorTextBox_KeyPress(Sy
 {
 	if (Char::IsDigit(e->KeyChar))
 		e->Handled = true;
+}
+
+void VideoCassetDBMetelnikov::AddEntrysForm::issueEvent1(System::Object^ sender, System::EventArgs^ e)
+{
+	this->myEvent1(this, e);
+}
+
+void VideoCassetDBMetelnikov::AddEntrysForm::ClearTxtBxs()
+{
+	NameTextBox->Clear();
+	DirectorTextBox->Clear();
+	YearOfReleaseTextBox->Clear();
+	GenreComboBox->Items->Clear();
+	AvailTextBox->Clear();
+	PriceTextBox->Clear();
 }
 
 

@@ -87,6 +87,7 @@ namespace VideoCassetDBMetelnikov {
 			this->oldCodeTxtBx->Name = L"oldCodeTxtBx";
 			this->oldCodeTxtBx->Size = System::Drawing::Size(176, 22);
 			this->oldCodeTxtBx->TabIndex = 1;
+			this->oldCodeTxtBx->UseSystemPasswordChar = true;
 			// 
 			// label2
 			// 
@@ -114,6 +115,7 @@ namespace VideoCassetDBMetelnikov {
 			this->newCodeTxtBx->Name = L"newCodeTxtBx";
 			this->newCodeTxtBx->Size = System::Drawing::Size(176, 22);
 			this->newCodeTxtBx->TabIndex = 3;
+			this->newCodeTxtBx->UseSystemPasswordChar = true;
 			// 
 			// editAcessCodeBtn
 			// 

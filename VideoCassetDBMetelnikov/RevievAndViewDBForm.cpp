@@ -75,7 +75,9 @@ System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::MoreInfoAboutFilmButt
 		return;
 	}*/
 	sqlConn = gcnew SqlConnection(connString);
-	int indexLine = dataGridView1->CurrentCell->RowIndex;
+	
+	int indexLine;
+	indexLine = dataGridView1->CurrentCell->RowIndex;
 	if (dataGridView1->Rows[indexLine]->Cells[0]->Value != nullptr) {
 		String^ filmName = dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString();
 		//String^ genreID = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();

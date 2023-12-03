@@ -61,7 +61,7 @@ System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::leaveReviewBtn_Cli
 	sqlConn->Open();
 	SqlCmd->ExecuteNonQuery();
 	sqlConn->Close();
-	
+	newReviewTxtBx->Clear();
 	loadReviewData();
 
 }

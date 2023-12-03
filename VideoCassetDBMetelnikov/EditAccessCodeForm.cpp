@@ -13,6 +13,7 @@ System::Void VideoCassetDBMetelnikov::EditAccessCodeForm::editAcessCodeBtn_Click
 	}
 	if (newCodeTxtBx->Text->Length < 4) {
 		MessageBox::Show("Пароль должен состоять минимум из 4-х символов", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
 	}
 	sqlConn = gcnew SqlConnection(connString);
 	SqlCommand^ sqlCmd = gcnew SqlCommand();

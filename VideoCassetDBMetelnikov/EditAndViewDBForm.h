@@ -24,8 +24,8 @@ namespace VideoCassetDBMetelnikov {
 	/// </summary>
 	public ref class EditAndViewDBForm : public System::Windows::Forms::Form
 	{
-	//public: delegate void EventDelegate1(System::Object^ sender, System::EventArgs^ e, Data);
-	//public: event EventDelegate1^ myEvent1;
+	/*public: delegate void EventDelegate1(System::Object^ sender, System::EventArgs^ e, Data);
+	public: event EventDelegate1^ myEvent1;*/
 	public:
 		EditAndViewDBForm()
 		{
@@ -72,8 +72,11 @@ namespace VideoCassetDBMetelnikov {
 		SqlConnection^ sqlConn;
 		SqlCommandBuilder^ sqlBuild;
 		SqlDataAdapter^ sqlDA;
+	private: EditEntrysForm^ editEntrF;
+	private: AddEntrysForm^ addEntrF;
 	private: AdvancedSearchForm^ advSearchF;
 	private: SortMethodForm^ sortMethF;
+		   
 		
 
 	private: System::Windows::Forms::Button^  SortButton;
@@ -90,7 +93,7 @@ namespace VideoCassetDBMetelnikov {
 
 
 
-			 String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
+	private:String^ connString = "Data Source=DESKTOP-LSHR1L6;Initial Catalog=VideoCassetDB;Integrated Security=True";
 
 
 #pragma region Windows Form Designer generated code
@@ -329,6 +332,7 @@ private: System::Void DeleteButton_Click(System::Object^  sender, System::EventA
 private: System::Void EditEntryButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void AdvancedSearchButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: void mySubscriber(System::Object^ sender, System::EventArgs^ e, System::String^ str);
+private: void mySubscriber1(System::Object^ sender, System::EventArgs^ e);
 private: System::Void SortButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void èñòîðèÿÇàêàçîâToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void toStartMenuBtn_Click(System::Object^  sender, System::EventArgs^  e);

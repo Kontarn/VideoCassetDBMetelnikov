@@ -18,6 +18,9 @@ namespace VideoCassetDBMetelnikov {
 	public ref class AddEntrysForm : public System::Windows::Forms::Form
 	{
 	private: tm* timeInfo;
+	public: delegate void EventDelegate1(System::Object^ sender,
+		System::EventArgs^ e);
+	public: event EventDelegate1^ myEvent1;
 	public:
 		AddEntrysForm(void)
 		{
@@ -281,5 +284,7 @@ private: System::Void AddButton_Click(System::Object^  sender, System::EventArgs
 private: System::Void KeyNotWordPress(System::Windows::Forms::KeyPressEventArgs^ e);
 private: System::Void YearOfReleaseTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
 private: System::Void DirectorTextBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e);
+public:  void issueEvent1(System::Object^ sender, System::EventArgs^ e);
+private: void ClearTxtBxs();
 };
 }

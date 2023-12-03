@@ -11,6 +11,9 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditAndViewDBForm_Load(
 	this->sortMethF = gcnew SortMethodForm();
 	this->sortMethF->myEvent1 += gcnew SortMethodForm::EventDelegate1
 	(this, &VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber);
+	this->addEntrF = gcnew AddEntrysForm();
+	this->addEntrF->myEvent1 += gcnew AddEntrysForm::EventDelegate1
+	(this, &VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber1);
 	LoadData();
 }
 
@@ -81,8 +84,9 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::ExitButton_Click(System
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AddEntryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	AddEntrysForm^ form = gcnew AddEntrysForm();
-	form->ShowDialog();
+	/*AddEntrysForm^ form = gcnew AddEntrysForm();
+	form->ShowDialog();*/
+	addEntrF->ShowDialog();
 }
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System::Object ^ sender, System::EventArgs ^ e)
@@ -107,7 +111,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::FindButton_Click(System
 		dataset->Tables["Film"]->Clear();
 		sqlDA->Fill(dataset, "Film");
 		dataGridView1->DataSource = dataset->Tables[0];
-		
+		sqlConn->Close();
 	}
 	catch (const Exception^ ex)
 	{
@@ -120,6 +124,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::ShowAllEntrysButton_Cli
 	sqlConn = gcnew SqlConnection(connString);
 	sqlConn->Open();
 	LoadData();
+	sqlConn->Close();
 }
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(System::Object ^ sender, System::EventArgs ^ e)
@@ -143,6 +148,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(Syst
 		dataGridView1->DataSource = dataset->Tables[0];
 		ReloadData();
 		LoadData();
+		sqlConn->Close();
 	}
 	catch (const Exception^ ex)
 	{
@@ -198,9 +204,18 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(S
 	String^ filmDir = dataGridView1->Rows[indexLine]->Cells[4]->Value->ToString();
 	String^ avail = dataGridView1->Rows[indexLine]->Cells[5]->Value->ToString();
 	String^ price = dataGridView1->Rows[indexLine]->Cells[6]->Value->ToString();
-	EditEntrysForm^ form = gcnew EditEntrysForm(filmID, titleFilm, genre, yearOfRelease, filmDir,
+	/*EditEntrysForm^ form = gcnew EditEntrysForm(filmID, titleFilm, genre, yearOfRelease, filmDir,
 		avail, price);
-	form->ShowDialog();
+	form->ShowDialog();*/
+	this->editEntrF = gcnew EditEntrysForm(filmID, titleFilm, genre, yearOfRelease, filmDir,
+		avail, price);
+	this->editEntrF->myEvent1 += gcnew EditEntrysForm::EventDelegate1
+	(this, &VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber1);
+	editEntrF->ShowDialog();
+	sqlConn = gcnew SqlConnection(connString);
+	sqlConn->Open();
+	LoadData();
+	sqlConn->Close();
 }
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AdvancedSearchButton_Click(System::Object ^ sender, System::EventArgs ^ e)
@@ -226,6 +241,14 @@ void VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber(System::Object ^ s
 		MessageBox::Show("Ошибка многокритериального поиска", "Ошибка");
 	}
 	
+}
+
+void VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber1(System::Object^ sender, System::EventArgs^ e)
+{
+	sqlConn = gcnew SqlConnection(connString);
+	sqlConn->Open();
+	LoadData();
+	sqlConn->Close();	
 }
 
 

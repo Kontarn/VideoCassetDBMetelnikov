@@ -2,6 +2,7 @@
 
 System::Void VideoCassetDBMetelnikov::EditEntrysForm::BackButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
+	genreComboBox->Items->Clear();
 	this->Hide();
 }
 
@@ -37,6 +38,8 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 	time_t seconds = time(NULL);
 	timeInfo = localtime(&seconds);
 
+	
+
 	int nowYear = timeInfo->tm_year + 1900;
 
 	int yrOfRls = Convert::ToInt64(yearOfRelease);
@@ -64,8 +67,15 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::editButton_Click(System::O
 		try
 		{
 			command.ExecuteNonQuery();
-			MessageBox::Show("Запись успешно изменена, для того, что бы увидеть изменения, \n \
-			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			/*MessageBox::Show("Запись успешно изменена, для того, что бы увидеть изменения, \n \
+			нажмите кнопку 'Отобразить'", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);*/
+			this->issueEvent1(sender, e);
+			nameFilmTextBox->Clear();
+			filmDirTextBox->Clear();
+			yearOfReleaseTextBox->Clear();
+			genreComboBox->Items->Clear();
+			availTextBox->Clear();
+			priceTextBox->Clear();
 			this->Hide();
 		}
 		catch (const Exception^ ex)
@@ -95,4 +105,9 @@ System::Void VideoCassetDBMetelnikov::EditEntrysForm::genreComboBox_KeyPress(Sys
 {
 	if (Char::IsDigit(e->KeyChar))
 		e->Handled = true;
+}
+
+void VideoCassetDBMetelnikov::EditEntrysForm::issueEvent1(System::Object^ sender, System::EventArgs^ e)
+{
+	this->myEvent1(this, e);
 }
