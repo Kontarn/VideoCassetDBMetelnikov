@@ -62,11 +62,11 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::UsrsPersonalAccForm_L
 
 System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::deleteFromFavoritesBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    if (favoriteMoviesDtGrdView->SelectedRows->Count != 1) {
-        MessageBox::Show("Пожалуйста, выделите запись для удаления", "Ошибка");
+    /*if (favoriteMoviesDtGrdView->SelectedRows->Count != 1) {
+        MessageBox::Show("Пожалуйста, выделите одну строку для удаления", "Ошибка");
         return;
-    }
-    int indexLine = favoriteMoviesDtGrdView->SelectedRows[0]->Index;
+    }*/
+    int indexLine = favoriteMoviesDtGrdView->CurrentCell->RowIndex;
     sqlConn = gcnew SqlConnection(connString);
     SqlCommand^ sqlCmd = gcnew SqlCommand();
     sqlCmd->Connection = sqlConn;
@@ -146,6 +146,8 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsrsDataBtn_Click
     sqlConn->Close();
     if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "0")
         MessageBox::Show("Такой логин уже занят", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+    else if (Convert::ToString(sqlCmd->Parameters["@res"]->Value) == "1")
+        MessageBox::Show("Номер телефона уже занят другим пользователем", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
     else
         MessageBox::Show("Данные изменены", "Успешно", MessageBoxButtons::OK);
 }
@@ -167,7 +169,7 @@ System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::PhnNumTxtBx_KeyPress(
 System::Void VideoCassetDBMetelnikov::UsrsPersonalAccForm::editUsersPassBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if(usersOldPasTxtBx->Text->Length == 0 && usersNewPassTxtBx->Text->Length == 0) {
-        MessageBox::Show("Пожалуйста, заполните укажите старый и новый пароль", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        MessageBox::Show("Пожалуйста, укажите старый и новый пароль", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
         return;
     }
     if (usersNewPassTxtBx->Text->Length < 4) {

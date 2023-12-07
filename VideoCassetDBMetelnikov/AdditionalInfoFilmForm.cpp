@@ -8,7 +8,7 @@ System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::BackBtn_Click(Syst
 System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::AdditionalInfoFilmForm_Load(System::Object ^ sender, System::EventArgs ^ e)
 {
 	//reviewsLstBx->Items->Add(filmID);
-	sqlConn = gcnew SqlConnection(connString);
+	
 	//SqlCommand^ myCommand = gcnew SqlCommand("SELECT * FROM getFilm(@filmID)", sqlConn);
 	//myCommand->Parameters->Add("@filmID", SqlDbType::Int);
 	//myCommand->Parameters["@filmID"]->Value = Convert::ToInt32(filmID);
@@ -16,27 +16,8 @@ System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::AdditionalInfoFilm
 	//sqlConn->Open();
 	//dataTable->Load(myCommand->ExecuteReader());
 	//filmNameLbl->Text = dataTable;
-
-
-
-	SqlDataAdapter^ sqlDA = gcnew SqlDataAdapter("SELECT * FROM getFilm(@filmID)", sqlConn);
-	SqlCommandBuilder^ sqlCmdBuild = gcnew SqlCommandBuilder(sqlDA);
-	dataSet = gcnew DataSet();
-	//DataTable^ dataTable = gcnew DataTable();
-	SqlParameter^ SqlParFilmID = gcnew SqlParameter();
-	SqlParFilmID->ParameterName = "@filmID";
-	SqlParFilmID->Value = filmID;
-	sqlConn->Open();
-	sqlDA->SelectCommand->Parameters->Add(SqlParFilmID);
-	sqlDA->Fill(dataSet, "Film");
-	filmNameLbl->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[0]->ToString();
-	gnrNameLbl->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[1]->ToString();
-	yearOfRlslabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[2]->ToString();
-	dirFlmLabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[3]->ToString();
-	availLabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[4]->ToString();
-	priceLabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[5]->ToString();
-	sqlConn->Close();
 	
+	loadInfoAboutFilm();
 	loadReviewData();
 }
 
@@ -84,6 +65,29 @@ void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::loadReviewData()
 	sqlConn->Close();
 }
 
+void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::loadInfoAboutFilm()
+{
+	sqlConn = gcnew SqlConnection(connString);
+	
+	SqlDataAdapter^ sqlDA = gcnew SqlDataAdapter("SELECT * FROM getFilm(@filmID)", sqlConn);
+	SqlCommandBuilder^ sqlCmdBuild = gcnew SqlCommandBuilder(sqlDA);
+	dataSet = gcnew DataSet();
+	//DataTable^ dataTable = gcnew DataTable();
+	SqlParameter^ SqlParFilmID = gcnew SqlParameter();
+	SqlParFilmID->ParameterName = "@filmID";
+	SqlParFilmID->Value = filmID;
+	sqlConn->Open();
+	sqlDA->SelectCommand->Parameters->Add(SqlParFilmID);
+	sqlDA->Fill(dataSet, "Film");
+	filmNameLbl->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[0]->ToString();
+	gnrNameLbl->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[1]->ToString();
+	yearOfRlslabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[2]->ToString();
+	dirFlmLabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[3]->ToString();
+	availLabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[4]->ToString();
+	priceLabel->Text = dataSet->Tables["Film"]->Rows[0]->ItemArray[5]->ToString();
+	sqlConn->Close();
+}
+
 System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::toFavorBtn_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	sqlConn = gcnew SqlConnection(connString);
@@ -115,4 +119,18 @@ System::Void VideoCassetDBMetelnikov::AdditionalInfoFilmForm::rentFilmBtn_Click(
 {
 	RentFilmCommentBoxForm^ form = gcnew RentFilmCommentBoxForm(userID, filmID);
 	form->ShowDialog();
+	SqlCommand^ myCommand = gcnew SqlCommand("SELECT Availability FROM Film f \
+		WHERE FilmID = @FilmID", sqlConn);
+	myCommand->Parameters->Add("@filmID", SqlDbType::Int);
+	myCommand->Parameters["@filmID"]->Value = Convert::ToInt32(filmID);
+	
+	sqlConn->Open();
+	if (Convert::ToInt32(myCommand->ExecuteScalar()) == 0) {
+		rentFilmBtn->Enabled = false;
+	}
+	
+	sqlConn->Close();
+
+	loadInfoAboutFilm();
+	
 }

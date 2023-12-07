@@ -62,8 +62,6 @@ void VideoCassetDBMetelnikov::HystoryOfBuyForm::mySubscriber(System::Object ^ se
 	}
 }
 
-
-
 //System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::SortButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 //{
 //	this->hystSortMethF->ShowDialog();
@@ -134,6 +132,10 @@ System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::выходИзАккаунтаToolStrip
 
 System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::moreAboutUserBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	/*if (dataGridView1->SelectedRows->Count != 1) {
+		MessageBox::Show("Выберите только одну строку", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}*/
 	int indexLine = dataGridView1->CurrentCell->RowIndex;
 	if (dataGridView1->Rows[indexLine]->Cells[0]->Value != nullptr) {
 		//String^ genreID = dataGridView1->Rows[indexLine]->Cells[1]->Value->ToString();
@@ -145,4 +147,31 @@ System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::moreAboutUserBtn_Click(S
 	else {
 		MessageBox::Show("Пожалуйста, веберите заполненную строку", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
+}
+
+System::Void VideoCassetDBMetelnikov::HystoryOfBuyForm::returnOfTheMovieBtn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	/*if (dataGridView1->SelectedRows->Count != 1) {
+		MessageBox::Show("Выберите только одну строку", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}*/
+	int indexLine = dataGridView1->CurrentCell->RowIndex;
+	SqlConnection^ sqlConn = gcnew SqlConnection(connString);
+	SqlCommand^ sqlCmd = gcnew SqlCommand();
+	sqlCmd->Connection = sqlConn;
+
+	sqlCmd->CommandType = System::Data::CommandType::StoredProcedure;
+	sqlCmd->CommandText = "returnOfTheFilm";
+
+	sqlCmd->Parameters->Add("@transactId", SqlDbType::Int);
+	sqlCmd->Parameters->Add("@filmId", SqlDbType::Int);
+	//MessageBox::Show(/*dataGridView1->Rows[indexLine]->Cells[0]->Value->ToString()+'\n'+ */dataGridView1->Rows[indexLine]->Cells[3]->Value->ToString(), "Инфо");
+	
+	sqlCmd->Parameters["@transactId"]->Value = Convert::ToInt32(dataGridView1->Rows[indexLine]->Cells[0]->Value);
+	sqlCmd->Parameters["@filmId"]->Value = Convert::ToInt32(dataGridView1->Rows[indexLine]->Cells[3]->Value);
+
+	sqlConn->Open();
+	sqlCmd->ExecuteNonQuery();
+	sqlConn->Close();
+	LoadData();
 }

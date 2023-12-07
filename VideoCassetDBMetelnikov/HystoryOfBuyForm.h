@@ -40,6 +40,8 @@ namespace VideoCassetDBMetelnikov {
 	private: System::Windows::Forms::ToolStripMenuItem^ èçìåíèòüÊîäÄîñòóïàToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ âûõîäÈçÀêêàóíòàToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ ğåäàêòèğîâàíèåÁÄToolStripMenuItem;
+	private: System::Windows::Forms::Button^ returnOfTheMovieBtn;
+
 
 			 HystoryAdvanedSearchForm^ hystAdvSearchF;
 	public:
@@ -107,6 +109,7 @@ namespace VideoCassetDBMetelnikov {
 			this->èçìåíèòüÊîäÄîñòóïàToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âûõîäÈçÀêêàóíòàToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->moreAboutUserBtn = (gcnew System::Windows::Forms::Button());
+			this->returnOfTheMovieBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -141,7 +144,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// AdvancedSearchButton
 			// 
-			this->AdvancedSearchButton->Location = System::Drawing::Point(151, 588);
+			this->AdvancedSearchButton->Location = System::Drawing::Point(19, 636);
 			this->AdvancedSearchButton->Name = L"AdvancedSearchButton";
 			this->AdvancedSearchButton->Size = System::Drawing::Size(194, 42);
 			this->AdvancedSearchButton->TabIndex = 10;
@@ -151,7 +154,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// ExitButton
 			// 
-			this->ExitButton->Location = System::Drawing::Point(566, 589);
+			this->ExitButton->Location = System::Drawing::Point(701, 636);
 			this->ExitButton->Name = L"ExitButton";
 			this->ExitButton->Size = System::Drawing::Size(146, 42);
 			this->ExitButton->TabIndex = 11;
@@ -178,7 +181,7 @@ namespace VideoCassetDBMetelnikov {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(860, 28);
+			this->menuStrip1->Size = System::Drawing::Size(859, 28);
 			this->menuStrip1->TabIndex = 13;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -205,7 +208,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// moreAboutUserBtn
 			// 
-			this->moreAboutUserBtn->Location = System::Drawing::Point(351, 588);
+			this->moreAboutUserBtn->Location = System::Drawing::Point(454, 588);
 			this->moreAboutUserBtn->Name = L"moreAboutUserBtn";
 			this->moreAboutUserBtn->Size = System::Drawing::Size(209, 43);
 			this->moreAboutUserBtn->TabIndex = 14;
@@ -213,11 +216,22 @@ namespace VideoCassetDBMetelnikov {
 			this->moreAboutUserBtn->UseVisualStyleBackColor = true;
 			this->moreAboutUserBtn->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::moreAboutUserBtn_Click);
 			// 
+			// returnOfTheMovieBtn
+			// 
+			this->returnOfTheMovieBtn->Location = System::Drawing::Point(227, 587);
+			this->returnOfTheMovieBtn->Name = L"returnOfTheMovieBtn";
+			this->returnOfTheMovieBtn->Size = System::Drawing::Size(208, 43);
+			this->returnOfTheMovieBtn->TabIndex = 15;
+			this->returnOfTheMovieBtn->Text = L"Âîçâğàò ôèëüìà";
+			this->returnOfTheMovieBtn->UseVisualStyleBackColor = true;
+			this->returnOfTheMovieBtn->Click += gcnew System::EventHandler(this, &HystoryOfBuyForm::returnOfTheMovieBtn_Click);
+			// 
 			// HystoryOfBuyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(860, 642);
+			this->ClientSize = System::Drawing::Size(859, 682);
+			this->Controls->Add(this->returnOfTheMovieBtn);
 			this->Controls->Add(this->moreAboutUserBtn);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->ShowAllEntrysButton);
@@ -227,8 +241,6 @@ namespace VideoCassetDBMetelnikov {
 			this->Controls->Add(this->dataGridView1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(878, 689);
-			this->MinimumSize = System::Drawing::Size(878, 689);
 			this->Name = L"HystoryOfBuyForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -260,5 +272,6 @@ private: System::Void ğåäàêòèğîâàíèåÁÄToolStripMenuItem_Click_1(System::Object^ 
 private: System::Void èçìåíèòüÊîäÄîñòóïàToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void âûõîäÈçÀêêàóíòàToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void moreAboutUserBtn_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void returnOfTheMovieBtn_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

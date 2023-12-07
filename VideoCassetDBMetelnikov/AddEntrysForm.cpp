@@ -52,12 +52,12 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 	int nowYear = timeInfo->tm_year + 1900;
 	
 	int yrOfRls = Convert::ToInt64(yearOfRelease);
-	if (yrOfRls > nowYear || yrOfRls < 1900) {
+	if (yrOfRls > nowYear || yrOfRls <= 1900) {
 		MessageBox::Show("Дату премьеры можно вводить от 1900 до текущего года", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		return;
 	}
-	try
-	{
+	/*try
+	{*/
 		sqlConn = gcnew SqlConnection(connString);
 		sqlConn->Open();
 		
@@ -96,11 +96,11 @@ System::Void VideoCassetDBMetelnikov::AddEntrysForm::AddButton_Click(System::Obj
 		//	return;
 		//}
 		
-	}
+	/*}
 	catch (const Exception^ ex)
 	{
 		MessageBox::Show("Ошибка добавления новой записи", "Ошибка", MessageBoxButtons::OK);
-	}
+	}*/
 }
 // Запрещает вводить в TextBox любые симовлы кроме цифр, 'BS', 'DEL' и '.'
 // По ASCII: BS - 8, DEL - 127, точка - 46

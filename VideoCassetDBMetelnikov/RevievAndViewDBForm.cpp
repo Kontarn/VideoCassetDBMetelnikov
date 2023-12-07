@@ -16,7 +16,8 @@ void VideoCassetDBMetelnikov::RevievAndViewDBForm::loadData()
 	try
 	{
 		sqlDA = gcnew SqlDataAdapter();
-		sqlDA->SelectCommand = gcnew SqlCommand("SELECT f.Name AS Фильм, g.Name AS Жанр, price AS Цена FROM Film f JOIN Genre g on f.GenreID = g.GenreID", sqlConn);
+		sqlDA->SelectCommand = gcnew SqlCommand("SELECT f.Name AS Фильм, g.Name AS Жанр, price AS Цена \
+		FROM Film f JOIN Genre g on f.GenreID = g.GenreID WHERE Availability <> 0", sqlConn);
 		dataSet = gcnew DataSet();
 		sqlDA->Fill(dataSet, "Film");
 		dataGridView1->DataSource = dataSet->Tables[0];
@@ -70,7 +71,7 @@ System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::FindToDBButton_Click(
 
 System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::MoreInfoAboutFilmButton_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
-	/*if (dataGridView1->SelectedRows->Count != 1) {
+	/*if (dataGridView1->CurrentCell-> != 1) {
 		MessageBox::Show("Пожалуйста, для отображения дополнительной информации о фильме, выделите одну строку", "Ошибка", MessageBoxButtons::OK);
 		return;
 	}*/
@@ -97,6 +98,7 @@ System::Void VideoCassetDBMetelnikov::RevievAndViewDBForm::MoreInfoAboutFilmButt
 
 		AdditionalInfoFilmForm^ addtnlInfoFilmF = gcnew AdditionalInfoFilmForm(filmID, userID);
 		addtnlInfoFilmF->ShowDialog();
+		loadData();
 	}
 	else {
 		MessageBox::Show("Пожалуйста, веберите заполненную строку", "Ошибка",  MessageBoxButtons::OK, MessageBoxIcon::Error);

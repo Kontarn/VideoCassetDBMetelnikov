@@ -348,7 +348,7 @@ namespace VideoCassetDBMetelnikov {
 private: System::Void AdditionalInfoFilmForm_Load(System::Object^  sender, System::EventArgs^  e);
 private: System::Void leaveReviewBtn_Click(System::Object^  sender, System::EventArgs^  e);
 private: void loadReviewData();
-
+private: void loadInfoAboutFilm();
 private: System::Void toFavorBtn_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void rentFilmBtn_Click(System::Object^ sender, System::EventArgs^ e);
 };

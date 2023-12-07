@@ -247,9 +247,12 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			// favoriteMoviesDtGrdView
 			// 
+			this->favoriteMoviesDtGrdView->AllowUserToAddRows = false;
+			this->favoriteMoviesDtGrdView->AllowUserToDeleteRows = false;
 			this->favoriteMoviesDtGrdView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->favoriteMoviesDtGrdView->Location = System::Drawing::Point(553, 73);
 			this->favoriteMoviesDtGrdView->Name = L"favoriteMoviesDtGrdView";
+			this->favoriteMoviesDtGrdView->ReadOnly = true;
 			this->favoriteMoviesDtGrdView->RowHeadersWidth = 51;
 			this->favoriteMoviesDtGrdView->RowTemplate->Height = 24;
 			this->favoriteMoviesDtGrdView->Size = System::Drawing::Size(703, 458);

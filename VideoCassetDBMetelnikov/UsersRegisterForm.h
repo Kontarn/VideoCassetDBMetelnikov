@@ -207,7 +207,7 @@ namespace VideoCassetDBMetelnikov {
 			// 
 			this->usersGenderCmbBx->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->usersGenderCmbBx->FormattingEnabled = true;
-			this->usersGenderCmbBx->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Ì", L"Æ", L" " });
+			this->usersGenderCmbBx->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Ì", L"Æ" });
 			this->usersGenderCmbBx->Location = System::Drawing::Point(154, 149);
 			this->usersGenderCmbBx->Name = L"usersGenderCmbBx";
 			this->usersGenderCmbBx->Size = System::Drawing::Size(216, 24);
@@ -236,6 +236,7 @@ namespace VideoCassetDBMetelnikov {
 			this->usersPassTxtBx->Name = L"usersPassTxtBx";
 			this->usersPassTxtBx->Size = System::Drawing::Size(215, 22);
 			this->usersPassTxtBx->TabIndex = 17;
+			this->usersPassTxtBx->UseSystemPasswordChar = true;
 			// 
 			// usersPhoneMskdTxtBx
 			// 

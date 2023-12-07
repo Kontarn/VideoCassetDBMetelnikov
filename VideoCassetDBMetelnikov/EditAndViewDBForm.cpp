@@ -133,7 +133,7 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::DeleteButton_Click(Syst
 	{
 		sqlConn = gcnew SqlConnection(connString);
 		/*if (dataGridView1->SelectedRows->Count != 1) {
-			MessageBox::Show("Пожалуйста, выделите запись для удаления", "Ошибка");
+			MessageBox::Show("Пожалуйста, выделите одну запись для удаления", "Ошибка");
 			return;
 		}*/
 		int indexLine = dataGridView1->CurrentCell->RowIndex;
@@ -213,9 +213,9 @@ System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::EditEntryButton_Click(S
 	(this, &VideoCassetDBMetelnikov::EditAndViewDBForm::mySubscriber1);
 	editEntrF->ShowDialog();
 	sqlConn = gcnew SqlConnection(connString);
-	sqlConn->Open();
-	LoadData();
-	sqlConn->Close();
+	//sqlConn->Open();
+	//LoadData();
+	//sqlConn->Close();
 }
 
 System::Void VideoCassetDBMetelnikov::EditAndViewDBForm::AdvancedSearchButton_Click(System::Object ^ sender, System::EventArgs ^ e)
