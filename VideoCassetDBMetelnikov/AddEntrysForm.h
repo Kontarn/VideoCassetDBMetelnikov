@@ -14,7 +14,7 @@ namespace VideoCassetDBMetelnikov {
 
 	/// <summary>
 	/// Summary for AddEntrysForm
-	/// </summary>
+	/// </summary> 
 	public ref class AddEntrysForm : public System::Windows::Forms::Form
 	{
 	private: tm* timeInfo;
